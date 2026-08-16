@@ -37,7 +37,7 @@ function AdminRepairRequestDetails() {
 
       const response =
         await fetch(
-          `http://localhost:8081/api/repair-requests/${id}`
+          `https://sri-laxmi-mobiles-backend.onrender.com/api/repair-requests/${id}`
         );
 
 
@@ -104,7 +104,7 @@ function AdminRepairRequestDetails() {
 
       const response =
         await fetch(
-          `http://localhost:8081/api/repair-requests/${id}/status`,
+          `https://sri-laxmi-mobiles-backend.onrender.com/api/repair-requests/${id}/status`,
           {
             method: "PATCH",
 
@@ -183,7 +183,7 @@ function AdminRepairRequestDetails() {
 
       const response =
         await fetch(
-          `http://localhost:8081/api/repair-requests/${id}`,
+          `https://sri-laxmi-mobiles-backend.onrender.com/api/repair-requests/${id}`,
           {
             method: "DELETE",
           }

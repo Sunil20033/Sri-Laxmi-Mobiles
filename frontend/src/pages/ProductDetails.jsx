@@ -21,7 +21,7 @@ import { useWishlist } from "../context/WishlistContext";
 
 
 const API_URL =
-  "http://localhost:8081/api/products";
+  "https://sri-laxmi-mobiles-backend.onrender.com/api/products";
 
 
 /* =========================================================

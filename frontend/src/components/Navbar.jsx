@@ -12,7 +12,7 @@ import "./Navbar.css";
 
 const API_URL =
   import.meta.env.VITE_API_URL ||
-  "http://localhost:8081/api";
+  "https://sri-laxmi-mobiles-backend.onrender.com/api";
 
 /* =========================================================
    SERVICES AVAILABLE FOR SEARCH

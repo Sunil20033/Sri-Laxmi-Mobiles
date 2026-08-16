@@ -8,10 +8,10 @@ import "./Home.css";
 
 
 const PRODUCT_API_URL =
-  "http://localhost:8081/api/products";
+  "https://sri-laxmi-mobiles-backend.onrender.com/api/products";
 
 const OFFER_API_URL =
-  "http://localhost:8081/api/offers";
+  "https://sri-laxmi-mobiles-backend.onrender.com/api/offers";
 
 
 const DEFAULT_OFFER = {

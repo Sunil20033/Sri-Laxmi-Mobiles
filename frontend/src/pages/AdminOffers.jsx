@@ -7,7 +7,7 @@ import "./AdminOffers.css";
 
 
 const API_URL =
-  "http://localhost:8081/api/offers";
+  "https://sri-laxmi-mobiles-backend.onrender.com/api/offers";
 
 
 const emptyOffer = {

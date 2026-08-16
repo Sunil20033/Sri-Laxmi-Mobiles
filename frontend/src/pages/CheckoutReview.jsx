@@ -156,7 +156,7 @@ function CheckoutReview() {
 
 
       const response = await fetch(
-        "http://localhost:8081/api/orders",
+        "https://sri-laxmi-mobiles-backend.onrender.com/api/orders",
         {
           method: "POST",
 

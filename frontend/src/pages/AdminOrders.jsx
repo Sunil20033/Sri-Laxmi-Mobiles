@@ -27,7 +27,7 @@ function AdminOrders() {
     try {
 
       const response = await fetch(
-        "http://localhost:8081/api/orders"
+        "https://sri-laxmi-mobiles-backend.onrender.com/api/orders"
       );
 
 
@@ -75,7 +75,7 @@ function AdminOrders() {
     try {
 
       const response = await fetch(
-        `http://localhost:8081/api/orders/${orderId}/status`,
+        `https://sri-laxmi-mobiles-backend.onrender.com/api/orders/${orderId}/status`,
         {
           method: "PUT",
 

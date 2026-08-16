@@ -4,7 +4,7 @@ import axios from "axios";
 import "./AdminProducts.css";
 
 const API_URL =
-  "http://localhost:8081/api/products";
+  "https://sri-laxmi-mobiles-backend.onrender.com/api/products";
 
 
 /* =========================================================

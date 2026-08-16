@@ -1,0 +1,222 @@
+/* =========================================================
+   SIMPLE DEVELOPER FOOTER
+========================================================= */
+
+.simple-developer-footer {
+  width: 100%;
+
+  background:
+    radial-gradient(
+      circle at 15% 50%,
+      rgba(255, 196, 0, 0.06),
+      transparent 30%
+    ),
+    #05070a;
+
+  border-top: 1px solid #29313d;
+
+  color: #ffffff;
+
+  font-family: "Inter", Arial, sans-serif;
+}
+
+
+/* =========================================================
+   FOOTER CONTENT
+========================================================= */
+
+.simple-footer-content {
+  width: 100%;
+  max-width: 1400px;
+
+  margin: 0 auto;
+
+  min-height: 155px;
+
+  padding: 28px 24px 20px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 16px;
+}
+
+
+/* =========================================================
+   DEVELOPER CREDIT
+========================================================= */
+
+.simple-footer-credit {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 6px;
+
+  text-align: center;
+}
+
+
+.simple-footer-credit span {
+  color: #9aa5b5;
+
+  font-size: 12px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.3px;
+}
+
+
+.simple-footer-credit strong {
+  color: #ffc400;
+
+  font-size: 14px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.5px;
+}
+
+
+/* =========================================================
+   SOCIAL / CONTACT ICONS
+========================================================= */
+
+.simple-footer-socials {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 12px;
+}
+
+
+.simple-footer-icon {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #0c141f;
+
+  border: 1px solid #303b4a;
+
+  color: #ffffff;
+
+  font-size: 16px;
+
+  text-decoration: none;
+
+  transition:
+    0.2s ease;
+}
+
+
+.simple-footer-icon:hover {
+  background: #ffc400;
+
+  border-color: #ffc400;
+
+  color: #05070a;
+
+  transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   COPYRIGHT
+========================================================= */
+
+.simple-footer-copyright {
+  color: #697586;
+
+  font-size: 10px;
+
+  font-weight: 500;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .simple-footer-content {
+    min-height: 145px;
+
+    padding: 25px 15px 18px;
+
+    gap: 14px;
+  }
+
+
+  .simple-footer-credit {
+    flex-direction: column;
+
+    gap: 2px;
+  }
+
+
+  .simple-footer-credit span {
+    font-size: 10px;
+  }
+
+
+  .simple-footer-credit strong {
+    font-size: 14px;
+  }
+
+
+  .simple-footer-socials {
+    gap: 9px;
+  }
+
+
+  .simple-footer-icon {
+    width: 38px;
+    height: 38px;
+
+    font-size: 15px;
+  }
+
+
+  .simple-footer-copyright {
+    font-size: 9px;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .simple-footer-icon {
+    width: 35px;
+    height: 35px;
+
+    font-size: 14px;
+  }
+
+}

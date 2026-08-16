@@ -1,0 +1,364 @@
+/* =========================================================
+   SRI LAXMI MOBILES
+   CUSTOMER ACCOUNT
+========================================================= */
+
+.customer-account-page {
+  min-height: 100vh;
+
+  padding: 25px 20px 60px;
+
+  background: #f5f1e6;
+
+  box-sizing: border-box;
+}
+
+
+.customer-account-card {
+  width: 100%;
+
+  max-width: 900px;
+
+  margin: 0 auto;
+}
+
+
+
+/* =========================================================
+   ACCOUNT HERO
+========================================================= */
+
+.customer-account-card::before {
+  display: none;
+}
+
+
+.customer-account-icon {
+  width: 60px;
+  height: 60px;
+
+  margin: 0 0 15px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: #07111f;
+
+  color: #ffc400;
+
+  font-size: 26px;
+
+  box-shadow:
+    0 4px 12px rgba(2, 8, 18, 0.15);
+}
+
+
+.customer-account-brand {
+  margin: 0 0 6px;
+
+  color: #a87800;
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  letter-spacing: 1.5px;
+}
+
+
+.customer-account-card h1 {
+  margin: 0 0 6px;
+
+  color: #07111f;
+
+  font-size: 32px;
+
+  line-height: 1.15;
+
+  font-weight: 900;
+}
+
+
+.customer-account-welcome {
+  margin: 0 0 24px;
+
+  color: #68717d;
+
+  font-size: 13px;
+}
+
+
+
+/* =========================================================
+   DETAILS
+========================================================= */
+
+.customer-account-details {
+  margin-bottom: 18px;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border: 1px solid #dedfe2;
+
+  border-radius: 13px;
+
+  box-shadow:
+    0 4px 16px rgba(2, 8, 18, 0.05);
+
+  text-align: left;
+}
+
+
+.customer-account-row {
+  min-height: 68px;
+
+  padding: 13px 20px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  border-bottom: 1px solid #eeeeee;
+
+  box-sizing: border-box;
+}
+
+
+.customer-account-row:last-child {
+  border-bottom: none;
+}
+
+
+.customer-account-row span {
+  color: #7a838e;
+
+  font-size: 9px;
+
+  font-weight: 900;
+
+  letter-spacing: .8px;
+}
+
+
+.customer-account-row strong {
+  color: #07111f;
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+  text-align: right;
+
+  word-break: break-word;
+}
+
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.customer-account-actions {
+  padding: 16px;
+
+  display: flex;
+
+  justify-content: flex-end;
+
+  gap: 10px;
+
+  background: #ffffff;
+
+  border: 1px solid #dedfe2;
+
+  border-radius: 13px;
+
+  box-shadow:
+    0 4px 16px rgba(2, 8, 18, 0.04);
+
+  box-sizing: border-box;
+}
+
+
+.customer-account-orders,
+.customer-account-logout {
+  min-height: 44px;
+
+  padding: 0 18px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  border-radius: 7px;
+
+  font-size: 9px;
+
+  font-weight: 900;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  box-sizing: border-box;
+}
+
+
+.customer-account-orders {
+  border: 1px solid #ffc400;
+
+  background: #ffc400;
+
+  color: #07111f;
+}
+
+
+.customer-account-logout {
+  border: 1px solid #d5d9de;
+
+  background: #ffffff;
+
+  color: #07111f;
+}
+
+
+.customer-account-orders:hover {
+  background: #eab300;
+}
+
+
+.customer-account-logout:hover {
+  background: #f5f6f7;
+}
+
+
+
+/* =========================================================
+   NOT LOGGED IN
+========================================================= */
+
+.customer-account-card > i {
+  display: block;
+
+  margin-bottom: 15px;
+
+  color: #ffc400;
+
+  font-size: 60px;
+}
+
+
+.customer-account-card > p:not(
+  .customer-account-brand,
+  .customer-account-welcome
+) {
+  color: #777777;
+}
+
+
+.customer-account-card > a:not(
+  .customer-account-orders
+) {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-height: 44px;
+
+  padding: 0 20px;
+
+  border-radius: 7px;
+
+  background: #ffc400;
+
+  color: #07111f;
+
+  font-size: 9px;
+
+  font-weight: 900;
+
+  text-decoration: none;
+}
+
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+  .customer-account-page {
+    padding: 20px 12px 45px;
+  }
+
+
+  .customer-account-icon {
+    width: 54px;
+    height: 54px;
+
+    font-size: 23px;
+  }
+
+
+  .customer-account-card h1 {
+    font-size: 27px;
+  }
+
+
+  .customer-account-welcome {
+    margin-bottom: 18px;
+  }
+
+
+  .customer-account-row {
+    min-height: 70px;
+
+    padding: 13px 17px;
+
+    align-items: flex-start;
+
+    justify-content: center;
+
+    flex-direction: column;
+
+    gap: 5px;
+  }
+
+
+  .customer-account-row strong {
+    text-align: left;
+
+    font-size: 12px;
+  }
+
+
+  .customer-account-actions {
+    flex-direction: column;
+
+    padding: 14px;
+  }
+
+
+  .customer-account-orders,
+  .customer-account-logout {
+    width: 100%;
+  }
+
+}

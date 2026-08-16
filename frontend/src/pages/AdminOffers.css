@@ -1,0 +1,947 @@
+/* =========================================================
+   ADMIN OFFERS
+   SRI LAXMI MOBILES
+========================================================= */
+
+.admin-offers-page {
+  width: 100%;
+
+  min-height: 100vh;
+
+  padding: 35px 24px 60px;
+
+  box-sizing: border-box;
+
+  background:
+    radial-gradient(
+      circle at 5% 5%,
+      rgba(255,196,0,0.07),
+      transparent 20%
+    ),
+    #f5f1e6;
+
+  color: #111722;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.admin-offers-heading {
+  position: relative;
+
+  max-width: 1200px;
+
+  margin: 0 auto 25px;
+
+  padding: 38px 30px;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 7% 20%,
+      rgba(255,196,0,0.08),
+      transparent 25%
+    ),
+    #07111f;
+
+  border-bottom: 4px solid #ffc400;
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 10px 28px rgba(0,0,0,0.10);
+}
+
+
+.admin-offers-heading::after {
+  content: "";
+
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  right: -170px;
+  bottom: -185px;
+
+  border: 1px solid rgba(255,196,0,0.18);
+
+  border-radius: 50%;
+}
+
+
+.admin-offers-heading p,
+.admin-offers-heading h1,
+.admin-offers-heading span {
+  position: relative;
+
+  z-index: 2;
+}
+
+
+.admin-offers-heading p {
+  margin: 0 0 7px;
+
+  color: #ffc400;
+
+  font-size: 12px;
+
+  font-weight: 900;
+
+  letter-spacing: 1.8px;
+}
+
+
+.admin-offers-heading h1 {
+  margin: 0 0 6px;
+
+  color: #ffffff;
+
+  font-size: 32px;
+
+  font-weight: 900;
+}
+
+
+.admin-offers-heading span {
+  display: block;
+
+  color: #b9c6d6;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   MESSAGES
+========================================================= */
+
+.admin-offer-message {
+  max-width: 1200px;
+
+  margin: 0 auto 18px;
+
+  padding: 13px 17px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  border-radius: 9px;
+
+  font-size: 11px;
+
+  font-weight: 800;
+}
+
+
+.admin-offer-message.success {
+  background: #e9f8ef;
+
+  color: #168344;
+
+  border: 1px solid #bce8cc;
+}
+
+
+.admin-offer-message.error {
+  background: #fff0f0;
+
+  color: #c52b2b;
+
+  border: 1px solid #f2c2c2;
+}
+
+
+/* =========================================================
+   FORM CARD
+========================================================= */
+
+.admin-offer-form-card {
+  max-width: 1200px;
+
+  margin: 0 auto 30px;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border: 1px solid #e0e1e3;
+
+  border-radius: 15px;
+
+  box-shadow:
+    0 6px 20px rgba(0,0,0,0.06);
+}
+
+
+/* =========================================================
+   FORM HEADER
+========================================================= */
+
+.admin-offer-card-heading {
+  padding: 23px 25px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 15px;
+
+  background: #07111f;
+
+  border-bottom: 4px solid #ffc400;
+}
+
+
+.admin-offer-card-heading span {
+  color: #ffc400;
+
+  font-size: 9px;
+
+  font-weight: 900;
+
+  letter-spacing: 1.5px;
+}
+
+
+.admin-offer-card-heading h2 {
+  margin: 5px 0 0;
+
+  color: #ffffff;
+
+  font-size: 21px;
+
+  font-weight: 900;
+}
+
+
+.admin-offer-cancel {
+  padding: 9px 14px;
+
+  border: 1px solid #526071;
+
+  border-radius: 7px;
+
+  background: transparent;
+
+  color: #ffffff;
+
+  font-size: 9px;
+
+  font-weight: 900;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+
+.admin-offer-cancel:hover {
+  background: #ffc400;
+
+  border-color: #ffc400;
+
+  color: #07111f;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.admin-offer-form {
+  padding: 27px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 20px;
+}
+
+
+.admin-offer-field {
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+}
+
+
+.admin-offer-field.full {
+  grid-column: 1 / -1;
+}
+
+
+.admin-offer-field label {
+  margin-bottom: 7px;
+
+  color: #07111f;
+
+  font-size: 10px;
+
+  font-weight: 900;
+}
+
+
+.admin-offer-field input,
+.admin-offer-field textarea {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 12px 13px;
+
+  border: 1px solid #d5d9df;
+
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  color: #111722;
+
+  font-family: inherit;
+
+  font-size: 12px;
+
+  outline: none;
+
+  transition: 0.2s ease;
+}
+
+
+.admin-offer-field input {
+  height: 43px;
+}
+
+
+.admin-offer-field textarea {
+  min-height: 95px;
+
+  resize: vertical;
+}
+
+
+.admin-offer-field input:focus,
+.admin-offer-field textarea:focus {
+  border-color: #ffc400;
+
+  box-shadow:
+    0 0 0 3px rgba(255,196,0,0.12);
+}
+
+
+.admin-offer-field small {
+  margin-top: 6px;
+
+  color: #858d97;
+
+  font-size: 9px;
+
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   SUBHEADINGS
+========================================================= */
+
+.admin-offer-subheading {
+  grid-column: 1 / -1;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 8px 0;
+
+  color: #a87800;
+
+  border-bottom: 1px solid #e2e5e9;
+
+  font-size: 11px;
+
+  font-weight: 900;
+
+  letter-spacing: 1px;
+}
+
+
+.admin-offer-subheading i {
+  color: #ffc400;
+}
+
+
+/* =========================================================
+   IMAGE PREVIEW
+========================================================= */
+
+.admin-image-preview {
+  height: 125px;
+
+  margin-top: 10px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background: #f6f7f8;
+
+  border: 1px solid #e0e3e7;
+
+  border-radius: 9px;
+
+  overflow: hidden;
+}
+
+
+.admin-image-preview img {
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: contain;
+
+  padding: 8px;
+}
+
+
+/* =========================================================
+   CHECKBOX
+========================================================= */
+
+.admin-offer-checkbox {
+  grid-column: 1 / -1;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  padding: 10px 0;
+
+  color: #26303b;
+
+  font-size: 11px;
+
+  font-weight: 700;
+}
+
+
+.admin-offer-checkbox input {
+  width: 17px;
+  height: 17px;
+
+  accent-color: #ffc400;
+}
+
+
+/* =========================================================
+   FORM ACTIONS
+========================================================= */
+
+.admin-offer-form-actions {
+  grid-column: 1 / -1;
+
+  display: flex;
+
+  gap: 10px;
+
+  padding-top: 15px;
+
+  border-top: 1px solid #e4e6e9;
+}
+
+
+.admin-offer-form-actions button {
+  min-height: 43px;
+
+  padding: 0 20px;
+
+  border: none;
+
+  border-radius: 7px;
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  cursor: pointer;
+}
+
+
+.admin-offer-form-actions button:first-child {
+  flex: 1;
+
+  background: #ffc400;
+
+  color: #07111f;
+}
+
+
+.admin-offer-form-actions button:first-child:hover {
+  background: #ffd21a;
+}
+
+
+.admin-offer-form-actions button.secondary {
+  min-width: 110px;
+
+  background: #ffffff;
+
+  border: 1px solid #cfd4da;
+
+  color: #111722;
+}
+
+
+/* =========================================================
+   EXISTING OFFERS
+========================================================= */
+
+.admin-offers-list {
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border: 1px solid #e0e1e3;
+
+  border-radius: 15px;
+
+  box-shadow:
+    0 6px 20px rgba(0,0,0,0.05);
+}
+
+
+.admin-offers-list-heading {
+  padding: 20px 23px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 15px;
+
+  border-bottom: 1px solid #eeeeee;
+}
+
+
+.admin-offers-list-heading span {
+  color: #a87800;
+
+  font-size: 9px;
+
+  font-weight: 900;
+
+  letter-spacing: 1.3px;
+}
+
+
+.admin-offers-list-heading h2 {
+  margin: 5px 0 0;
+
+  color: #07111f;
+
+  font-size: 20px;
+
+  font-weight: 900;
+}
+
+
+.admin-offers-list-heading button {
+  min-height: 38px;
+
+  padding: 0 13px;
+
+  border: 1px solid #d6d9dd;
+
+  border-radius: 7px;
+
+  background: #ffffff;
+
+  color: #46515e;
+
+  font-size: 9px;
+
+  font-weight: 900;
+
+  cursor: pointer;
+}
+
+
+.admin-offers-list-heading button:hover {
+  border-color: #ffc400;
+
+  color: #a87800;
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.admin-offers-table-wrapper {
+  overflow-x: auto;
+}
+
+
+.admin-offers-table {
+  width: 100%;
+
+  min-width: 800px;
+
+  border-collapse: collapse;
+}
+
+
+.admin-offers-table th {
+  padding: 14px 16px;
+
+  background: #07111f;
+
+  color: #ffffff;
+
+  text-align: left;
+
+  font-size: 9px;
+
+  font-weight: 900;
+
+  letter-spacing: 0.8px;
+}
+
+
+.admin-offers-table td {
+  padding: 15px 16px;
+
+  border-bottom: 1px solid #eeeeee;
+
+  color: #56606b;
+
+  font-size: 11px;
+}
+
+
+.admin-offers-table tbody tr:hover {
+  background: #fffdf5;
+}
+
+
+/* =========================================================
+   OFFER TITLE
+========================================================= */
+
+.admin-offer-table-title {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+
+.admin-offer-table-title strong {
+  color: #07111f;
+
+  font-size: 12px;
+}
+
+
+.admin-offer-table-title span {
+  color: #8a919a;
+
+  font-size: 9px;
+}
+
+
+/* =========================================================
+   DATES
+========================================================= */
+
+.admin-offer-table-dates {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  white-space: nowrap;
+}
+
+
+.admin-offer-table-dates i {
+  color: #ffc400;
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.admin-offer-status {
+  display: inline-block;
+
+  padding: 6px 9px;
+
+  border-radius: 6px;
+
+  font-size: 8px;
+
+  font-weight: 900;
+}
+
+
+.admin-offer-status.active {
+  background: #e4f7eb;
+
+  color: #168a45;
+}
+
+
+.admin-offer-status.inactive {
+  background: #eeeeee;
+
+  color: #777777;
+}
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.admin-offer-actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  flex-wrap: wrap;
+}
+
+
+.admin-offer-actions button {
+  min-height: 32px;
+
+  padding: 0 9px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 5px;
+
+  border-radius: 6px;
+
+  font-size: 8px;
+
+  font-weight: 900;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+
+.admin-offer-actions .edit {
+  border: 1px solid #cbd8e5;
+
+  background: #f4f9fd;
+
+  color: #1769aa;
+}
+
+
+.admin-offer-actions .edit:hover {
+  background: #e3f2fd;
+}
+
+
+.admin-offer-actions .deactivate {
+  border: 1px solid #efd8c7;
+
+  background: #fff7f1;
+
+  color: #bd5b1b;
+}
+
+
+.admin-offer-actions .deactivate:hover {
+  background: #fff0e5;
+}
+
+
+.admin-offer-actions .activate {
+  border: 1px solid #c5e4d0;
+
+  background: #f2fbf5;
+
+  color: #168a45;
+}
+
+
+.admin-offer-actions .activate:hover {
+  background: #e4f7eb;
+}
+
+
+.admin-offer-actions .delete {
+  border: 1px solid #f0cccc;
+
+  background: #fff6f6;
+
+  color: #c62828;
+}
+
+
+.admin-offer-actions .delete:hover {
+  background: #ffe5e5;
+}
+
+
+/* =========================================================
+   EMPTY / LOADING
+========================================================= */
+
+.admin-offers-empty {
+  padding: 55px 20px;
+
+  text-align: center;
+
+  color: #777777;
+}
+
+
+.admin-offers-empty i {
+  display: block;
+
+  margin-bottom: 13px;
+
+  color: #ffc400;
+
+  font-size: 32px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .admin-offers-page {
+    padding: 22px 15px 45px;
+  }
+
+
+  .admin-offers-heading {
+    padding: 29px 22px;
+
+    border-radius: 18px;
+  }
+
+
+  .admin-offers-heading h1 {
+    font-size: 27px;
+  }
+
+
+  .admin-offer-form {
+    grid-template-columns: 1fr;
+
+    padding: 20px;
+  }
+
+
+  .admin-offer-field.full,
+  .admin-offer-subheading,
+  .admin-offer-checkbox,
+  .admin-offer-form-actions {
+    grid-column: auto;
+  }
+
+
+  .admin-offer-card-heading {
+    padding: 20px;
+
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+
+  .admin-offer-cancel {
+    width: 100%;
+  }
+
+
+  .admin-offer-form-actions {
+    flex-direction: column;
+  }
+
+
+  .admin-offer-form-actions button,
+  .admin-offer-form-actions button.secondary {
+    width: 100%;
+  }
+
+
+  .admin-offers-list-heading {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+
+  .admin-offers-list-heading button {
+    width: 100%;
+  }
+
+}
+
+
+@media (max-width: 420px) {
+
+  .admin-offers-page {
+    padding: 18px 12px 40px;
+  }
+
+
+  .admin-offers-heading {
+    padding: 25px 18px;
+  }
+
+
+  .admin-offers-heading h1 {
+    font-size: 24px;
+  }
+
+
+  .admin-offer-form {
+    padding: 17px;
+  }
+
+}

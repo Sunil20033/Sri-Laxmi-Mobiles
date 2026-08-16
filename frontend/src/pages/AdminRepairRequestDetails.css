@@ -1,0 +1,774 @@
+/* =========================================================
+   ADMIN REPAIR REQUEST DETAILS
+   SRI LAXMI MOBILES
+========================================================= */
+
+.admin-repair-details-page {
+  min-height: 100vh;
+
+  padding: 35px 24px 60px;
+
+  box-sizing: border-box;
+
+  background:
+    radial-gradient(
+      circle at 5% 5%,
+      rgba(255,196,0,0.07),
+      transparent 20%
+    ),
+    #f5f1e6;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.admin-repair-details-heading {
+  max-width: 1000px;
+
+  margin: 0 auto 24px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+
+.admin-repair-details-heading > div {
+  min-width: 0;
+}
+
+
+.admin-repair-details-heading p {
+  margin: 0 0 7px;
+
+  color: #a87800;
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  letter-spacing: 1.6px;
+}
+
+
+.admin-repair-details-heading h1 {
+  margin: 0 0 6px;
+
+  color: #07111f;
+
+  font-size: 31px;
+
+  line-height: 1.2;
+
+  font-weight: 900;
+}
+
+
+.admin-repair-details-heading span {
+  color: #7d858f;
+
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.admin-repair-details-back {
+  min-width: 110px;
+
+  min-height: 41px;
+
+  padding: 0 15px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  flex-shrink: 0;
+
+  border: 1px solid #d6dade;
+
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  color: #07111f;
+
+  font-size: 9px;
+
+  font-weight: 900;
+
+  text-decoration: none;
+
+  transition: 0.2s ease;
+}
+
+
+.admin-repair-details-back:hover {
+  border-color: #ffc400;
+
+  background: #fffdf4;
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   MAIN CARD
+========================================================= */
+
+.admin-repair-details-card {
+  max-width: 1000px;
+
+  margin: 0 auto;
+
+  padding: 26px;
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+
+  border: 1px solid #e0e1e3;
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 8px 25px rgba(0,0,0,0.06);
+}
+
+
+/* =========================================================
+   TOP CUSTOMER AREA
+========================================================= */
+
+.admin-repair-details-top {
+  padding-bottom: 21px;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  border-bottom: 1px solid #eeeeee;
+}
+
+
+.admin-repair-details-top small,
+.admin-repair-details-problem small,
+.admin-repair-details-status small {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: #8a919a;
+
+  font-size: 8px;
+
+  font-weight: 900;
+
+  letter-spacing: 0.8px;
+}
+
+
+.admin-repair-details-top h2 {
+  margin: 0;
+
+  color: #07111f;
+
+  font-size: 25px;
+
+  font-weight: 900;
+}
+
+
+/* =========================================================
+   SERVICE BADGE
+========================================================= */
+
+.admin-repair-details-service {
+  min-height: 34px;
+
+  padding: 0 13px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 6px;
+
+  background: #ffc400;
+
+  color: #07111f;
+
+  font-size: 9px;
+
+  font-weight: 900;
+}
+
+
+/* =========================================================
+   INFO GRID
+========================================================= */
+
+.admin-repair-details-grid {
+  margin-top: 21px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 11px;
+}
+
+
+.admin-repair-details-info {
+  min-height: 72px;
+
+  padding: 13px 15px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #e3e5e8;
+
+  border-radius: 9px;
+
+  background: #f7f8f9;
+
+  color: inherit;
+
+  text-decoration: none;
+
+  transition: 0.2s ease;
+}
+
+
+a.admin-repair-details-info:hover {
+  border-color: #ffc400;
+
+  background: #fffdf5;
+
+  transform: translateY(-1px);
+}
+
+
+.admin-repair-details-icon {
+  width: 43px;
+  height: 43px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 9px;
+
+  background: #07111f;
+
+  color: #ffc400;
+
+  font-size: 17px;
+}
+
+
+.admin-repair-details-info small {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #8a919a;
+
+  font-size: 7px;
+
+  font-weight: 900;
+
+  letter-spacing: 0.7px;
+}
+
+
+.admin-repair-details-info strong {
+  display: block;
+
+  color: #07111f;
+
+  font-size: 11px;
+
+  font-weight: 900;
+
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   PROBLEM
+========================================================= */
+
+.admin-repair-details-problem {
+  margin-top: 20px;
+
+  padding: 17px;
+
+  border-left: 4px solid #ffc400;
+
+  border-radius: 7px;
+
+  background: #fffdf5;
+}
+
+
+.admin-repair-details-problem p {
+  margin: 0;
+
+  color: #414a55;
+
+  font-size: 12px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.admin-repair-details-status {
+  margin-top: 21px;
+
+  padding-top: 20px;
+
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  border-top: 1px solid #eeeeee;
+}
+
+
+.admin-repair-details-status-select {
+  min-width: 175px;
+
+  height: 40px;
+
+  padding: 0 11px;
+
+  border: 1px solid #d4d8dd;
+
+  border-radius: 7px;
+
+  background: #ffffff;
+
+  color: #07111f;
+
+  font-size: 9px;
+
+  font-weight: 900;
+
+  cursor: pointer;
+
+  outline: none;
+}
+
+
+.admin-repair-details-status-select:focus {
+  border-color: #ffc400;
+
+  box-shadow:
+    0 0 0 3px rgba(255,196,0,0.12);
+}
+
+
+.admin-repair-details-status-select.status-pending {
+  border-color: #ffc400;
+
+  background: #fff9df;
+}
+
+
+.admin-repair-details-status-select.status-completed {
+  border-color: #4d7c0f;
+
+  background: #f3f8e9;
+}
+
+
+.admin-repair-details-status-select.status-cancelled {
+  border-color: #b42318;
+
+  background: #fff3f2;
+}
+
+
+.admin-repair-details-status > span {
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  color: #7d858f;
+
+  font-size: 8px;
+
+  font-weight: 900;
+}
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.admin-repair-details-actions {
+  margin-top: 20px;
+
+  padding-top: 19px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  border-top: 1px solid #eeeeee;
+}
+
+
+.admin-repair-details-call,
+.admin-repair-details-whatsapp,
+.admin-repair-details-delete {
+  min-height: 41px;
+
+  padding: 0 15px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  border-radius: 7px;
+
+  font-size: 9px;
+
+  font-weight: 900;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+
+/* CALL */
+
+.admin-repair-details-call {
+  border: 1px solid #07111f;
+
+  background: #07111f;
+
+  color: #ffffff;
+}
+
+
+.admin-repair-details-call:hover {
+  background: #111b29;
+
+  transform: translateY(-1px);
+}
+
+
+/* WHATSAPP */
+
+.admin-repair-details-whatsapp {
+  border: 1px solid #ffc400;
+
+  background: #ffc400;
+
+  color: #07111f;
+}
+
+
+.admin-repair-details-whatsapp:hover {
+  background: #ffd21a;
+
+  transform: translateY(-1px);
+}
+
+
+/* DELETE */
+
+.admin-repair-details-delete {
+  margin-left: auto;
+
+  border: 1px solid #e2c1c1;
+
+  background: #fff7f7;
+
+  color: #c62828;
+}
+
+
+.admin-repair-details-delete:hover {
+  border-color: #c62828;
+
+  background: #ffe5e5;
+}
+
+
+.admin-repair-details-delete:disabled {
+  opacity: 0.55;
+
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   LOADING / ERROR
+========================================================= */
+
+.admin-repair-details-loading,
+.admin-repair-details-error {
+  max-width: 700px;
+
+  min-height: 300px;
+
+  margin: 40px auto;
+
+  padding: 30px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  text-align: center;
+
+  background: #ffffff;
+
+  border: 1px solid #e0e1e3;
+
+  border-radius: 15px;
+
+  box-shadow:
+    0 7px 22px rgba(0,0,0,0.05);
+}
+
+
+.admin-repair-details-loading i {
+  margin-bottom: 12px;
+
+  color: #ffc400;
+
+  font-size: 30px;
+
+  animation:
+    adminRepairDetailsSpin 1s linear infinite;
+}
+
+
+@keyframes adminRepairDetailsSpin {
+
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+
+}
+
+
+.admin-repair-details-loading p {
+  margin: 0;
+
+  color: #7d858f;
+
+  font-size: 11px;
+}
+
+
+.admin-repair-details-error i {
+  margin-bottom: 12px;
+
+  color: #c62828;
+
+  font-size: 32px;
+}
+
+
+.admin-repair-details-error h2 {
+  margin: 0 0 7px;
+
+  color: #07111f;
+
+  font-size: 20px;
+}
+
+
+.admin-repair-details-error p {
+  margin: 0;
+
+  color: #7d858f;
+
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 750px) {
+
+  .admin-repair-details-page {
+    padding: 28px 18px 50px;
+  }
+
+
+  .admin-repair-details-heading {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+
+  .admin-repair-details-back {
+    width: 100%;
+  }
+
+
+  .admin-repair-details-card {
+    padding: 20px;
+  }
+
+
+  .admin-repair-details-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .admin-repair-details-page {
+    padding: 20px 14px 45px;
+  }
+
+
+  .admin-repair-details-heading {
+    margin-bottom: 18px;
+  }
+
+
+  .admin-repair-details-heading h1 {
+    font-size: 27px;
+  }
+
+
+  .admin-repair-details-heading span {
+    font-size: 10px;
+  }
+
+
+  .admin-repair-details-card {
+    padding: 17px;
+
+    border-radius: 13px;
+  }
+
+
+  .admin-repair-details-top {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 12px;
+  }
+
+
+  .admin-repair-details-top h2 {
+    font-size: 22px;
+  }
+
+
+  .admin-repair-details-service {
+    align-self: flex-start;
+  }
+
+
+  .admin-repair-details-status {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+
+  .admin-repair-details-status-select {
+    width: 100%;
+  }
+
+
+  .admin-repair-details-actions {
+    align-items: stretch;
+
+    flex-direction: column;
+  }
+
+
+  .admin-repair-details-call,
+  .admin-repair-details-whatsapp,
+  .admin-repair-details-delete {
+    width: 100%;
+  }
+
+
+  .admin-repair-details-delete {
+    margin-left: 0;
+  }
+
+}

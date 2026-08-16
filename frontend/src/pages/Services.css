@@ -1,0 +1,3306 @@
+/* =========================================================
+   SRI LAXMI MOBILES
+   SERVICES PAGE
+   MATCHED WITH MOBILES / ACCESSORIES / REVIEWS / CONTACT
+========================================================= */
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.services-page {
+  min-height: 100vh;
+  background: #f7f7f7;
+  color: #061326;
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.services-page-header {
+  position: relative;
+  overflow: hidden;
+  background: #030810;
+  color: #ffffff;
+  border-bottom: 2px solid #ffc400;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+
+/* ACCESSORIES-STYLE CURVED BACKGROUND */
+
+.services-page-header::before,
+.services-page-header::after {
+  content: "";
+  position: absolute;
+  border: 1px solid rgba(255, 196, 0, 0.18);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+
+.services-page-header::before {
+  width: 430px;
+  height: 430px;
+  left: -260px;
+  top: -210px;
+}
+
+
+.services-page-header::after {
+  width: 520px;
+  height: 520px;
+  right: -270px;
+  bottom: -390px;
+}
+
+
+.services-header-content {
+  position: relative;
+  z-index: 1;
+  width: min(1200px, calc(100% - 40px));
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+
+.services-header-content p {
+  margin: 0 0 12px;
+  color: #ffc400;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+
+.services-header-content h1 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 40px;
+  line-height: 1.15;
+  font-weight: 900;
+}
+
+
+.services-header-content span {
+  display: block;
+  max-width: 700px;
+  margin: 14px auto 0;
+  color: #c8d0dc;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   COMMON CONTAINER
+========================================================= */
+
+.service-container {
+  width: min(1200px, calc(100% - 40px));
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   INTRODUCTION
+========================================================= */
+
+.service-intro {
+  background: #f7f7f7;
+}
+
+
+.service-intro .service-container {
+  padding-top: 45px;
+  padding-bottom: 45px;
+}
+
+
+.service-intro-content {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+
+.service-intro-icon {
+  width: 58px;
+  height: 58px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+  background: #061326;
+  color: #ffc400;
+  font-size: 25px;
+
+  box-shadow:
+    0 5px 18px rgba(0, 0, 0, 0.08);
+}
+
+
+.service-intro-content > div:last-child {
+  flex: 1;
+  min-width: 0;
+}
+
+
+.service-intro-content h2 {
+  margin: 0 0 6px;
+  color: #061326;
+  font-size: 18px;
+  line-height: 1.25;
+  font-weight: 900;
+}
+
+
+.service-intro-content p {
+  max-width: 600px;
+  margin: 0;
+  color: #687386;
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+
+.service-intro-content .service-note {
+  margin-top: 4px;
+  color: #8992a0;
+  font-size: 9px;
+  line-height: 1.35;
+}
+
+
+/* =========================================================
+   COMMON SECTION TITLES
+========================================================= */
+
+.section-title-center {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+
+.section-title-center p,
+.section-title p {
+  margin: 0 0 8px;
+  color: #ffc400;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+
+.section-title-center h2,
+.section-title h2 {
+  margin: 0;
+  color: #061326;
+  font-size: 30px;
+  line-height: 1.2;
+  font-weight: 900;
+}
+
+
+/* =========================================================
+   WHY CHOOSE US
+========================================================= */
+
+.service-benefits {
+  background: #f7f3e5;
+}
+
+
+.service-benefits .service-container {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+
+.service-benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+
+.service-benefit-card {
+  min-height: 215px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 25px 20px;
+  box-sizing: border-box;
+
+  background: #ffffff;
+  border: 1px solid #dedede;
+  border-radius: 18px;
+
+  text-align: center;
+
+  box-shadow:
+    0 5px 20px rgba(0, 0, 0, 0.05);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+
+.service-benefit-card:hover {
+  transform: translateY(-4px);
+  border-color: #ffc400;
+
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.09);
+}
+
+
+/* BENEFIT ICON */
+
+.service-benefit-card > i {
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 13px;
+
+  border-radius: 14px;
+
+  background: #061326;
+  color: #ffc400;
+
+  font-size: 27px;
+}
+
+
+.service-benefit-card h3 {
+  margin: 0 0 7px;
+  color: #061326;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+
+.service-benefit-card p {
+  max-width: 220px;
+  margin: 0;
+
+  color: #6f7886;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   ALL SERVICES
+========================================================= */
+
+.all-services {
+  background: #f7f7f7;
+  text-align: center;
+}
+
+
+.all-services .service-container {
+  padding-top: 60px;
+  padding-bottom: 65px;
+}
+
+
+/* CENTER OUR SERVICES TITLE */
+
+.all-services .section-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+
+  margin-bottom: 30px;
+
+  text-align: center;
+}
+
+
+.all-services .section-title h2,
+.all-services .section-title p {
+  text-align: center;
+}
+
+
+.all-services .section-title > span {
+  color: #748094;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+  text-align: center;
+}
+
+
+/* =========================================================
+   SERVICES GRID
+========================================================= */
+
+.services-grid-page {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+
+  text-align: center;
+}
+
+
+.service-page-card {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 22px 20px;
+  box-sizing: border-box;
+
+  background: #ffffff;
+  border: 1px solid #dedede;
+  border-radius: 17px;
+
+  text-align: center;
+
+  box-shadow:
+    0 4px 18px rgba(0, 0, 0, 0.04);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+
+.service-page-card:hover {
+  transform: translateY(-4px);
+  border-color: #ffc400;
+
+  box-shadow:
+    0 12px 26px rgba(0, 0, 0, 0.09);
+}
+
+
+/* =========================================================
+   SERVICE ICON
+========================================================= */
+
+.service-page-icon {
+  width: 64px;
+  height: 64px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  margin: 0 auto 17px;
+
+  border-radius: 14px;
+
+  background: #061326;
+  color: #ffc400;
+
+  font-size: 29px;
+}
+
+
+/* =========================================================
+   SERVICE TITLE
+========================================================= */
+
+.service-page-card h3 {
+  width: 100%;
+
+  margin: 0 0 8px;
+
+  color: #061326;
+
+  font-size: 16px;
+  line-height: 1.35;
+  font-weight: 800;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   SERVICE DESCRIPTION
+========================================================= */
+
+.service-page-card p {
+  width: 100%;
+
+  min-height: 60px;
+
+  margin: 0 0 18px;
+
+  color: #687386;
+
+  font-size: 12px;
+  line-height: 1.55;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   REQUEST SERVICE BUTTON
+========================================================= */
+
+.service-page-card button {
+  width: 100%;
+
+  min-height: 46px;
+
+  margin-top: auto;
+
+  padding: 0 15px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 9px;
+
+  background: #ffc400;
+  color: #061326;
+
+  font-family: inherit;
+
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.3px;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+
+.service-page-card button:hover {
+  background: #eab300;
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   HOW IT WORKS
+========================================================= */
+
+.how-service-works {
+  position: relative;
+  overflow: hidden;
+
+  background: #030810;
+  color: #ffffff;
+
+  text-align: center;
+}
+
+
+/* GOLD CURVED BACKGROUND */
+
+.how-service-works::before,
+.how-service-works::after {
+  content: "";
+
+  position: absolute;
+
+  border: 1px solid rgba(255, 196, 0, 0.14);
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+
+.how-service-works::before {
+  width: 500px;
+  height: 500px;
+
+  left: -330px;
+  top: -220px;
+}
+
+
+.how-service-works::after {
+  width: 560px;
+  height: 560px;
+
+  right: -330px;
+  bottom: -400px;
+}
+
+
+.how-service-works .service-container {
+  position: relative;
+  z-index: 1;
+
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+
+.how-service-works .section-title-center {
+  text-align: center;
+}
+
+
+.how-service-works .section-title-center p {
+  color: #ffc400;
+  text-align: center;
+}
+
+
+.how-service-works .section-title-center h2 {
+  color: #ffffff;
+  text-align: center;
+}
+
+
+/* =========================================================
+   SERVICE STEPS
+========================================================= */
+
+.service-steps {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    70px
+    minmax(0, 1fr)
+    70px
+    minmax(0, 1fr);
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+
+.service-step {
+  min-height: 200px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  box-sizing: border-box;
+
+  text-align: center;
+}
+
+
+.step-number {
+  width: 42px;
+  height: 42px;
+
+  margin-bottom: 14px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #ffc400;
+  color: #061326;
+
+  font-size: 12px;
+  font-weight: 900;
+}
+
+
+.service-step > i {
+  display: block;
+
+  margin-bottom: 11px;
+
+  color: #ffc400;
+
+  font-size: 31px;
+
+  text-align: center;
+}
+
+
+.service-step h3 {
+  margin: 0 0 8px;
+
+  color: #ffffff;
+
+  font-size: 16px;
+  line-height: 1.4;
+
+  text-align: center;
+}
+
+
+.service-step p {
+  max-width: 240px;
+
+  margin: 0;
+
+  color: #b8c1ce;
+
+  font-size: 12px;
+  line-height: 1.55;
+
+  text-align: center;
+}
+
+
+.step-line {
+  width: 100%;
+  height: 2px;
+
+  background: #3c4655;
+}
+
+
+/* =========================================================
+   REPAIR REQUEST
+========================================================= */
+
+.repair-request-section {
+  background: #f7f3e5;
+}
+
+
+.repair-request-section .service-container {
+  padding-top: 65px;
+  padding-bottom: 65px;
+}
+
+
+.repair-request-layout {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.9fr)
+    minmax(0, 1.1fr);
+
+  gap: 40px;
+
+  align-items: start;
+}
+
+
+/* =========================================================
+   REPAIR INFORMATION
+========================================================= */
+
+.repair-request-info {
+  padding: 5px 0;
+}
+
+
+.repair-request-info > p {
+  margin: 0 0 8px;
+
+  color: #d7a800;
+
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+}
+
+
+.repair-request-info h2 {
+  max-width: 500px;
+
+  margin: 0 0 13px;
+
+  color: #061326;
+
+  font-size: 32px;
+  line-height: 1.15;
+  font-weight: 900;
+}
+
+
+.repair-request-info > span {
+  display: block;
+
+  max-width: 500px;
+
+  color: #687386;
+
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   CONTACT BOX
+========================================================= */
+
+.repair-contact-box {
+  margin-top: 27px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 13px;
+}
+
+
+.repair-contact-box > div {
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+}
+
+
+.repair-contact-box i {
+  width: 43px;
+  height: 43px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 11px;
+
+  background: #061326;
+  color: #ffc400;
+
+  font-size: 18px;
+}
+
+
+.repair-contact-box span {
+  display: flex;
+  flex-direction: column;
+
+  color: #061326;
+
+  font-size: 13px;
+  font-weight: 800;
+}
+
+
+.repair-contact-box small {
+  margin-bottom: 3px;
+
+  color: #7b8491;
+
+  font-size: 9px;
+  font-weight: 900;
+
+  letter-spacing: 0.7px;
+}
+
+
+/* =========================================================
+   REPAIR FORM
+========================================================= */
+
+.repair-form {
+  padding: 28px;
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+
+  border: 1px solid #dedede;
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 8px 28px rgba(0, 0, 0, 0.07);
+}
+
+
+.repair-form h3 {
+  margin: 0 0 21px;
+
+  color: #061326;
+
+  font-size: 20px;
+  font-weight: 900;
+}
+
+
+/* =========================================================
+   FORM ROW
+========================================================= */
+
+.repair-form-row {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 15px;
+}
+
+
+.repair-field {
+  margin-bottom: 16px;
+}
+
+
+.repair-field label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #061326;
+
+  font-size: 11px;
+  font-weight: 800;
+}
+
+
+.repair-field input,
+.repair-field textarea,
+.repair-field select {
+  width: 100%;
+
+  min-height: 45px;
+
+  padding: 10px 12px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #d8dce2;
+
+  border-radius: 9px;
+
+  outline: none;
+
+  background: #ffffff;
+
+  color: #061326;
+
+  font-family: inherit;
+
+  font-size: 12px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.repair-field input::placeholder,
+.repair-field textarea::placeholder {
+  color: #9aa2ae;
+}
+
+
+.repair-field input:focus,
+.repair-field textarea:focus,
+.repair-field select:focus {
+  border-color: #ffc400;
+
+  box-shadow:
+    0 0 0 3px rgba(255, 196, 0, 0.14);
+}
+
+
+.repair-field textarea {
+  min-height: 110px;
+
+  resize: vertical;
+}
+
+
+/* =========================================================
+   SUBMIT
+========================================================= */
+
+.repair-submit-button {
+  width: 100%;
+
+  min-height: 49px;
+
+  padding: 0 18px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background: #ffc400;
+
+  color: #061326;
+
+  font-family: inherit;
+
+  font-size: 12px;
+  font-weight: 900;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+
+.repair-submit-button:hover {
+  background: #eab300;
+
+  transform: translateY(-2px);
+}
+
+
+.repair-submit-button:disabled {
+  opacity: 0.65;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+
+/* =========================================================
+   FORM MESSAGE
+========================================================= */
+
+.repair-form-message {
+  margin: 0 0 17px;
+
+  padding: 12px 14px;
+
+  border-radius: 9px;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  line-height: 1.5;
+}
+
+
+.repair-form-message.error {
+  background: #fff2f2;
+
+  border: 1px solid #efb8b8;
+
+  color: #c62828;
+}
+
+
+.repair-form-message.success {
+  background: #f5f9e8;
+
+  border: 1px solid #d7e49d;
+
+  color: #4a5c19;
+}
+
+
+.repair-form-note {
+  margin: 11px 0 0;
+
+  color: #858d98;
+
+  text-align: center;
+
+  font-size: 10px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   FINAL CTA
+   NEED HELP WITH YOUR PHONE
+========================================================= */
+
+.service-final-cta {
+  padding: 60px 20px;
+
+  background: #061326;
+
+  color: #ffffff;
+
+  text-align: center;
+}
+
+
+.service-final-cta > div {
+  max-width: 700px;
+
+  margin: 0 auto;
+
+  text-align: center;
+}
+
+
+.service-final-cta i.bi-shop {
+  display: block;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  color: #ffc400;
+
+  font-size: 40px;
+
+  text-align: center;
+}
+
+
+.service-final-cta h2 {
+  margin: 12px 0 8px;
+
+  color: #ffffff;
+
+  font-size: 27px;
+  font-weight: 900;
+
+  text-align: center;
+}
+
+
+.service-final-cta p {
+  max-width: 600px;
+
+  margin: 0 auto;
+
+  color: #bfc7d3;
+
+  font-size: 13px;
+  line-height: 1.6;
+
+  text-align: center;
+}
+
+
+.service-final-cta a {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  margin-top: 21px;
+
+  min-height: 47px;
+
+  padding: 0 21px;
+
+  box-sizing: border-box;
+
+  border-radius: 9px;
+
+  background: #ffc400;
+
+  color: #061326;
+
+  font-size: 12px;
+  font-weight: 900;
+
+  text-decoration: none;
+
+  text-align: center;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+
+.service-final-cta a:hover {
+  background: #eab300;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .service-benefit-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+
+  .services-grid-page {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+
+  .repair-request-layout {
+    grid-template-columns: 1fr;
+
+    gap: 35px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  /* HEADER */
+
+  .services-page-header {
+    padding: 42px 18px;
+
+    text-align: center;
+  }
+
+
+  .services-header-content {
+    width: 100%;
+
+    padding: 0;
+
+    text-align: center;
+  }
+
+
+  .services-header-content p {
+    margin-bottom: 9px;
+
+    font-size: 12px;
+
+    letter-spacing: 1.3px;
+  }
+
+
+  .services-header-content h1 {
+    font-size: 29px;
+
+    line-height: 1.2;
+  }
+
+
+  .services-header-content span {
+    margin-top: 12px;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+  }
+
+
+  /* CONTAINER */
+
+  .service-container {
+    width: calc(100% - 30px);
+  }
+
+
+  /* INTRO */
+
+  .service-intro .service-container {
+    padding-top: 32px;
+
+    padding-bottom: 32px;
+  }
+
+
+  .service-intro-content {
+    align-items: flex-start;
+
+    gap: 13px;
+  }
+
+
+  .service-intro-icon {
+    width: 48px;
+    height: 48px;
+
+    border-radius: 11px;
+
+    font-size: 21px;
+  }
+
+
+  .service-intro-content h2 {
+    margin-bottom: 4px;
+
+    font-size: 14px;
+
+    line-height: 1.3;
+  }
+
+
+  .service-intro-content p {
+    font-size: 8px;
+
+    line-height: 1.4;
+  }
+
+
+  .service-intro-content .service-note {
+    margin-top: 3px;
+
+    font-size: 7px;
+
+    line-height: 1.35;
+  }
+
+
+  /* TITLES */
+
+  .section-title-center {
+    margin-bottom: 28px;
+
+    text-align: center;
+  }
+
+
+  .section-title-center p,
+  .section-title p {
+    font-size: 10px;
+
+    text-align: center;
+  }
+
+
+  .section-title-center h2,
+  .section-title h2 {
+    font-size: 21px;
+
+    text-align: center;
+  }
+
+
+  /* WHY CHOOSE US */
+
+  .service-benefits .service-container {
+    padding-top: 45px;
+
+    padding-bottom: 45px;
+  }
+
+
+  .service-benefit-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 12px;
+  }
+
+
+  .service-benefit-card {
+    min-height: 180px;
+
+    padding: 18px 11px;
+
+    border-radius: 15px;
+  }
+
+
+  .service-benefit-card > i {
+    width: 48px;
+    height: 48px;
+
+    margin-bottom: 11px;
+
+    border-radius: 12px;
+
+    font-size: 22px;
+  }
+
+
+  .service-benefit-card h3 {
+    margin-bottom: 6px;
+
+    font-size: 12px;
+
+    text-align: center;
+  }
+
+
+  .service-benefit-card p {
+    max-width: 160px;
+
+    font-size: 9px;
+
+    line-height: 1.5;
+
+    text-align: center;
+  }
+
+
+  /* ALL SERVICES */
+
+  .all-services {
+    text-align: center;
+  }
+
+
+  .all-services .service-container {
+    padding-top: 45px;
+
+    padding-bottom: 50px;
+  }
+
+
+  .all-services .section-title {
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 22px;
+
+    text-align: center;
+  }
+
+
+  .all-services .section-title > span {
+    font-size: 10px;
+
+    text-align: center;
+  }
+
+
+  /* TWO CARDS PER ROW */
+
+  .services-grid-page {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 12px;
+
+    text-align: center;
+  }
+
+
+  /* SERVICE CARD */
+
+  .service-page-card {
+    padding: 17px 12px;
+
+    border-radius: 15px;
+
+    text-align: center;
+
+    align-items: center;
+  }
+
+
+  /* SERVICE ICON */
+
+  .service-page-icon {
+    width: 46px;
+    height: 46px;
+
+    margin: 0 auto 14px;
+
+    border-radius: 11px;
+
+    background: #061326;
+
+    color: #ffc400;
+
+    font-size: 21px;
+  }
+
+
+  .service-page-card h3 {
+    width: 100%;
+
+    margin: 0 0 7px;
+
+    font-size: 12px;
+
+    line-height: 1.35;
+
+    text-align: center;
+  }
+
+
+  .service-page-card p {
+    width: 100%;
+
+    min-height: 62px;
+
+    margin: 0 0 13px;
+
+    font-size: 9px;
+
+    line-height: 1.5;
+
+    text-align: center;
+  }
+
+
+  .service-page-card button {
+    min-height: 40px;
+
+    padding: 0 7px;
+
+    border-radius: 8px;
+
+    font-size: 8px;
+
+    letter-spacing: 0.2px;
+  }
+
+
+  /* HOW IT WORKS */
+
+  .how-service-works {
+    text-align: center;
+  }
+
+
+  .how-service-works .service-container {
+    padding-top: 45px;
+
+    padding-bottom: 45px;
+
+    text-align: center;
+  }
+
+
+  .how-service-works .section-title-center {
+    text-align: center;
+  }
+
+
+  .service-steps {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 8px;
+  }
+
+
+  .service-step {
+    width: 100%;
+
+    min-height: 155px;
+
+    padding: 15px;
+
+    align-items: center;
+
+    text-align: center;
+  }
+
+
+  .step-number {
+    width: 36px;
+    height: 36px;
+
+    margin-bottom: 10px;
+
+    font-size: 10px;
+  }
+
+
+  .service-step > i {
+    margin: 0 auto 8px;
+
+    font-size: 27px;
+
+    text-align: center;
+  }
+
+
+  .service-step h3 {
+    font-size: 14px;
+
+    text-align: center;
+  }
+
+
+  .service-step p {
+    max-width: 280px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    font-size: 10px;
+
+    text-align: center;
+  }
+
+
+  .step-line {
+    width: 2px;
+
+    height: 25px;
+  }
+
+
+  /* REPAIR REQUEST */
+
+  .repair-request-section .service-container {
+    padding-top: 50px;
+
+    padding-bottom: 50px;
+  }
+
+
+  .repair-request-layout {
+    grid-template-columns: 1fr;
+
+    gap: 28px;
+  }
+
+
+  .repair-request-info {
+    padding: 0;
+
+    text-align: center;
+  }
+
+
+  .repair-request-info > p {
+    font-size: 10px;
+
+    text-align: center;
+  }
+
+
+  .repair-request-info h2 {
+    max-width: 100%;
+
+    font-size: 25px;
+
+    line-height: 1.2;
+
+    text-align: center;
+  }
+
+
+  .repair-request-info > span {
+    max-width: 100%;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+
+    text-align: center;
+  }
+
+
+  /* CONTACT DETAILS */
+
+  .repair-contact-box {
+    margin-top: 22px;
+
+    gap: 12px;
+
+    align-items: center;
+  }
+
+
+  .repair-contact-box > div {
+    justify-content: center;
+
+    text-align: center;
+  }
+
+
+  .repair-contact-box i {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 10px;
+
+    font-size: 17px;
+  }
+
+
+  .repair-contact-box span {
+    font-size: 12px;
+
+    text-align: left;
+  }
+
+
+  .repair-contact-box small {
+    font-size: 9px;
+  }
+
+
+  /* FORM */
+
+  .repair-form {
+    padding: 22px 16px;
+
+    border-radius: 15px;
+  }
+
+
+  .repair-form h3 {
+    margin-bottom: 19px;
+
+    font-size: 18px;
+  }
+
+
+  .repair-form-row {
+    grid-template-columns: 1fr;
+
+    gap: 0;
+  }
+
+
+  .repair-field {
+    margin-bottom: 15px;
+  }
+
+
+  .repair-field label {
+    font-size: 11px;
+  }
+
+
+  .repair-field input,
+  .repair-field textarea,
+  .repair-field select {
+    min-height: 45px;
+
+    padding: 10px 11px;
+
+    font-size: 12px;
+  }
+
+
+  .repair-field textarea {
+    min-height: 105px;
+  }
+
+
+  .repair-submit-button {
+    min-height: 48px;
+
+    font-size: 11px;
+  }
+
+
+  .repair-form-note {
+    font-size: 9px;
+  }
+
+
+  /* FINAL CTA */
+
+  .service-final-cta {
+    padding: 48px 18px;
+
+    text-align: center;
+  }
+
+
+  .service-final-cta > div {
+    margin-left: auto;
+    margin-right: auto;
+
+    text-align: center;
+  }
+
+
+  .service-final-cta i.bi-shop {
+    display: block;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    font-size: 35px;
+  }
+
+
+  .service-final-cta h2 {
+    font-size: 22px;
+
+    text-align: center;
+  }
+
+
+  .service-final-cta p {
+    font-size: 11px;
+
+    text-align: center;
+  }
+
+
+  .service-final-cta a {
+    min-height: 44px;
+
+    margin: 18px auto 0;
+
+    padding: 0 18px;
+
+    font-size: 10px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 430px) {
+
+  .services-page-header {
+    padding: 38px 15px;
+  }
+
+
+  .services-header-content h1 {
+    font-size: 25px;
+  }
+
+
+  .services-header-content span {
+    font-size: 11px;
+  }
+
+
+  .service-container {
+    width: calc(100% - 24px);
+  }
+
+
+  /* BENEFITS */
+
+  .service-benefit-grid {
+    gap: 9px;
+  }
+
+
+  .service-benefit-card {
+    min-height: 170px;
+
+    padding: 16px 8px;
+  }
+
+
+  .service-benefit-card > i {
+    width: 45px;
+    height: 45px;
+
+    margin-bottom: 10px;
+
+    font-size: 21px;
+  }
+
+
+  .service-benefit-card h3 {
+    font-size: 11px;
+
+    text-align: center;
+  }
+
+
+  .service-benefit-card p {
+    max-width: 145px;
+
+    font-size: 8px;
+
+    text-align: center;
+  }
+
+
+  /* SERVICES */
+
+  .services-grid-page {
+    gap: 9px;
+
+    text-align: center;
+  }
+
+
+  .service-page-card {
+    padding: 14px 9px;
+
+    border-radius: 13px;
+
+    text-align: center;
+
+    align-items: center;
+  }
+
+
+  .service-page-icon {
+    width: 43px;
+    height: 43px;
+
+    margin: 0 auto 12px;
+
+    border-radius: 10px;
+
+    font-size: 20px;
+  }
+
+
+  .service-page-card h3 {
+    width: 100%;
+
+    margin-bottom: 6px;
+
+    font-size: 10px;
+
+    text-align: center;
+  }
+
+
+  .service-page-card p {
+    width: 100%;
+
+    min-height: 64px;
+
+    margin-bottom: 11px;
+
+    font-size: 8px;
+
+    line-height: 1.5;
+
+    text-align: center;
+  }
+
+
+  .service-page-card button {
+    min-height: 38px;
+
+    padding: 0 5px;
+
+    font-size: 7px;
+  }
+
+
+  /* FORM */
+
+  .repair-form {
+    padding: 19px 12px;
+
+    border-radius: 13px;
+  }
+
+
+  .repair-form h3 {
+    font-size: 16px;
+  }
+
+
+  .repair-field input,
+  .repair-field textarea,
+  .repair-field select {
+    font-size: 11px;
+  }
+
+
+  .repair-submit-button {
+    min-height: 45px;
+
+    font-size: 9px;
+  }
+
+
+  .repair-form-note {
+    font-size: 9px;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 360px) {
+
+  .services-header-content h1 {
+    font-size: 23px;
+  }
+
+
+  .service-benefit-card {
+    min-height: 160px;
+  }
+
+
+  .service-page-card {
+    padding: 13px 8px;
+  }
+
+
+  .service-page-icon {
+    width: 41px;
+    height: 41px;
+
+    font-size: 19px;
+  }
+
+
+  .service-page-card h3 {
+    font-size: 9px;
+  }
+
+
+  .service-page-card p {
+    font-size: 7.5px;
+  }
+
+
+  .service-page-card button {
+    font-size: 7px;
+  }
+
+}
+
+
+/* =========================================================
+   FINAL CENTERING FIX
+   OUR SERVICES
+========================================================= */
+
+.all-services {
+  text-align: center;
+}
+
+
+.all-services .section-title {
+  text-align: center;
+}
+
+
+.all-services .section-title h2,
+.all-services .section-title p {
+  text-align: center;
+}
+
+
+.all-services .section-title > span {
+  text-align: center;
+}
+
+
+.services-grid-page {
+  text-align: center;
+}
+
+
+.services-grid-page .service-page-card {
+  text-align: center;
+  align-items: center;
+}
+
+
+.services-grid-page .service-page-icon {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.services-grid-page .service-page-card h3,
+.services-grid-page .service-page-card p {
+  width: 100%;
+  text-align: center;
+}
+
+
+/* =========================================================
+   NEED HELP WITH YOUR PHONE
+========================================================= */
+
+.service-final-cta {
+  text-align: center;
+}
+
+
+.service-final-cta > div {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.service-final-cta i {
+  display: block;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  text-align: center;
+}
+
+
+.service-final-cta h2,
+.service-final-cta p {
+  text-align: center;
+}
+
+
+.service-final-cta a {
+  margin-left: auto;
+  margin-right: auto;
+}
+/* =========================================================
+   FINAL CSS OVERRIDES
+   SRI LAXMI MOBILES
+   ADD THIS AT THE VERY BOTTOM
+========================================================= */
+
+
+/* =========================================================
+   GLOBAL SAFETY
+========================================================= */
+
+.services-page,
+.services-page *,
+.services-page *::before,
+.services-page *::after {
+  box-sizing: border-box;
+}
+
+.services-page {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.services-page button,
+.services-page input,
+.services-page textarea,
+.services-page select {
+  font-family: inherit;
+}
+
+
+/* =========================================================
+   SERVICE HEADER POLISH
+========================================================= */
+
+.services-page-header {
+  isolation: isolate;
+}
+
+.services-page-header::before {
+  animation: serviceGlowLeft 10s ease-in-out infinite alternate;
+}
+
+.services-page-header::after {
+  animation: serviceGlowRight 12s ease-in-out infinite alternate;
+}
+
+@keyframes serviceGlowLeft {
+  from {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  to {
+    transform: translate(25px, 20px) rotate(8deg);
+  }
+}
+
+@keyframes serviceGlowRight {
+  from {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  to {
+    transform: translate(-20px, -15px) rotate(-7deg);
+  }
+}
+
+
+/* =========================================================
+   INTRODUCTION
+========================================================= */
+
+.service-intro-content {
+  transition: transform 0.25s ease;
+}
+
+.service-intro-content:hover {
+  transform: translateY(-2px);
+}
+
+.service-intro-icon {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.service-intro-content:hover .service-intro-icon {
+  transform: translateY(-3px) rotate(-3deg);
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================================================
+   SECTION TITLES
+========================================================= */
+
+.section-title-center p,
+.section-title p {
+  position: relative;
+}
+
+.section-title-center p::after,
+.section-title p::after {
+  content: "";
+  display: block;
+
+  width: 35px;
+  height: 2px;
+
+  margin: 7px auto 0;
+
+  background: #ffc400;
+}
+
+.section-title p::after {
+  margin-left: 0;
+}
+
+
+/* =========================================================
+   WHY CHOOSE US
+========================================================= */
+
+.service-benefit-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.service-benefit-card::before {
+  content: "";
+
+  position: absolute;
+
+  width: 100px;
+  height: 100px;
+
+  right: -55px;
+  top: -55px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 196, 0, 0.08);
+
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease;
+}
+
+.service-benefit-card:hover::before {
+  transform: scale(2.2);
+
+  background: rgba(255, 196, 0, 0.12);
+}
+
+.service-benefit-card > i {
+  position: relative;
+  z-index: 1;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.service-benefit-card:hover > i {
+  transform: scale(1.06) rotate(-3deg);
+}
+
+
+/* =========================================================
+   SERVICE CARDS
+========================================================= */
+
+.service-page-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.service-page-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 3px;
+
+  background: #ffc400;
+
+  transform: scaleX(0);
+  transform-origin: left;
+
+  transition: transform 0.3s ease;
+}
+
+.service-page-card:hover::before {
+  transform: scaleX(1);
+}
+
+.service-page-icon {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.service-page-card:hover .service-page-icon {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 8px 20px rgba(6, 19, 38, 0.18);
+}
+
+.service-page-card button {
+  position: relative;
+  overflow: hidden;
+}
+
+.service-page-card button::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -120%;
+
+  width: 80%;
+  height: 100%;
+
+  background: rgba(255, 255, 255, 0.28);
+
+  transform: skewX(-20deg);
+
+  transition: left 0.45s ease;
+}
+
+.service-page-card button:hover::after {
+  left: 140%;
+}
+
+
+/* =========================================================
+   HOW IT WORKS
+========================================================= */
+
+.how-service-works {
+  isolation: isolate;
+}
+
+.service-step {
+  position: relative;
+
+  border-radius: 16px;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.service-step:hover {
+  transform: translateY(-4px);
+
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.step-number {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.service-step:hover .step-number {
+  transform: scale(1.08);
+
+  box-shadow:
+    0 0 0 5px rgba(255, 196, 0, 0.08);
+}
+
+.service-step > i {
+  transition:
+    transform 0.25s ease;
+}
+
+.service-step:hover > i {
+  transform: translateY(-3px) scale(1.05);
+}
+
+.step-line {
+  transition: background 0.25s ease;
+}
+
+
+/* =========================================================
+   REPAIR REQUEST SECTION
+========================================================= */
+
+.repair-request-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.repair-request-section::before {
+  content: "";
+
+  position: absolute;
+
+  width: 400px;
+  height: 400px;
+
+  left: -280px;
+  bottom: -220px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(255, 196, 0, 0.16);
+
+  pointer-events: none;
+}
+
+.repair-request-section::after {
+  content: "";
+
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  right: -190px;
+  top: -170px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(255, 196, 0, 0.12);
+
+  pointer-events: none;
+}
+
+.repair-request-layout {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* =========================================================
+   CONTACT INFORMATION
+========================================================= */
+
+.repair-contact-box > div {
+  transition:
+    transform 0.2s ease;
+}
+
+.repair-contact-box > div:hover {
+  transform: translateX(4px);
+}
+
+.repair-contact-box i {
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.repair-contact-box > div:hover i {
+  transform: scale(1.06);
+  background: #ffc400;
+  color: #061326;
+}
+
+
+/* =========================================================
+   REPAIR FORM
+========================================================= */
+
+.repair-form {
+  position: relative;
+}
+
+.repair-form::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 100%;
+  height: 3px;
+
+  border-radius: 18px 18px 0 0;
+
+  background: #ffc400;
+}
+
+.repair-field input:hover,
+.repair-field textarea:hover,
+.repair-field select:hover {
+  border-color: #c5cad2;
+}
+
+.repair-field input:focus,
+.repair-field textarea:focus,
+.repair-field select:focus {
+  transform: translateY(-1px);
+}
+
+.repair-field input,
+.repair-field textarea,
+.repair-field select {
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+/* =========================================================
+   SUBMIT BUTTON
+========================================================= */
+
+.repair-submit-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.repair-submit-button::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -120%;
+
+  width: 75%;
+  height: 100%;
+
+  background: rgba(255, 255, 255, 0.3);
+
+  transform: skewX(-20deg);
+
+  transition: left 0.45s ease;
+}
+
+.repair-submit-button:hover::after {
+  left: 140%;
+}
+
+.repair-submit-button i {
+  transition: transform 0.2s ease;
+}
+
+.repair-submit-button:hover i {
+  transform: translateX(3px);
+}
+
+
+/* =========================================================
+   FORM MESSAGES
+========================================================= */
+
+.repair-form-message {
+  animation: formMessageIn 0.3s ease both;
+}
+
+@keyframes formMessageIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   FINAL CTA
+========================================================= */
+
+.service-final-cta {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.service-final-cta::before,
+.service-final-cta::after {
+  content: "";
+
+  position: absolute;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(255, 196, 0, 0.12);
+
+  pointer-events: none;
+}
+
+.service-final-cta::before {
+  width: 420px;
+  height: 420px;
+
+  left: -280px;
+  top: -240px;
+}
+
+.service-final-cta::after {
+  width: 480px;
+  height: 480px;
+
+  right: -300px;
+  bottom: -300px;
+}
+
+.service-final-cta > div {
+  position: relative;
+  z-index: 1;
+}
+
+.service-final-cta i.bi-shop {
+  transition:
+    transform 0.3s ease;
+}
+
+.service-final-cta:hover i.bi-shop {
+  transform: translateY(-4px) scale(1.06);
+}
+
+.service-final-cta a {
+  position: relative;
+  overflow: hidden;
+}
+
+.service-final-cta a::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -120%;
+
+  width: 75%;
+  height: 100%;
+
+  background: rgba(255, 255, 255, 0.3);
+
+  transform: skewX(-20deg);
+
+  transition: left 0.45s ease;
+}
+
+.service-final-cta a:hover::after {
+  left: 140%;
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+.services-page button:focus-visible,
+.services-page a:focus-visible,
+.services-page input:focus-visible,
+.services-page textarea:focus-visible,
+.services-page select:focus-visible {
+  outline: 2px solid #ffc400;
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .service-container {
+    width: min(100% - 36px, 1200px);
+  }
+
+  .services-grid-page {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .service-benefit-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .repair-request-layout {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .services-page-header {
+    padding: 45px 16px;
+  }
+
+  .services-header-content h1 {
+    font-size: 28px;
+  }
+
+  .services-header-content span {
+    font-size: 12px;
+    max-width: 500px;
+  }
+
+  .service-container {
+    width: calc(100% - 28px);
+  }
+
+
+  /* INTRO */
+
+  .service-intro-content {
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .service-intro-icon {
+    width: 48px;
+    height: 48px;
+
+    border-radius: 11px;
+
+    font-size: 21px;
+  }
+
+  .service-intro-content h2 {
+    font-size: 14px;
+  }
+
+  .service-intro-content p {
+    font-size: 9px;
+    line-height: 1.5;
+  }
+
+  .service-intro-content .service-note {
+    font-size: 8px;
+  }
+
+
+  /* TITLES */
+
+  .section-title-center {
+    margin-bottom: 25px;
+  }
+
+  .section-title-center p,
+  .section-title p {
+    font-size: 9px;
+  }
+
+  .section-title-center h2,
+  .section-title h2 {
+    font-size: 20px;
+  }
+
+
+  /* BENEFITS */
+
+  .service-benefit-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .service-benefit-card {
+    min-height: 175px;
+    padding: 18px 10px;
+    border-radius: 14px;
+  }
+
+  .service-benefit-card > i {
+    width: 46px;
+    height: 46px;
+
+    margin-bottom: 10px;
+
+    font-size: 21px;
+  }
+
+  .service-benefit-card h3 {
+    font-size: 11px;
+  }
+
+  .service-benefit-card p {
+    max-width: 145px;
+    font-size: 8px;
+    line-height: 1.5;
+  }
+
+
+  /* SERVICES */
+
+  .section-title {
+    align-items: flex-end;
+    gap: 10px;
+  }
+
+  .section-title > span {
+    font-size: 9px;
+  }
+
+  .services-grid-page {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .service-page-card {
+    padding: 15px 10px;
+    border-radius: 13px;
+  }
+
+  .service-page-icon {
+    width: 44px;
+    height: 44px;
+
+    margin-bottom: 12px;
+
+    border-radius: 10px;
+
+    font-size: 20px;
+  }
+
+  .service-page-card h3 {
+    font-size: 10px;
+    line-height: 1.35;
+  }
+
+  .service-page-card p {
+    min-height: 62px;
+
+    margin-bottom: 11px;
+
+    font-size: 8px;
+    line-height: 1.5;
+  }
+
+  .service-page-card button {
+    min-height: 38px;
+
+    padding: 0 5px;
+
+    border-radius: 8px;
+
+    font-size: 7px;
+  }
+
+
+  /* HOW IT WORKS */
+
+  .service-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .service-step {
+    min-height: 145px;
+    padding: 15px;
+  }
+
+  .step-number {
+    width: 35px;
+    height: 35px;
+
+    margin-bottom: 8px;
+
+    font-size: 10px;
+  }
+
+  .service-step > i {
+    margin-bottom: 7px;
+    font-size: 25px;
+  }
+
+  .service-step h3 {
+    font-size: 13px;
+  }
+
+  .service-step p {
+    font-size: 9px;
+  }
+
+  .step-line {
+    width: 2px;
+    height: 22px;
+  }
+
+
+  /* REPAIR */
+
+  .repair-request-layout {
+    gap: 25px;
+  }
+
+  .repair-request-info h2 {
+    font-size: 24px;
+  }
+
+  .repair-request-info > span {
+    font-size: 10px;
+  }
+
+  .repair-form {
+    padding: 20px 14px;
+    border-radius: 14px;
+  }
+
+  .repair-form h3 {
+    font-size: 17px;
+  }
+
+  .repair-form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .repair-field input,
+  .repair-field textarea,
+  .repair-field select {
+    min-height: 44px;
+    font-size: 11px;
+  }
+
+  .repair-field textarea {
+    min-height: 100px;
+  }
+
+  .repair-submit-button {
+    min-height: 47px;
+    font-size: 10px;
+  }
+
+
+  /* CTA */
+
+  .service-final-cta {
+    padding: 45px 16px;
+  }
+
+  .service-final-cta i.bi-shop {
+    font-size: 34px;
+  }
+
+  .service-final-cta h2 {
+    font-size: 21px;
+  }
+
+  .service-final-cta p {
+    font-size: 10px;
+  }
+
+  .service-final-cta a {
+    min-height: 43px;
+    padding: 0 17px;
+    font-size: 9px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 430px) {
+
+  .services-page-header {
+    padding: 38px 14px;
+  }
+
+  .services-header-content p {
+    font-size: 10px;
+  }
+
+  .services-header-content h1 {
+    font-size: 24px;
+  }
+
+  .services-header-content span {
+    font-size: 10px;
+  }
+
+  .service-container {
+    width: calc(100% - 22px);
+  }
+
+
+  .service-benefit-grid {
+    gap: 8px;
+  }
+
+  .service-benefit-card {
+    min-height: 165px;
+    padding: 15px 7px;
+  }
+
+  .service-benefit-card > i {
+    width: 43px;
+    height: 43px;
+
+    font-size: 20px;
+  }
+
+  .service-benefit-card h3 {
+    font-size: 10px;
+  }
+
+  .service-benefit-card p {
+    font-size: 7.5px;
+  }
+
+
+  .services-grid-page {
+    gap: 8px;
+  }
+
+  .service-page-card {
+    padding: 13px 8px;
+    border-radius: 12px;
+  }
+
+  .service-page-icon {
+    width: 41px;
+    height: 41px;
+
+    font-size: 19px;
+  }
+
+  .service-page-card h3 {
+    font-size: 9px;
+  }
+
+  .service-page-card p {
+    min-height: 60px;
+    font-size: 7.5px;
+  }
+
+  .service-page-card button {
+    min-height: 37px;
+    font-size: 6.8px;
+  }
+
+
+  .repair-form {
+    padding: 18px 11px;
+  }
+
+  .repair-form h3 {
+    font-size: 16px;
+  }
+
+  .repair-field label {
+    font-size: 10px;
+  }
+
+  .repair-field input,
+  .repair-field textarea,
+  .repair-field select {
+    font-size: 10px;
+  }
+
+  .repair-submit-button {
+    min-height: 44px;
+    font-size: 9px;
+  }
+
+
+  .service-final-cta h2 {
+    font-size: 19px;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 360px) {
+
+  .services-header-content h1 {
+    font-size: 22px;
+  }
+
+  .services-header-content span {
+    font-size: 9px;
+  }
+
+  .service-benefit-card {
+    min-height: 155px;
+  }
+
+  .service-benefit-card h3 {
+    font-size: 9px;
+  }
+
+  .service-benefit-card p {
+    font-size: 7px;
+  }
+
+  .service-page-card {
+    padding: 12px 7px;
+  }
+
+  .service-page-icon {
+    width: 39px;
+    height: 39px;
+    font-size: 18px;
+  }
+
+  .service-page-card h3 {
+    font-size: 8.5px;
+  }
+
+  .service-page-card p {
+    font-size: 7px;
+  }
+
+  .service-page-card button {
+    font-size: 6.5px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCE ANIMATIONS IF USER PREFERS
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .services-page *,
+  .services-page *::before,
+  .services-page *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+}
+/* =========================================================
+   REPAIR REQUEST - FINAL ALIGNMENT ONLY
+   DO NOT CHANGE OTHER SECTIONS
+========================================================= */
+
+/* Center the complete information section */
+.repair-request-info {
+  text-align: center;
+}
+
+/* Center the small heading */
+.repair-request-info > p {
+  text-align: center;
+}
+
+/* Center the main heading */
+.repair-request-info h2 {
+  max-width: none;
+  width: 100%;
+  text-align: center;
+}
+
+/* Center the description */
+.repair-request-info > span {
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+
+/* =========================================================
+   CONTACT DETAILS
+   CENTER THE WHOLE GROUP
+   KEEP ALL ICONS PERFECTLY ALIGNED
+========================================================= */
+
+.repair-contact-box {
+  width: max-content;
+  max-width: 100%;
+  margin: 27px auto 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 13px;
+}
+
+.repair-contact-box > div {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  gap: 13px;
+
+  text-align: left;
+}
+
+
+/* Keep every icon in the same column */
+.repair-contact-box i {
+  flex: 0 0 43px;
+
+  width: 43px;
+  height: 43px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.repair-contact-box span {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+
+/* =========================================================
+   MOBILE / TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .repair-request-info {
+    text-align: center;
+  }
+
+  .repair-request-info > p {
+    text-align: center;
+  }
+
+  .repair-request-info h2 {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .repair-request-info > span {
+    width: 100%;
+    max-width: 650px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    text-align: center;
+  }
+
+  /* Center the WHOLE contact group */
+  .repair-contact-box {
+    width: max-content;
+    max-width: calc(100% - 20px);
+
+    margin-left: auto;
+    margin-right: auto;
+
+    align-items: flex-start;
+  }
+
+  .repair-contact-box > div {
+    width: 100%;
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .repair-contact-box span {
+    text-align: left;
+  }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 430px) {
+
+  .repair-contact-box {
+    max-width: calc(100% - 10px);
+  }
+
+  .repair-contact-box > div {
+    gap: 12px;
+  }
+
+}
+.service-cta-logo {
+    width: 95px;
+    height: 95px;
+
+    display: block;
+    margin: 0 auto 28px;
+
+    object-fit: contain;
+
+    border-radius: 50%;
+
+    background: #050b16;
+
+    border: 4px solid #ffc400;
+
+    box-shadow:
+        0 0 0 6px #151b1f,
+        0 6px 15px rgba(0, 0, 0, 0.22);
+
+    padding: 7px;
+
+    box-sizing: border-box;
+}

@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --primary-yellow: #ffc400;
+  --bright-yellow: #ffd21a;
+  --dark-black: #05070a;
+  --dark-blue: #07111f;
+  --nav-blue: #0a111b;
+  --card-dark: #101722;
+  --white: #ffffff;
+  --light-gray: #f5f6f8;
+  --text-dark: #111827;
+  --text-gray: #6b7280;
+  --border-dark: #29313d;
+  --danger: #e53935;
+  --success: #16a34a;
+
+  --container-width: 1400px;
+
+  --radius-small: 6px;
+  --radius-medium: 10px;
+  --radius-large: 16px;
+
+  --shadow-card: 0 4px 18px rgba(0, 0, 0, 0.12);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", Arial, sans-serif;
+  background: var(--white);
+  color: var(--text-dark);
+  line-height: 1.5;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 18px;
+}
+
+.primary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--primary-yellow);
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 22px;
+  font-size: 14px;
+  font-weight: 700;
+  transition: 0.2s ease;
+}
+
+.primary-btn:hover {
+  background: var(--bright-yellow);
+  transform: translateY(-1px);
+}
+
+.dark-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--dark-black);
+  color: var(--white);
+  border: 1px solid #3a414c;
+  border-radius: 6px;
+  padding: 12px 22px;
+  font-size: 14px;
+  font-weight: 700;
+  transition: 0.2s ease;
+}
+
+.dark-btn:hover {
+  border-color: var(--primary-yellow);
+  color: var(--primary-yellow);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 14px;
+  }
+
+  .section-title {
+    font-size: 20px;
+  }
+}

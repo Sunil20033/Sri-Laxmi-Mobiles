@@ -1,0 +1,377 @@
+/* =========================================================
+   SRI LAXMI MOBILES
+   ORDER SUCCESS
+========================================================= */
+
+.order-success-page {
+  min-height: 100vh;
+
+  padding: 35px 20px 60px;
+
+  display: flex;
+
+  align-items: flex-start;
+  justify-content: center;
+
+  background: #f5f1e6;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   SUCCESS CARD
+========================================================= */
+
+.order-success-card {
+  width: 100%;
+
+  max-width: 720px;
+
+  padding: 35px;
+
+  background: #ffffff;
+
+  border: 1px solid #dedfe2;
+
+  border-radius: 15px;
+
+  text-align: center;
+
+  box-shadow:
+    0 5px 20px rgba(2, 8, 18, 0.06);
+
+  box-sizing: border-box;
+}
+
+
+
+/* =========================================================
+   SUCCESS ICON
+========================================================= */
+
+.order-success-icon {
+  width: 70px;
+  height: 70px;
+
+  margin: 0 auto 18px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: #07111f;
+
+  color: #ffc400;
+
+  font-size: 34px;
+
+  box-shadow:
+    0 4px 12px rgba(2, 8, 18, 0.15);
+}
+
+
+.order-success-icon i {
+  line-height: 1;
+}
+
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.order-success-brand {
+  margin: 0 0 7px;
+
+  color: #a87800;
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  letter-spacing: 1.5px;
+}
+
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.order-success-card h1 {
+  margin: 0;
+
+  color: #07111f;
+
+  font-size: 32px;
+
+  line-height: 1.2;
+
+  font-weight: 900;
+}
+
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+.order-success-message {
+  max-width: 520px;
+
+  margin: 12px auto 25px;
+
+  color: #69717d;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+
+
+/* =========================================================
+   ORDER DETAILS
+========================================================= */
+
+.order-success-details {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 1px;
+
+  margin-bottom: 22px;
+
+  overflow: hidden;
+
+  background: #e5e6e8;
+
+  border: 1px solid #e5e6e8;
+
+  border-radius: 10px;
+}
+
+
+.order-success-details > div {
+  min-height: 78px;
+
+  padding: 15px 10px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background: #f8f8f9;
+
+  box-sizing: border-box;
+}
+
+
+.order-success-details span {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: #7b838d;
+
+  font-size: 9px;
+
+  font-weight: 900;
+
+  letter-spacing: 0.8px;
+}
+
+
+.order-success-details strong {
+  color: #07111f;
+
+  font-size: 15px;
+
+  font-weight: 900;
+}
+
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.order-success-details > div:last-child strong {
+  color: #168a45;
+
+  text-transform: capitalize;
+}
+
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.order-success-actions {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  flex-wrap: wrap;
+}
+
+
+.order-success-shopping,
+.order-success-home {
+  min-height: 45px;
+
+  padding: 0 18px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  border-radius: 7px;
+
+  font-size: 9px;
+
+  font-weight: 900;
+
+  text-decoration: none;
+
+  box-sizing: border-box;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+.order-success-shopping {
+  border: 1px solid #ffc400;
+
+  background: #ffc400;
+
+  color: #07111f;
+}
+
+
+.order-success-shopping:hover {
+  background: #eab300;
+
+  border-color: #eab300;
+}
+
+
+.order-success-home {
+  border: 1px solid #d5d9de;
+
+  background: #ffffff;
+
+  color: #07111f;
+}
+
+
+.order-success-home:hover {
+  background: #f5f6f7;
+
+  border-color: #c6cbd1;
+}
+
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .order-success-page {
+    padding: 20px 12px 45px;
+  }
+
+
+  .order-success-card {
+    padding: 26px 18px;
+
+    border-radius: 13px;
+  }
+
+
+  .order-success-icon {
+    width: 60px;
+    height: 60px;
+
+    margin-bottom: 15px;
+
+    font-size: 29px;
+  }
+
+
+  .order-success-brand {
+    font-size: 9px;
+  }
+
+
+  .order-success-card h1 {
+    font-size: 26px;
+  }
+
+
+  .order-success-message {
+    margin-top: 10px;
+
+    font-size: 12px;
+  }
+
+
+  .order-success-details {
+    grid-template-columns: 1fr;
+
+    gap: 0;
+  }
+
+
+  .order-success-details > div {
+    min-height: 65px;
+
+    padding: 12px 15px;
+
+    align-items: flex-start;
+
+    text-align: left;
+  }
+
+
+  .order-success-details strong {
+    font-size: 13px;
+  }
+
+
+  .order-success-actions {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+
+  .order-success-shopping,
+  .order-success-home {
+    width: 100%;
+  }
+
+}

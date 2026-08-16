@@ -1,0 +1,351 @@
+/* =========================================================
+   SRI LAXMI MOBILES
+   CUSTOMER LOGIN / REGISTER
+========================================================= */
+
+.customer-auth-page {
+  min-height: 100vh;
+
+  padding: 30px 20px 60px;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: center;
+
+  background: #f5f1e6;
+
+  box-sizing: border-box;
+}
+
+
+.customer-auth-card {
+  width: 100%;
+
+  max-width: 520px;
+
+  padding: 30px;
+
+  background: #ffffff;
+
+  border: 1px solid #dedfe2;
+
+  border-radius: 15px;
+
+  box-shadow:
+    0 5px 20px rgba(2, 8, 18, 0.06);
+
+  box-sizing: border-box;
+
+  text-align: center;
+}
+
+
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.customer-auth-icon {
+  width: 64px;
+  height: 64px;
+
+  margin: 0 auto 16px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: #07111f;
+
+  color: #ffc400;
+
+  font-size: 27px;
+
+  box-shadow:
+    0 4px 12px rgba(2, 8, 18, 0.15);
+}
+
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.customer-auth-brand {
+  margin: 0 0 6px;
+
+  color: #a87800;
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  letter-spacing: 1.5px;
+}
+
+
+.customer-auth-card h1 {
+  margin: 0 0 7px;
+
+  color: #07111f;
+
+  font-size: 29px;
+
+  line-height: 1.2;
+
+  font-weight: 900;
+}
+
+
+.customer-auth-subtitle {
+  margin: 0 0 25px;
+
+  color: #747d87;
+
+  font-size: 13px;
+
+  line-height: 1.5;
+}
+
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.customer-auth-form {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 7px;
+
+  text-align: left;
+}
+
+
+.customer-auth-form label {
+  margin-top: 8px;
+
+  color: #07111f;
+
+  font-size: 10px;
+
+  font-weight: 900;
+}
+
+
+.customer-auth-form input {
+  width: 100%;
+
+  height: 47px;
+
+  padding: 0 13px;
+
+  border: 1px solid #d3d8dd;
+
+  border-radius: 8px;
+
+  outline: none;
+
+  background: #ffffff;
+
+  color: #07111f;
+
+  font-family: inherit;
+
+  font-size: 13px;
+
+  box-sizing: border-box;
+
+  transition:
+    border-color .2s ease,
+    box-shadow .2s ease;
+}
+
+
+.customer-auth-form input::placeholder {
+  color: #87909a;
+}
+
+
+.customer-auth-form input:focus {
+  border-color: #ffc400;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(255, 196, 0, .12);
+}
+
+
+
+/* =========================================================
+   SUBMIT
+========================================================= */
+
+.customer-auth-form button {
+  width: 100%;
+
+  height: 48px;
+
+  margin-top: 15px;
+
+  border: 1px solid #ffc400;
+
+  border-radius: 8px;
+
+  background: #ffc400;
+
+  color: #07111f;
+
+  font-family: inherit;
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  cursor: pointer;
+
+  transition:
+    background .2s ease,
+    transform .15s ease;
+}
+
+
+.customer-auth-form button:hover {
+  background: #eab300;
+}
+
+
+.customer-auth-form button:active {
+  transform: translateY(1px);
+}
+
+
+.customer-auth-form button:disabled {
+  opacity: .6;
+
+  cursor: not-allowed;
+}
+
+
+
+/* =========================================================
+   SWITCH LOGIN / REGISTER
+========================================================= */
+
+.customer-auth-switch {
+  margin: 22px 0 13px;
+
+  color: #777777;
+
+  font-size: 11px;
+
+  text-align: center;
+}
+
+
+.customer-auth-switch a {
+  color: #07111f;
+
+  font-weight: 900;
+
+  text-decoration: none;
+}
+
+
+.customer-auth-switch a:hover {
+  color: #a87800;
+}
+
+
+
+/* =========================================================
+   BACK TO STORE
+========================================================= */
+
+.customer-auth-back {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  color: #68717c;
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  text-decoration: none;
+}
+
+
+.customer-auth-back:hover {
+  color: #07111f;
+}
+
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .customer-auth-page {
+    padding: 18px 12px 45px;
+  }
+
+
+  .customer-auth-card {
+    max-width: 100%;
+
+    padding: 24px 20px;
+
+    border-radius: 14px;
+  }
+
+
+  .customer-auth-icon {
+    width: 58px;
+    height: 58px;
+
+    font-size: 24px;
+
+    margin-bottom: 14px;
+  }
+
+
+  .customer-auth-card h1 {
+    font-size: 26px;
+  }
+
+
+  .customer-auth-subtitle {
+    font-size: 12px;
+
+    margin-bottom: 21px;
+  }
+
+
+  .customer-auth-form input {
+    height: 46px;
+
+    font-size: 13px;
+  }
+
+
+  .customer-auth-form button {
+    height: 48px;
+  }
+
+}

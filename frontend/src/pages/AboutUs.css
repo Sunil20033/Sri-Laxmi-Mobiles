@@ -1,0 +1,1751 @@
+/* =========================================================
+   ABOUT US PAGE
+========================================================= */
+
+.about-page {
+  width: 100%;
+  min-height: 100vh;
+
+  background: #f8f3df;
+  color: #111722;
+
+  overflow-x: hidden;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.about-container {
+  width: 100%;
+  max-width: 1100px;
+
+  margin: 0 auto;
+  padding: 0 24px;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.about-hero {
+  position: relative;
+
+  width: 100%;
+  min-height: 390px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      #14223b 0%,
+      #080f1c 48%,
+      #030810 100%
+    );
+
+  border-bottom: 3px solid #ffc400;
+}
+
+
+.about-hero::before {
+  content: "";
+
+  position: absolute;
+
+  width: 360px;
+  height: 360px;
+
+  top: -170px;
+  right: -80px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 196, 0, 0.07);
+}
+
+
+.about-hero::after {
+  content: "";
+
+  position: absolute;
+
+  width: 280px;
+  height: 280px;
+
+  bottom: -170px;
+  left: -70px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 196, 0, 0.05);
+}
+
+
+.about-hero-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(3, 8, 16, 0.2),
+      rgba(3, 8, 16, 0.75)
+    );
+}
+
+
+.about-hero-content {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 850px;
+
+  padding: 60px 24px;
+
+  box-sizing: border-box;
+
+  text-align: center;
+}
+
+
+.about-eyebrow {
+  display: block;
+
+  margin-bottom: 12px;
+
+  color: #ffc400;
+
+  font-size: 15px;
+  font-weight: 900;
+
+  letter-spacing: 2px;
+}
+
+
+.about-hero h1 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 52px;
+  line-height: 1.05;
+
+  font-weight: 900;
+}
+
+
+.about-hero h1 span {
+  color: #ffc400;
+}
+
+
+.about-hero-content > p {
+  max-width: 650px;
+
+  margin: 18px auto 0;
+
+  color: #d6dbe4;
+
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.about-hero-actions,
+.about-contact-actions {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  flex-wrap: wrap;
+}
+
+
+.about-hero-actions {
+  margin-top: 28px;
+}
+
+
+.about-primary-button,
+.about-secondary-button {
+  min-width: 165px;
+
+  padding: 13px 22px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  box-sizing: border-box;
+
+  border-radius: 7px;
+
+  font-size: 12px;
+  font-weight: 900;
+
+  text-decoration: none;
+
+  transition: 0.2s ease;
+}
+
+
+.about-primary-button {
+  background: #ffc400;
+
+  color: #000000;
+
+  border: 1px solid #ffc400;
+}
+
+
+.about-secondary-button {
+  background: transparent;
+
+  color: #ffffff;
+
+  border: 1px solid #ffffff;
+}
+
+
+.about-primary-button:hover,
+.about-secondary-button:hover {
+  transform: translateY(-2px);
+}
+
+
+.about-primary-button:hover {
+  background: #ffd329;
+
+  color: #000;
+}
+
+
+.about-secondary-button:hover {
+  background: #ffffff;
+
+  color: #050a13;
+}
+
+
+/* =========================================================
+   COMMON HEADINGS
+========================================================= */
+
+.about-section-label {
+  display: inline-block;
+
+  color: #c89600;
+
+  font-size: 12px;
+  font-weight: 900;
+
+  letter-spacing: 1.5px;
+}
+
+
+.about-heading {
+  max-width: 750px;
+
+  margin: 0 auto 35px;
+
+  text-align: center;
+}
+
+
+.about-heading h2 {
+  margin: 9px 0 12px;
+
+  font-size: 34px;
+
+  line-height: 1.15;
+
+  font-weight: 900;
+}
+
+
+.about-heading h2 span {
+  color: #d39d00;
+}
+
+
+.about-heading p {
+  margin: 0;
+
+  color: #666b73;
+
+  font-size: 13px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.about-intro-section {
+  padding: 65px 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fffbea,
+      #f8f1d9
+    );
+}
+
+
+.about-intro-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.25fr)
+    minmax(330px, 0.75fr);
+
+  gap: 55px;
+
+  align-items: center;
+}
+
+
+.about-intro-content h2 {
+  margin: 9px 0 17px;
+
+  color: #111722;
+
+  font-size: 34px;
+
+  line-height: 1.15;
+
+  font-weight: 900;
+}
+
+
+.about-intro-content h2 span {
+  color: #d09a00;
+}
+
+
+.about-intro-content p {
+  max-width: 690px;
+
+  margin: 0 0 14px;
+
+  color: #626873;
+
+  font-size: 14px;
+
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   OWNER + HOURS
+========================================================= */
+
+.about-owner-box,
+.about-hours-box {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-top: 15px;
+  margin-right: 8px;
+
+  padding: 11px 15px;
+
+  background: rgba(255,255,255,0.75);
+
+  border: 1px solid #e5dcb9;
+
+  border-radius: 8px;
+}
+
+
+.about-owner-icon,
+.about-hours-icon {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #ffc400;
+
+  color: #050a13;
+
+  font-size: 16px;
+}
+
+
+.about-owner-box span,
+.about-hours-box span {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: #9b7600;
+
+  font-size: 9px;
+
+  font-weight: 900;
+
+  letter-spacing: 1px;
+}
+
+
+.about-owner-box strong,
+.about-hours-box strong {
+  display: block;
+
+  color: #111722;
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   DARK SHOP CARD
+========================================================= */
+
+.about-intro-card {
+  position: relative;
+
+  min-height: 370px;
+
+  padding: 40px 30px;
+
+  box-sizing: border-box;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at center,
+      #101a2d 0%,
+      #060b15 58%,
+      #02050a 100%
+    );
+
+  border: 2px solid #ffc400;
+
+  border-radius: 18px;
+
+  color: #ffffff;
+
+  box-shadow:
+    0 15px 40px rgba(0,0,0,0.2);
+}
+
+
+.about-card-glow {
+  position: absolute;
+
+  width: 240px;
+  height: 240px;
+
+  top: -120px;
+  right: -100px;
+
+  border-radius: 50%;
+
+  background: rgba(255,196,0,0.08);
+}
+
+
+.about-shop-icon {
+  position: relative;
+  z-index: 2;
+
+  width: 90px;
+  height: 90px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  color: #050a13;
+
+  font-size: 40px;
+}
+
+
+.about-card-small {
+  position: relative;
+  z-index: 2;
+
+  margin-top: 22px;
+
+  color: #ffc400;
+
+  font-size: 14px;
+
+  font-weight: 900;
+
+  letter-spacing: 2px;
+}
+
+
+.about-intro-card h3 {
+  position: relative;
+  z-index: 2;
+
+  margin: 2px 0 0;
+
+  color: #ffffff;
+
+  font-size: 34px;
+
+  font-weight: 900;
+
+  letter-spacing: 2px;
+}
+
+
+.about-intro-card p {
+  position: relative;
+  z-index: 2;
+
+  margin: 8px 0 0;
+
+  color: #c7ccd5;
+
+  font-size: 12px;
+}
+
+
+.about-card-divider {
+  position: relative;
+  z-index: 2;
+
+  width: 70px;
+  height: 2px;
+
+  margin: 19px 0;
+
+  background: #ffc400;
+}
+
+
+.about-card-services {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: 25px;
+}
+
+
+.about-card-services span {
+  color: #ffffff;
+
+  font-size: 10px;
+
+  font-weight: 800;
+}
+
+
+.about-card-services i {
+  margin-right: 5px;
+
+  color: #ffc400;
+}
+
+
+.about-card-trusted {
+  position: relative;
+  z-index: 2;
+
+  color: #ffffff;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+}
+
+
+/* =========================================================
+   PRODUCTS
+========================================================= */
+
+.about-products-section {
+  padding: 65px 0;
+
+  background: #f8f3df;
+}
+
+
+.about-product-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 15px;
+}
+
+
+.about-product-card {
+  min-height: 190px;
+
+  padding: 25px;
+
+  display: flex;
+
+  gap: 18px;
+
+  box-sizing: border-box;
+
+  background: #fffaf0;
+
+  border: 1px solid #e5dbb8;
+
+  border-radius: 12px;
+
+  box-shadow:
+    0 7px 22px rgba(72, 58, 10, 0.06);
+
+  transition: 0.2s ease;
+}
+
+
+.about-product-card:hover {
+  transform: translateY(-4px);
+
+  border-color: #ffc400;
+
+  box-shadow:
+    0 12px 28px rgba(72,58,10,0.12);
+}
+
+
+.about-product-icon {
+  width: 55px;
+  height: 55px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: #ffc400;
+
+  color: #050a13;
+
+  font-size: 24px;
+}
+
+
+.about-product-card span {
+  color: #c49a12;
+
+  font-size: 10px;
+
+  font-weight: 900;
+}
+
+
+.about-product-card h3 {
+  margin: 5px 0 8px;
+
+  color: #111722;
+
+  font-size: 15px;
+
+  font-weight: 900;
+}
+
+
+.about-product-card p {
+  margin: 0;
+
+  color: #747a83;
+
+  font-size: 11px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   WHY CHOOSE US
+========================================================= */
+
+.about-why-section {
+  padding: 65px 0;
+
+  background: #030810;
+
+  color: #ffffff;
+
+  border-top: 1px solid #182131;
+}
+
+
+.about-why-section .about-heading h2 {
+  color: #ffffff;
+}
+
+
+.about-why-section .about-heading h2 span {
+  color: #ffc400;
+}
+
+
+.about-why-section .about-heading p {
+  color: #aeb6c3;
+}
+
+
+.about-feature-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 15px;
+}
+
+
+.about-feature-card {
+  min-height: 215px;
+
+  padding: 28px 18px;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      145deg,
+      #0c1422,
+      #050a12
+    );
+
+  border: 1px solid #202b3b;
+
+  border-radius: 10px;
+
+  transition: 0.2s ease;
+}
+
+
+.about-feature-card:hover {
+  transform: translateY(-4px);
+
+  border-color: #ffc400;
+
+  box-shadow:
+    0 12px 30px rgba(0,0,0,0.35);
+}
+
+
+.about-feature-icon {
+  width: 62px;
+  height: 62px;
+
+  margin: 0 auto;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #ffc400;
+
+  color: #050a13;
+
+  font-size: 27px;
+}
+
+
+.about-feature-card h3 {
+  margin: 18px 0 8px;
+
+  color: #ffffff;
+
+  font-size: 15px;
+}
+
+
+.about-feature-card p {
+  margin: 0;
+
+  color: #9da6b4;
+
+  font-size: 11px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   SOCIAL
+========================================================= */
+
+.about-social-section {
+  padding: 60px 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fffbea,
+      #f8f1d9
+    );
+}
+
+
+.about-social-card {
+  padding: 40px;
+
+  background: #fffaf0;
+
+  border: 1px solid #e4d9b4;
+
+  border-radius: 15px;
+
+  box-shadow:
+    0 10px 30px rgba(70,55,0,0.07);
+}
+
+
+.about-social-heading {
+  text-align: center;
+
+  margin-bottom: 28px;
+}
+
+
+.about-social-heading h2 {
+  margin: 9px 0 0;
+
+  color: #111722;
+
+  font-size: 30px;
+
+  font-weight: 900;
+}
+
+
+.about-social-heading h2 span {
+  color: #d09a00;
+}
+
+
+.about-social-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 12px;
+}
+
+
+.about-social-item {
+  min-height: 82px;
+
+  padding: 15px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+
+  border: 1px solid #e2dfd1;
+
+  border-radius: 9px;
+
+  color: #111722;
+
+  text-decoration: none;
+
+  transition: 0.2s ease;
+}
+
+
+.about-social-item:hover {
+  transform: translateY(-3px);
+
+  border-color: #ffc400;
+}
+
+
+.about-social-item > i:first-child {
+  font-size: 25px;
+
+  color: #d19b00;
+}
+
+
+.about-social-item div {
+  flex: 1;
+}
+
+
+.about-social-item strong,
+.about-social-item span {
+  display: block;
+}
+
+
+.about-social-item strong {
+  font-size: 12px;
+}
+
+
+.about-social-item span {
+  margin-top: 3px;
+
+  color: #777;
+
+  font-size: 10px;
+}
+
+
+.about-social-item > i:last-child {
+  font-size: 13px;
+
+  color: #c99a00;
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.about-contact-section {
+  padding: 65px 20px;
+
+  background: #030810;
+}
+
+
+.about-contact-card {
+  width: 100%;
+  max-width: 850px;
+
+  margin: 0 auto;
+
+  padding: 45px 35px;
+
+  text-align: center;
+
+  box-sizing: border-box;
+
+  background:
+    radial-gradient(
+      circle at center,
+      #111c30 0%,
+      #060b15 60%,
+      #02050a 100%
+    );
+
+  border: 1px solid #ffc400;
+
+  border-radius: 16px;
+}
+
+
+.about-contact-card h2 {
+  margin: 10px 0;
+
+  color: #ffffff;
+
+  font-size: 31px;
+
+  font-weight: 900;
+}
+
+
+.about-contact-card > p {
+  max-width: 600px;
+
+  margin: 0 auto;
+
+  color: #b8c0cc;
+
+  font-size: 13px;
+
+  line-height: 1.7;
+}
+
+
+.about-contact-details {
+  margin: 25px auto;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  flex-wrap: wrap;
+}
+
+
+.about-contact-item {
+  min-height: 45px;
+
+  padding: 10px 16px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  border-radius: 6px;
+
+  background: rgba(255,255,255,0.05);
+
+  border: 1px solid #263142;
+
+  color: #ffffff;
+
+  font-size: 11px;
+
+  text-decoration: none;
+}
+
+
+.about-contact-item i {
+  color: #ffc400;
+
+  font-size: 15px;
+}
+
+
+/* =========================================================
+   FINAL LOCATION
+========================================================= */
+
+.about-location-section {
+  padding: 70px 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fffbea,
+      #f5edcf
+    );
+}
+
+
+.about-location-card {
+  display: grid;
+
+  grid-template-columns:
+    1.15fr
+    0.85fr;
+
+  overflow: hidden;
+
+  background: #fffaf0;
+
+  border: 1px solid #e0d5ae;
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 15px 40px rgba(65,52,0,0.12);
+}
+
+
+.about-location-content {
+  padding: 45px;
+}
+
+
+.about-location-content h2 {
+  margin: 9px 0 14px;
+
+  color: #111722;
+
+  font-size: 34px;
+
+  line-height: 1.15;
+
+  font-weight: 900;
+}
+
+
+.about-location-content h2 span {
+  color: #d09a00;
+}
+
+
+.about-location-content > p {
+  max-width: 550px;
+
+  margin: 0;
+
+  color: #6c727a;
+
+  font-size: 13px;
+
+  line-height: 1.7;
+}
+
+
+/* ADDRESS */
+
+.about-full-address {
+  margin-top: 25px;
+
+  padding: 17px;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 13px;
+
+  background: #fff5c7;
+
+  border: 1px solid #eadb9e;
+
+  border-left: 4px solid #ffc400;
+
+  border-radius: 8px;
+}
+
+
+.about-full-address > i {
+  color: #d09b00;
+
+  font-size: 22px;
+}
+
+
+.about-full-address strong,
+.about-full-address span {
+  display: block;
+}
+
+
+.about-full-address strong {
+  margin-bottom: 5px;
+
+  color: #111722;
+
+  font-size: 13px;
+}
+
+
+.about-full-address span {
+  color: #646b73;
+
+  font-size: 11px;
+
+  line-height: 1.6;
+}
+
+
+/* LOCATION INFO */
+
+.about-location-info {
+  margin-top: 15px;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 10px;
+}
+
+
+.about-location-info > div {
+  padding: 13px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  background: #ffffff;
+
+  border: 1px solid #e3dfd0;
+
+  border-radius: 7px;
+}
+
+
+.about-location-info i {
+  color: #d09b00;
+
+  font-size: 17px;
+}
+
+
+.about-location-info span {
+  color: #6d7279;
+
+  font-size: 10px;
+}
+
+
+.about-location-info strong {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: #111722;
+
+  font-size: 8px;
+
+  letter-spacing: 0.8px;
+}
+
+
+/* MAP BUTTON */
+
+.about-map-button {
+  width: 100%;
+
+  margin-top: 18px;
+
+  padding: 15px 20px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  box-sizing: border-box;
+
+  background: #ffc400;
+
+  border: 1px solid #ffc400;
+
+  border-radius: 7px;
+
+  color: #000000;
+
+  font-size: 12px;
+
+  font-weight: 900;
+
+  text-decoration: none;
+
+  transition: 0.2s ease;
+}
+
+
+.about-map-button:hover {
+  transform: translateY(-2px);
+
+  background: #ffd329;
+
+  color: #000;
+}
+
+
+/* MAP VISUAL */
+
+.about-map-visual {
+  min-height: 430px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background:
+    radial-gradient(
+      circle at center,
+      #182944 0%,
+      #091321 50%,
+      #030810 100%
+    );
+
+  border-left: 1px solid #d9cda7;
+}
+
+
+.about-map-pattern {
+  width: 80%;
+  height: 75%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  border: 1px dashed #53647b;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,196,0,0.08),
+      transparent 65%
+    );
+}
+
+
+.about-map-pin {
+  width: 78px;
+  height: 78px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #ffc400;
+
+  color: #050a13;
+
+  font-size: 34px;
+
+  box-shadow:
+    0 0 0 12px rgba(255,196,0,0.08),
+    0 0 0 24px rgba(255,196,0,0.04);
+}
+
+
+.about-map-pattern > span {
+  margin-top: 28px;
+
+  color: #ffffff;
+
+  font-size: 18px;
+
+  font-weight: 900;
+
+  letter-spacing: 2px;
+}
+
+
+.about-map-pattern small {
+  margin-top: 7px;
+
+  color: #9ca8b8;
+
+  font-size: 9px;
+
+  letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 950px) {
+
+  .about-intro-grid {
+    grid-template-columns: 1fr;
+
+    gap: 35px;
+  }
+
+
+  .about-intro-content {
+    text-align: center;
+  }
+
+
+  .about-owner-box,
+  .about-hours-box {
+    text-align: left;
+  }
+
+
+  .about-intro-card {
+    max-width: 500px;
+
+    width: 100%;
+
+    margin: 0 auto;
+  }
+
+
+  .about-feature-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+
+  .about-product-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .about-social-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .about-location-card {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .about-map-visual {
+    min-height: 300px;
+
+    border-left: none;
+
+    border-top: 1px solid #d9cda7;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .about-container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+
+  .about-hero {
+    min-height: 340px;
+  }
+
+
+  .about-hero-content {
+    padding: 50px 18px;
+  }
+
+
+  .about-eyebrow {
+    font-size: 11px;
+
+    letter-spacing: 1.5px;
+  }
+
+
+  .about-hero h1 {
+    font-size: 39px;
+  }
+
+
+  .about-hero-content > p {
+    font-size: 13px;
+  }
+
+
+  .about-intro-section,
+  .about-products-section,
+  .about-social-section,
+  .about-location-section {
+    padding: 45px 0;
+  }
+
+
+  .about-intro-content h2,
+  .about-heading h2,
+  .about-location-content h2 {
+    font-size: 27px;
+  }
+
+
+  .about-intro-content p {
+    font-size: 12px;
+  }
+
+
+  .about-owner-box,
+  .about-hours-box {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    margin-right: 0;
+  }
+
+
+  .about-intro-card {
+    min-height: 315px;
+
+    padding: 30px 20px;
+
+    border-radius: 14px;
+  }
+
+
+  .about-shop-icon {
+    width: 75px;
+    height: 75px;
+
+    font-size: 32px;
+  }
+
+
+  .about-intro-card h3 {
+    font-size: 29px;
+  }
+
+
+  .about-card-services {
+    gap: 15px;
+  }
+
+
+  .about-feature-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+
+    gap: 10px;
+  }
+
+
+  .about-feature-card {
+    min-height: 190px;
+
+    padding: 22px 10px;
+  }
+
+
+  .about-feature-icon {
+    width: 52px;
+    height: 52px;
+
+    font-size: 22px;
+  }
+
+
+  .about-feature-card h3 {
+    margin-top: 13px;
+
+    font-size: 12px;
+  }
+
+
+  .about-feature-card p {
+    font-size: 9px;
+  }
+
+
+  .about-product-card {
+    min-height: 155px;
+
+    padding: 20px;
+  }
+
+
+  .about-social-card {
+    padding: 28px 15px;
+  }
+
+
+  .about-social-heading h2 {
+    font-size: 26px;
+  }
+
+
+  .about-contact-section {
+    padding: 45px 14px;
+  }
+
+
+  .about-contact-card {
+    padding: 35px 18px;
+
+    border-radius: 13px;
+  }
+
+
+  .about-contact-card h2 {
+    font-size: 25px;
+  }
+
+
+  .about-contact-details {
+    flex-direction: column;
+
+    width: 100%;
+  }
+
+
+  .about-contact-item {
+    width: 100%;
+
+    justify-content: center;
+  }
+
+
+  .about-location-content {
+    padding: 30px 20px;
+  }
+
+
+  .about-location-info {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .about-map-visual {
+    min-height: 260px;
+  }
+
+
+  .about-map-pattern {
+    width: 75%;
+    height: 75%;
+  }
+
+
+  .about-map-pin {
+    width: 65px;
+    height: 65px;
+
+    font-size: 28px;
+  }
+
+
+  .about-map-pattern > span {
+    font-size: 15px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 430px) {
+
+  .about-hero {
+    min-height: 315px;
+  }
+
+
+  .about-hero h1 {
+    font-size: 34px;
+  }
+
+
+  .about-primary-button,
+  .about-secondary-button {
+    min-width: 130px;
+
+    padding: 10px 12px;
+
+    font-size: 9px;
+  }
+
+
+  .about-intro-content h2,
+  .about-heading h2,
+  .about-location-content h2 {
+    font-size: 24px;
+  }
+
+
+  .about-feature-card {
+    min-height: 180px;
+
+    padding: 18px 7px;
+  }
+
+
+  .about-feature-icon {
+    width: 47px;
+    height: 47px;
+
+    font-size: 20px;
+  }
+
+
+  .about-feature-card h3 {
+    font-size: 11px;
+  }
+
+
+  .about-feature-card p {
+    font-size: 8px;
+  }
+
+
+  .about-location-content {
+    padding: 25px 15px;
+  }
+
+
+  .about-map-visual {
+    min-height: 230px;
+  }
+
+}

@@ -1,0 +1,1135 @@
+/* =========================================================
+   ADMIN DASHBOARD
+   SRI LAXMI MOBILES — MODERN ADMIN DESIGN
+========================================================= */
+
+.admin-dashboard-page {
+  min-height: 100vh;
+
+  padding: 35px 24px 60px;
+
+  box-sizing: border-box;
+
+  background:
+    radial-gradient(
+      circle at 5% 5%,
+      rgba(255, 196, 0, 0.08),
+      transparent 20%
+    ),
+    #f5f1e6;
+
+  color: #111827;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.admin-dashboard-heading {
+  position: relative;
+
+  max-width: 1200px;
+
+  margin: 0 auto 25px;
+
+  padding: 35px 30px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 5% 20%,
+      rgba(255, 196, 0, 0.08),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 95% 80%,
+      rgba(255, 196, 0, 0.07),
+      transparent 25%
+    ),
+    #07111f;
+
+  color: #ffffff;
+
+  border-radius: 22px;
+
+  border-bottom: 4px solid #ffc400;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.10);
+}
+
+
+.admin-dashboard-heading::before {
+  content: "";
+
+  position: absolute;
+
+  width: 260px;
+  height: 260px;
+
+  left: -145px;
+  top: -155px;
+
+  border: 1px solid rgba(255, 196, 0, 0.22);
+
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+
+.admin-dashboard-heading::after {
+  content: "";
+
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  right: -170px;
+  bottom: -190px;
+
+  border: 1px solid rgba(255, 196, 0, 0.18);
+
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+
+.admin-dashboard-heading > div {
+  position: relative;
+
+  z-index: 2;
+}
+
+
+.admin-dashboard-heading p {
+  margin: 0 0 7px;
+
+  color: #ffc400;
+
+  font-size: 12px;
+
+  font-weight: 900;
+
+  letter-spacing: 1.8px;
+}
+
+
+.admin-dashboard-heading h1 {
+  margin: 0 0 6px;
+
+  color: #ffffff;
+
+  font-size: 34px;
+
+  line-height: 1.2;
+
+  font-weight: 900;
+}
+
+
+.admin-dashboard-heading span {
+  color: #b9c6d6;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   REFRESH
+========================================================= */
+
+.admin-dashboard-refresh {
+  position: relative;
+
+  z-index: 2;
+
+  min-height: 44px;
+
+  padding: 0 18px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  border: 1px solid #3a4656;
+
+  border-radius: 7px;
+
+  background: rgba(255,255,255,0.03);
+
+  color: #ffffff;
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+
+.admin-dashboard-refresh:hover {
+  border-color: #ffc400;
+
+  color: #ffc400;
+
+  transform: translateY(-1px);
+}
+
+
+.admin-dashboard-refresh i {
+  margin-right: 0;
+}
+
+
+/* =========================================================
+   PRIMARY STATISTICS
+========================================================= */
+
+.admin-dashboard-stats {
+  max-width: 1200px;
+
+  margin: 0 auto 28px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 16px;
+}
+
+
+.admin-stat-card {
+  position: relative;
+
+  min-height: 130px;
+
+  padding: 22px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 16px;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border: 1px solid #e0e1e3;
+
+  border-radius: 15px;
+
+  color: #111111;
+
+  text-decoration: none;
+
+  box-shadow:
+    0 5px 18px rgba(0,0,0,0.05);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+.admin-stat-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 100px;
+  height: 100px;
+
+  right: -50px;
+  bottom: -55px;
+
+  border: 1px solid rgba(255,196,0,0.18);
+
+  border-radius: 50%;
+}
+
+
+.admin-stat-card:hover {
+  transform: translateY(-3px);
+
+  border-color: rgba(255,196,0,0.65);
+
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.08);
+}
+
+
+.admin-stat-icon {
+  width: 56px;
+  height: 56px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: #ffc400;
+
+  color: #07111f;
+
+  font-size: 23px;
+}
+
+
+.admin-stat-card > div:last-child {
+  position: relative;
+
+  z-index: 2;
+
+  display: flex;
+
+  flex-direction: column;
+}
+
+
+.admin-stat-card span {
+  color: #7d858f;
+
+  font-size: 9px;
+
+  font-weight: 900;
+
+  letter-spacing: 0.8px;
+}
+
+
+.admin-stat-card strong {
+  margin: 4px 0;
+
+  color: #07111f;
+
+  font-size: 28px;
+
+  line-height: 1;
+
+  font-weight: 900;
+}
+
+
+.admin-stat-card small {
+  color: #9aa1aa;
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   SECONDARY STATISTICS
+========================================================= */
+
+.admin-dashboard-secondary-stats {
+  max-width: 1200px;
+
+  margin: 0 auto 30px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(5, 1fr);
+
+  gap: 13px;
+}
+
+
+.admin-secondary-stat-card {
+  min-height: 78px;
+
+  padding: 14px 16px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+
+  border: 1px solid #e2e3e5;
+
+  border-radius: 12px;
+
+  color: #111111;
+
+  text-decoration: none;
+
+  box-shadow:
+    0 4px 13px rgba(0,0,0,0.04);
+
+  transition: 0.2s ease;
+}
+
+
+.admin-secondary-stat-card:hover {
+  transform: translateY(-2px);
+
+  border-color: rgba(255,196,0,0.55);
+}
+
+
+.admin-secondary-stat-card > i {
+  color: #ffc400;
+
+  font-size: 21px;
+}
+
+
+.admin-secondary-stat-card > div {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+
+.admin-secondary-stat-card span {
+  color: #8a919a;
+
+  font-size: 8px;
+
+  font-weight: 900;
+
+  letter-spacing: 0.6px;
+}
+
+
+.admin-secondary-stat-card strong {
+  color: #07111f;
+
+  font-size: 20px;
+
+  font-weight: 900;
+}
+
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.admin-dashboard-section-heading {
+  max-width: 1200px;
+
+  margin: 0 auto 15px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+
+.admin-dashboard-section-heading h2 {
+  margin: 0 0 4px;
+
+  color: #07111f;
+
+  font-size: 20px;
+
+  font-weight: 900;
+}
+
+
+.admin-dashboard-section-heading p {
+  margin: 0;
+
+  color: #7d858f;
+
+  font-size: 12px;
+}
+
+
+.admin-dashboard-section-heading > a {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  color: #596575;
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  text-decoration: none;
+}
+
+
+.admin-dashboard-section-heading > a:hover {
+  color: #a87800;
+}
+
+
+/* =========================================================
+   QUICK MANAGEMENT
+========================================================= */
+
+.admin-dashboard-content {
+  max-width: 1200px;
+
+  margin: 0 auto 30px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 16px;
+}
+
+
+.admin-dashboard-card {
+  position: relative;
+
+  min-height: 135px;
+
+  padding: 24px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 20px;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border: 1px solid #e0e1e3;
+
+  border-radius: 15px;
+
+  color: #111111;
+
+  text-decoration: none;
+
+  box-shadow:
+    0 5px 18px rgba(0,0,0,0.05);
+
+  transition: 0.2s ease;
+}
+
+
+.admin-dashboard-card:hover {
+  transform: translateY(-3px);
+
+  border-color: rgba(255,196,0,0.65);
+
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.08);
+}
+
+
+.admin-dashboard-icon {
+  width: 64px;
+  height: 64px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 13px;
+
+  background: #07111f;
+
+  color: #ffc400;
+
+  font-size: 25px;
+}
+
+
+.admin-dashboard-card-content {
+  flex: 1;
+}
+
+
+.admin-dashboard-card-content h2 {
+  margin: 0 0 6px;
+
+  color: #07111f;
+
+  font-size: 20px;
+
+  font-weight: 900;
+}
+
+
+.admin-dashboard-card-content p {
+  margin: 0 0 12px;
+
+  color: #707985;
+
+  line-height: 1.5;
+
+  font-size: 12px;
+}
+
+
+.admin-dashboard-card-content span {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  color: #07111f;
+
+  font-size: 10px;
+
+  font-weight: 900;
+}
+
+
+/* =========================================================
+   RECENT ORDERS
+========================================================= */
+
+.admin-dashboard-recent {
+  max-width: 1200px;
+
+  margin: 0 auto;
+}
+
+
+.admin-dashboard-orders {
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border: 1px solid #e0e1e3;
+
+  border-radius: 15px;
+
+  box-shadow:
+    0 5px 18px rgba(0,0,0,0.05);
+}
+
+
+.admin-dashboard-order {
+  min-height: 68px;
+
+  padding: 13px 18px;
+
+  display: grid;
+
+  grid-template-columns:
+    1.3fr 1fr 0.8fr 1fr auto;
+
+  align-items: center;
+
+  gap: 15px;
+
+  border-bottom: 1px solid #eeeeee;
+
+  box-sizing: border-box;
+}
+
+
+.admin-dashboard-order:last-child {
+  border-bottom: 0;
+}
+
+
+.admin-dashboard-order:hover {
+  background: #fffdf5;
+}
+
+
+.admin-dashboard-order-id {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+
+.admin-dashboard-order-id strong {
+  color: #07111f;
+
+  font-size: 13px;
+}
+
+
+.admin-dashboard-order-id span {
+  color: #7d858f;
+
+  font-size: 10px;
+}
+
+
+.admin-dashboard-order-mobile {
+  color: #68717d;
+
+  font-size: 11px;
+}
+
+
+.admin-dashboard-order-total {
+  color: #07111f;
+
+  font-size: 13px;
+
+  font-weight: 900;
+}
+
+
+.admin-dashboard-order-status {
+  width: fit-content;
+
+  padding: 6px 9px;
+
+  border-radius: 6px;
+
+  font-size: 8px;
+
+  font-weight: 900;
+}
+
+
+.dashboard-status-pending {
+  background: #fff3cd;
+  color: #8a6400;
+}
+
+
+.dashboard-status-confirmed {
+  background: #e3f2fd;
+  color: #1769aa;
+}
+
+
+.dashboard-status-processing {
+  background: #eee5ff;
+  color: #6841a5;
+}
+
+
+.dashboard-status-out_for_delivery {
+  background: #fff0e5;
+  color: #bd5b1b;
+}
+
+
+.dashboard-status-delivered {
+  background: #e4f7eb;
+  color: #168a45;
+}
+
+
+.dashboard-status-cancelled {
+  background: #ffe5e5;
+  color: #c62828;
+}
+
+
+.admin-dashboard-order-view {
+  padding: 7px 12px;
+
+  border-radius: 6px;
+
+  background: #ffc400;
+
+  color: #111111;
+
+  font-size: 8px;
+
+  font-weight: 900;
+
+  text-decoration: none;
+}
+
+
+/* =========================================================
+   LOADING / ERROR
+========================================================= */
+
+.admin-dashboard-loading,
+.admin-dashboard-error {
+  max-width: 600px;
+
+  margin: 60px auto;
+
+  padding: 60px 25px;
+
+  text-align: center;
+
+  background: #ffffff;
+
+  border: 1px solid #e0e1e3;
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 8px 25px rgba(0,0,0,0.06);
+}
+
+
+.admin-dashboard-loading i {
+  display: block;
+
+  margin-bottom: 15px;
+
+  color: #ffc400;
+
+  font-size: 34px;
+
+  animation:
+    adminDashboardSpin 1s linear infinite;
+}
+
+
+@keyframes adminDashboardSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.admin-dashboard-error i {
+  color: #d32f2f;
+
+  font-size: 38px;
+}
+
+
+.admin-dashboard-error h2 {
+  margin: 12px 0 7px;
+
+  color: #07111f;
+}
+
+
+.admin-dashboard-error p {
+  margin-bottom: 20px;
+
+  color: #777777;
+}
+
+
+.admin-dashboard-error button {
+  min-height: 43px;
+
+  padding: 0 18px;
+
+  border: 0;
+
+  border-radius: 7px;
+
+  background: #ffc400;
+
+  color: #111111;
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   REPAIR DASHBOARD
+========================================================= */
+
+.admin-repair-dashboard-section {
+  max-width: 1200px;
+
+  margin: 30px auto 0;
+}
+
+
+.admin-repair-dashboard-stats {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 14px;
+}
+
+
+.admin-repair-dashboard-stat {
+  min-height: 88px;
+
+  padding: 17px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  background: #ffffff;
+
+  border: 1px solid #e1e2e4;
+
+  border-radius: 12px;
+
+  color: #111111;
+
+  text-decoration: none;
+
+  box-shadow:
+    0 4px 14px rgba(0,0,0,0.04);
+
+  transition: 0.2s ease;
+}
+
+
+.admin-repair-dashboard-stat:hover {
+  transform: translateY(-2px);
+
+  border-color: rgba(255,196,0,0.55);
+}
+
+
+.admin-repair-dashboard-stat-icon {
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: #07111f;
+
+  color: #ffc400;
+}
+
+
+.admin-repair-dashboard-stat > div:last-child {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+
+.admin-repair-dashboard-stat span {
+  color: #858d97;
+
+  font-size: 8px;
+
+  font-weight: 900;
+}
+
+
+.admin-repair-dashboard-stat strong {
+  color: #07111f;
+
+  font-size: 21px;
+
+  font-weight: 900;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1050px) {
+
+  .admin-dashboard-stats {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+
+  .admin-dashboard-secondary-stats {
+    grid-template-columns:
+      repeat(3, 1fr);
+  }
+
+
+  .admin-repair-dashboard-stats {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+}
+
+
+@media (max-width: 700px) {
+
+  .admin-dashboard-page {
+    padding: 22px 15px 45px;
+  }
+
+
+  .admin-dashboard-heading {
+    padding: 28px 22px;
+
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    border-radius: 18px;
+  }
+
+
+  .admin-dashboard-heading h1 {
+    font-size: 27px;
+  }
+
+
+  .admin-dashboard-refresh {
+    width: 100%;
+  }
+
+
+  .admin-dashboard-stats {
+    grid-template-columns: 1fr;
+
+    gap: 12px;
+  }
+
+
+  .admin-dashboard-secondary-stats {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+
+  .admin-dashboard-content {
+    grid-template-columns: 1fr;
+  }
+
+
+  .admin-dashboard-card {
+    padding: 20px;
+  }
+
+
+  .admin-dashboard-section-heading {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+
+  .admin-dashboard-order {
+    grid-template-columns:
+      1fr auto;
+
+    gap: 10px;
+
+    padding: 14px;
+  }
+
+
+  .admin-dashboard-order-mobile {
+    display: none;
+  }
+
+
+  .admin-dashboard-order-total {
+    grid-column: 2;
+
+    grid-row: 1;
+  }
+
+
+  .admin-dashboard-order-status {
+    grid-column: 1;
+
+    grid-row: 2;
+  }
+
+
+  .admin-dashboard-order-view {
+    grid-column: 2;
+
+    grid-row: 2;
+  }
+
+
+  .admin-repair-dashboard-stats {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+@media (max-width: 420px) {
+
+  .admin-dashboard-page {
+    padding: 18px 12px 40px;
+  }
+
+
+  .admin-dashboard-heading {
+    padding: 25px 18px;
+  }
+
+
+  .admin-dashboard-heading h1 {
+    font-size: 24px;
+  }
+
+
+  .admin-dashboard-secondary-stats {
+    grid-template-columns: 1fr;
+  }
+
+
+  .admin-dashboard-icon {
+    width: 55px;
+    height: 55px;
+
+    font-size: 21px;
+  }
+
+
+  .admin-dashboard-card-content h2 {
+    font-size: 18px;
+  }
+
+}

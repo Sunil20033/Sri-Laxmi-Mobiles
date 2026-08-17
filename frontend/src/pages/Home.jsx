@@ -13,6 +13,31 @@ const PRODUCT_API_URL =
 const OFFER_API_URL =
   "https://sri-laxmi-mobiles-backend.onrender.com/api/offers";
 
+const HEALTH_API_URL =
+  "https://sri-laxmi-mobiles-backend.onrender.com/api/health";
+
+const REQUEST_TIMEOUT = 20000;
+
+async function fetchWithTimeout(
+  url,
+  options = {},
+  timeout = REQUEST_TIMEOUT
+) {
+  const controller = new AbortController();
+
+  const timeoutId = setTimeout(() => {
+    controller.abort();
+  }, timeout);
+
+  try {
+    return await fetch(url, {
+      ...options,
+      signal: controller.signal,
+    });
+  } finally {
+    clearTimeout(timeoutId);
+  }
+}
 
 const DEFAULT_OFFER = {
 
@@ -114,19 +139,34 @@ function Home() {
 
       try {
 
+        await fetchWithTimeout(
+          HEALTH_API_URL,
+          {},
+          20000
+        );
+
         setFeaturedLoading(true);
 
         setFeaturedError("");
 
 
-        const response =
-          await axios.get(
-            PRODUCT_API_URL
-          );
+      const response =
+        await fetchWithTimeout(
+          PRODUCT_API_URL
+        );
+
+      if (!response.ok) {
+        throw new Error(
+          "Unable to load featured products."
+        );
+      }
+
+      const responseData =
+        await response.json();
 
 
         const products =
-          response.data.map(
+         responseData.map(
             (product) => ({
 
               ...product,
@@ -190,9 +230,8 @@ function Home() {
 
         setOfferLoading(true);
 
-
         const response =
-          await fetch(
+          await fetchWithTimeout(
             OFFER_API_URL
           );
 

@@ -14,6 +14,23 @@ const WISHLIST_STORAGE_KEY = "sriLaxmiWishlist";
 
 const WISHLIST_KEY_STORAGE = "sriLaxmiWishlistKey";
 
+const BACKEND_LOAD_DELAY = 2500;
+const REQUEST_TIMEOUT = 15000;
+
+function fetchWithTimeout(url, options = {}, timeout = REQUEST_TIMEOUT) {
+  const controller = new AbortController();
+
+  const timeoutId = setTimeout(() => {
+    controller.abort();
+  }, timeout);
+
+  return fetch(url, {
+    ...options,
+    signal: controller.signal,
+  }).finally(() => {
+    clearTimeout(timeoutId);
+  });
+}
 
 // =========================================================
 // GET OLD LOCAL WISHLIST
@@ -164,10 +181,16 @@ export function WishlistProvider({
 
     async function loadBackendWishlist() {
 
+      // Give Home and other page data a chance to start first.
+      // Wishlist data is already available from localStorage immediately.
+      await new Promise((resolve) =>
+        setTimeout(resolve, BACKEND_LOAD_DELAY)
+      );
+
       try {
 
         const response =
-          await fetch(
+      await fetchWithTimeout(
             `${API_URL}?wishlistKey=${encodeURIComponent(
               wishlistKey
             )}`

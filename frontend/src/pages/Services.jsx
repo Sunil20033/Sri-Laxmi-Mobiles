@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Services.css";
 import axios from "axios";
-
+import lmLogo from "../assets/lm-mobile-logo.png";
 
 const services = [
   {
@@ -894,7 +894,7 @@ const handleSubmit = async (event) => {
         <div>
 
           <img
-            src="/src/assets/lm-mobile-logo.png"
+            src={lmLogo}
             alt="Sri Laxmi Mobiles"
             className="service-cta-logo"
           />

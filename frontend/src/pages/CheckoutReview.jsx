@@ -17,6 +17,7 @@ function CheckoutReview() {
     cartSubtotal,
   } = useCart();
 
+  const [customer, setCustomer] = useState(null);
 
   const [orderPlaced, setOrderPlaced] =
   useState(false);

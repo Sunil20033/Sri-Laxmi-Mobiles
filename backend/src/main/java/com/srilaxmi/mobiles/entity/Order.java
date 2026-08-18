@@ -1,12 +1,12 @@
 package com.srilaxmi.mobiles.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "orders")
@@ -32,14 +32,11 @@ public class Order {
     @Column(nullable = false)
     private String customerName;
 
-
     @Column(nullable = false)
     private String mobile;
 
-
     @Column(nullable = false, length = 500)
     private String address;
-
 
     @Column(length = 1000)
     private String notes;
@@ -52,13 +49,44 @@ public class Order {
     @Column(nullable = false)
     private Double subtotal;
 
-
     @Column(nullable = false)
     private Double deliveryCharge = 0.0;
 
-
     @Column(nullable = false)
     private Double total;
+
+
+    // =========================
+    // PAYMENT
+    // =========================
+
+    @Column(nullable = false)
+    private String paymentMethod;
+
+    @Column(nullable = false)
+    private String paymentStatus;
+
+
+    // =========================
+    // DELIVERY LOCATION
+    // =========================
+
+    @Column
+    private Double customerLatitude;
+
+    @Column
+    private Double customerLongitude;
+
+    @Column
+    private Double deliveryDistanceKm;
+
+
+    // =========================
+    // RETURN POLICY
+    // =========================
+
+    @Column(nullable = false)
+    private Boolean returnPolicyAccepted = false;
 
 
     // =========================
@@ -67,7 +95,6 @@ public class Order {
 
     @Column(nullable = false)
     private String status = "PENDING";
-
 
     @Column(nullable = false)
     private LocalDateTime orderDate;
@@ -102,7 +129,6 @@ public class Order {
         return id;
     }
 
-
     public void setId(Long id) {
         this.id = id;
     }
@@ -111,7 +137,6 @@ public class Order {
     public Long getCustomerId() {
         return customerId;
     }
-
 
     public void setCustomerId(Long customerId) {
         this.customerId = customerId;
@@ -122,7 +147,6 @@ public class Order {
         return customerName;
     }
 
-
     public void setCustomerName(String customerName) {
         this.customerName = customerName;
     }
@@ -131,7 +155,6 @@ public class Order {
     public String getMobile() {
         return mobile;
     }
-
 
     public void setMobile(String mobile) {
         this.mobile = mobile;
@@ -142,7 +165,6 @@ public class Order {
         return address;
     }
 
-
     public void setAddress(String address) {
         this.address = address;
     }
@@ -151,7 +173,6 @@ public class Order {
     public String getNotes() {
         return notes;
     }
-
 
     public void setNotes(String notes) {
         this.notes = notes;
@@ -162,7 +183,6 @@ public class Order {
         return subtotal;
     }
 
-
     public void setSubtotal(Double subtotal) {
         this.subtotal = subtotal;
     }
@@ -171,7 +191,6 @@ public class Order {
     public Double getDeliveryCharge() {
         return deliveryCharge;
     }
-
 
     public void setDeliveryCharge(Double deliveryCharge) {
         this.deliveryCharge = deliveryCharge;
@@ -182,16 +201,87 @@ public class Order {
         return total;
     }
 
-
     public void setTotal(Double total) {
         this.total = total;
     }
 
 
+    // =========================
+    // PAYMENT GETTERS / SETTERS
+    // =========================
+
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+
+
+    public String getPaymentStatus() {
+        return paymentStatus;
+    }
+
+    public void setPaymentStatus(String paymentStatus) {
+        this.paymentStatus = paymentStatus;
+    }
+
+
+    // =========================
+    // LOCATION GETTERS / SETTERS
+    // =========================
+
+    public Double getCustomerLatitude() {
+        return customerLatitude;
+    }
+
+    public void setCustomerLatitude(Double customerLatitude) {
+        this.customerLatitude = customerLatitude;
+    }
+
+
+    public Double getCustomerLongitude() {
+        return customerLongitude;
+    }
+
+    public void setCustomerLongitude(Double customerLongitude) {
+        this.customerLongitude = customerLongitude;
+    }
+
+
+    public Double getDeliveryDistanceKm() {
+        return deliveryDistanceKm;
+    }
+
+    public void setDeliveryDistanceKm(Double deliveryDistanceKm) {
+        this.deliveryDistanceKm = deliveryDistanceKm;
+    }
+
+
+    // =========================
+    // RETURN POLICY
+    // =========================
+
+    public Boolean getReturnPolicyAccepted() {
+        return returnPolicyAccepted;
+    }
+
+    public void setReturnPolicyAccepted(
+            Boolean returnPolicyAccepted
+    ) {
+        this.returnPolicyAccepted =
+                returnPolicyAccepted;
+    }
+
+
+    // =========================
+    // STATUS
+    // =========================
+
     public String getStatus() {
         return status;
     }
-
 
     public void setStatus(String status) {
         this.status = status;
@@ -202,18 +292,24 @@ public class Order {
         return orderDate;
     }
 
-
-    public void setOrderDate(LocalDateTime orderDate) {
+    public void setOrderDate(
+            LocalDateTime orderDate
+    ) {
         this.orderDate = orderDate;
     }
 
+
+    // =========================
+    // ITEMS
+    // =========================
 
     public List<OrderItem> getItems() {
         return items;
     }
 
-
-    public void setItems(List<OrderItem> items) {
+    public void setItems(
+            List<OrderItem> items
+    ) {
         this.items = items;
     }
 }

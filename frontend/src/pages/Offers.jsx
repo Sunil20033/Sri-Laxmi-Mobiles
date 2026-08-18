@@ -16,10 +16,12 @@ const API_URL =
 
 const DEFAULT_OFFER = {
 
-  mainVisualText: "SCREEN PROTECTOR",
+  mainVisualText:
+    "SCREEN PROTECTOR",
 
-  mainVisualIcon: "bi bi-shield-check",
-  
+  mainVisualIcon:
+    "bi bi-shield-check",
+
   title:
     "PUT A SCREEN PROTECTOR ON YOUR PHONE & GET",
 
@@ -35,6 +37,7 @@ const DEFAULT_OFFER = {
   endDate:
     "2026-09-01T23:59:59",
 
+
   freeItem1Name:
     "OnePlus Wired Earphone",
 
@@ -43,6 +46,7 @@ const DEFAULT_OFFER = {
 
   freeItem1Text:
     "FREE",
+
 
   freeItem2Name:
     "Gaming Finger Gloves",
@@ -53,18 +57,50 @@ const DEFAULT_OFFER = {
   freeItem2Text:
     "One Pair FREE",
 
+
+  freeItem3Name:
+    "",
+
+  freeItem3Image:
+    "",
+
+  freeItem3Text:
+    "",
+
+
+  freeItem4Name:
+    "",
+
+  freeItem4Image:
+    "",
+
+  freeItem4Text:
+    "",
+
+
+  freeItem5Name:
+    "",
+
+  freeItem5Image:
+    "",
+
+  freeItem5Text:
+    "",
+
+
   note:
     "Offer available for a limited time only.",
 
   shopMessage:
     "Visit Sri Laxmi Mobiles in Chincholli to avail this offer.",
 
-  active: true,
+  active:
+    true
+
 };
 
 
 function Offers() {
-
 
   const [
     offer,
@@ -110,9 +146,11 @@ function Offers() {
 
 
         if (!response.ok) {
+
           throw new Error(
             "Unable to load offers."
           );
+
         }
 
 
@@ -138,6 +176,7 @@ function Offers() {
           DEFAULT_OFFER
         );
 
+
       } catch (error) {
 
         console.error(
@@ -154,6 +193,7 @@ function Offers() {
         setOffer(
           DEFAULT_OFFER
         );
+
 
       } finally {
 
@@ -176,7 +216,9 @@ function Offers() {
   useEffect(() => {
 
     if (!offer) {
+
       return;
+
     }
 
 
@@ -210,7 +252,7 @@ function Offers() {
 
           seconds: 0,
 
-          expired: true,
+          expired: true
 
         };
 
@@ -227,26 +269,29 @@ function Offers() {
 
         hours:
           Math.floor(
-            (difference /
-              (1000 * 60 * 60)) %
-              24
+            (
+              difference /
+              (1000 * 60 * 60)
+            ) % 24
           ),
 
         minutes:
           Math.floor(
-            (difference /
-              (1000 * 60)) %
-              60
+            (
+              difference /
+              (1000 * 60)
+            ) % 60
           ),
 
         seconds:
           Math.floor(
-            (difference /
-              1000) %
-              60
+            (
+              difference /
+              1000
+            ) % 60
           ),
 
-        expired: false,
+        expired: false
 
       };
 
@@ -281,7 +326,9 @@ function Offers() {
   function formatDate(value) {
 
     if (!value) {
+
       return "-";
+
     }
 
 
@@ -303,9 +350,16 @@ function Offers() {
     return date.toLocaleDateString(
       "en-IN",
       {
-        day: "numeric",
-        month: "long",
-        year: "numeric",
+
+        day:
+          "numeric",
+
+        month:
+          "long",
+
+        year:
+          "numeric"
+
       }
     );
 
@@ -337,6 +391,117 @@ function Offers() {
   }
 
 
+  // =========================
+  // FREE ITEMS
+  // =========================
+
+  function getFreeItems() {
+
+    if (!offer) {
+
+      return [];
+
+    }
+
+
+    const items = [
+
+      {
+        name:
+          offer.freeItem1Name,
+
+        image:
+          offer.freeItem1Image,
+
+        text:
+          offer.freeItem1Text,
+
+        icon:
+          "bi bi-headphones"
+      },
+
+
+      {
+        name:
+          offer.freeItem2Name,
+
+        image:
+          offer.freeItem2Image,
+
+        text:
+          offer.freeItem2Text,
+
+        icon:
+          "bi bi-controller"
+      },
+
+
+      {
+        name:
+          offer.freeItem3Name,
+
+        image:
+          offer.freeItem3Image,
+
+        text:
+          offer.freeItem3Text,
+
+        icon:
+          "bi bi-gift"
+      },
+
+
+      {
+        name:
+          offer.freeItem4Name,
+
+        image:
+          offer.freeItem4Image,
+
+        text:
+          offer.freeItem4Text,
+
+        icon:
+          "bi bi-gift"
+      },
+
+
+      {
+        name:
+          offer.freeItem5Name,
+
+        image:
+          offer.freeItem5Image,
+
+        text:
+          offer.freeItem5Text,
+
+        icon:
+          "bi bi-gift"
+      }
+
+    ];
+
+
+    return items.filter(
+      (item) =>
+        item.name &&
+        String(
+          item.name
+        ).trim() !== ""
+    );
+
+  }
+
+
+  const freeItems =
+    getFreeItems();
+
+
+  // =========================
+  // LOADING
+  // =========================
+
   if (loading) {
 
     return (
@@ -364,6 +529,10 @@ function Offers() {
 
   }
 
+
+  // =========================
+  // PAGE
+  // =========================
 
   return (
 
@@ -445,9 +614,12 @@ function Offers() {
 
             </div>
 
+
             <span>
+
               {offer.mainVisualText ||
                 "SCREEN PROTECTOR"}
+
             </span>
 
           </div>
@@ -473,137 +645,96 @@ function Offers() {
           </div>
 
 
-          {/* FREE ITEMS */}
+          {/* =================================================
+              FREE ITEMS
+          ================================================= */}
 
           <div className="free-items">
 
-
-            {/* ITEM 1 */}
-
-            <div className="free-item">
-
-              <div className="free-icon-wrapper">
-
-
-                {offer.freeItem1Image ? (
-
-                  <img
-                    src={
-                      offer.freeItem1Image
-                    }
-                    alt={
-                      offer.freeItem1Name
-                    }
-                    onError={
-                      hideBrokenImage
-                    }
-                  />
-
-                ) : null}
-
+            {freeItems.map(
+              (item, index) => (
 
                 <div
-                  className="free-icon"
-                  style={{
-                    display:
-                      offer.freeItem1Image
-                        ? "none"
-                        : "flex",
-                  }}
+                  className="free-item-group"
+                  key={
+                    `${item.name}-${index}`
+                  }
                 >
 
-                  <i className="bi bi-headphones"></i>
+                  <div className="free-item">
+
+                    <div className="free-icon-wrapper">
+
+                      {item.image ? (
+
+                        <img
+                          src={
+                            item.image
+                          }
+                          alt={
+                            item.name
+                          }
+                          onError={
+                            hideBrokenImage
+                          }
+                        />
+
+                      ) : null}
+
+
+                      <div
+                        className="free-icon"
+                        style={{
+                          display:
+                            item.image
+                              ? "none"
+                              : "flex"
+                        }}
+                      >
+
+                        <i
+                          className={
+                            item.icon
+                          }
+                        ></i>
+
+                      </div>
+
+                    </div>
+
+
+                    <h3>
+
+                      {item.name}
+
+                    </h3>
+
+
+                    <p>
+
+                      {item.text ||
+                        "FREE"}
+
+                    </p>
+
+                  </div>
+
+
+                  {index <
+                    freeItems.length - 1 && (
+
+                    <div className="plus-symbol">
+
+                      +
+
+                    </div>
+
+                  )}
 
                 </div>
 
-
-              </div>
-
-
-              <h3>
-
-                {offer.freeItem1Name ||
-                  "OnePlus Wired Earphone"}
-
-              </h3>
-
-
-              <p>
-
-                {offer.freeItem1Text ||
-                  "FREE"}
-
-              </p>
-
-            </div>
-
-
-            {/* PLUS */}
-
-            <div className="plus-symbol">
-              +
-            </div>
-
-
-            {/* ITEM 2 */}
-
-            <div className="free-item">
-
-              <div className="free-icon-wrapper">
-
-
-                {offer.freeItem2Image ? (
-
-                  <img
-                    src={
-                      offer.freeItem2Image
-                    }
-                    alt={
-                      offer.freeItem2Name
-                    }
-                    onError={
-                      hideBrokenImage
-                    }
-                  />
-
-                ) : null}
-
-
-                <div
-                  className="free-icon"
-                  style={{
-                    display:
-                      offer.freeItem2Image
-                        ? "none"
-                        : "flex",
-                  }}
-                >
-
-                  <i className="bi bi-controller"></i>
-
-                </div>
-
-
-              </div>
-
-
-              <h3>
-
-                {offer.freeItem2Name ||
-                  "Gaming Finger Gloves"}
-
-              </h3>
-
-
-              <p>
-
-                {offer.freeItem2Text ||
-                  "One Pair FREE"}
-
-              </p>
-
-            </div>
-
+              )
+            )}
 
           </div>
 
@@ -620,9 +751,11 @@ function Offers() {
               </strong>
 
               <span>
+
                 {formatDate(
                   offer.startDate
                 )}
+
               </span>
 
             </div>
@@ -635,9 +768,11 @@ function Offers() {
               </strong>
 
               <span>
+
                 {formatDate(
                   offer.endDate
                 )}
+
               </span>
 
             </div>
@@ -664,9 +799,14 @@ function Offers() {
               <div className="countdown-box">
 
                 <strong>
+
                   {String(
                     timeLeft.days
-                  ).padStart(2, "0")}
+                  ).padStart(
+                    2,
+                    "0"
+                  )}
+
                 </strong>
 
                 <span>
@@ -679,9 +819,14 @@ function Offers() {
               <div className="countdown-box">
 
                 <strong>
+
                   {String(
                     timeLeft.hours
-                  ).padStart(2, "0")}
+                  ).padStart(
+                    2,
+                    "0"
+                  )}
+
                 </strong>
 
                 <span>
@@ -694,9 +839,14 @@ function Offers() {
               <div className="countdown-box">
 
                 <strong>
+
                   {String(
                     timeLeft.minutes
-                  ).padStart(2, "0")}
+                  ).padStart(
+                    2,
+                    "0"
+                  )}
+
                 </strong>
 
                 <span>
@@ -709,9 +859,14 @@ function Offers() {
               <div className="countdown-box">
 
                 <strong>
+
                   {String(
                     timeLeft.seconds
-                  ).padStart(2, "0")}
+                  ).padStart(
+                    2,
+                    "0"
+                  )}
+
                 </strong>
 
                 <span>
@@ -785,17 +940,23 @@ function Offers() {
 
 
           <span className="section-label">
+
             OFFER INFORMATION
+
           </span>
 
 
           <h2>
+
             Offer Terms & Conditions
+
           </h2>
 
 
           <div className="terms-grid">
 
+
+            {/* VALIDITY */}
 
             <div className="term-card">
 
@@ -824,6 +985,8 @@ function Offers() {
             </div>
 
 
+            {/* FREE GIFTS */}
+
             <div className="term-card">
 
               <i className="bi bi-gift"></i>
@@ -836,18 +999,25 @@ function Offers() {
 
                 Get{" "}
 
-                {offer.freeItem1Name ||
-                  "the first free item"}
+                {freeItems.length > 0
+                  ? freeItems
+                      .map(
+                        (item) =>
+                          item.name
+                      )
+                      .join(
+                        ", "
+                      )
+                  : "the free gifts"}
 
-                {" "}and{" "}
-
-                {offer.freeItem2Name ||
-                  "the second free item"}.
+                .
 
               </p>
 
             </div>
 
+
+            {/* SHOP VISIT */}
 
             <div className="term-card">
 
@@ -867,6 +1037,8 @@ function Offers() {
             </div>
 
 
+            {/* LIMITED TIME */}
+
             <div className="term-card">
 
               <i className="bi bi-clock-history"></i>
@@ -876,8 +1048,10 @@ function Offers() {
               </h3>
 
               <p>
+
                 This offer is available only
                 during the specified offer period.
+
               </p>
 
             </div>
@@ -893,6 +1067,7 @@ function Offers() {
     </main>
 
   );
+
 }
 
 

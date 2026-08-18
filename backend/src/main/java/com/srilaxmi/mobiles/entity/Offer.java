@@ -67,6 +67,37 @@ public class Offer {
 
     private String freeItem2Text;
 
+    // =========================
+    // FREE ITEM 3
+    // =========================
+
+    private String freeItem3Name;
+
+    private String freeItem3Image;
+
+    private String freeItem3Text;
+
+
+    // =========================
+    // FREE ITEM 4
+    // =========================
+
+    private String freeItem4Name;
+
+    private String freeItem4Image;
+
+    private String freeItem4Text;
+
+
+    // =========================
+    // FREE ITEM 5
+    // =========================
+
+    private String freeItem5Name;
+
+    private String freeItem5Image;
+
+    private String freeItem5Text;
 
     // =========================
     // OFFER NOTE
@@ -249,6 +280,91 @@ public class Offer {
         this.freeItem2Text = freeItem2Text;
     }
 
+    // =========================
+    // FREE ITEM 3
+    // =========================
+
+    public String getFreeItem3Name() {
+        return freeItem3Name;
+    }
+
+    public void setFreeItem3Name(String freeItem3Name) {
+        this.freeItem3Name = freeItem3Name;
+    }
+
+    public String getFreeItem3Image() {
+        return freeItem3Image;
+    }
+
+    public void setFreeItem3Image(String freeItem3Image) {
+        this.freeItem3Image = freeItem3Image;
+    }
+
+    public String getFreeItem3Text() {
+        return freeItem3Text;
+    }
+
+    public void setFreeItem3Text(String freeItem3Text) {
+        this.freeItem3Text = freeItem3Text;
+    }
+
+
+    // =========================
+    // FREE ITEM 4
+    // =========================
+
+    public String getFreeItem4Name() {
+        return freeItem4Name;
+    }
+
+    public void setFreeItem4Name(String freeItem4Name) {
+        this.freeItem4Name = freeItem4Name;
+    }
+
+    public String getFreeItem4Image() {
+        return freeItem4Image;
+    }
+
+    public void setFreeItem4Image(String freeItem4Image) {
+        this.freeItem4Image = freeItem4Image;
+    }
+
+    public String getFreeItem4Text() {
+        return freeItem4Text;
+    }
+
+    public void setFreeItem4Text(String freeItem4Text) {
+        this.freeItem4Text = freeItem4Text;
+    }
+
+
+    // =========================
+    // FREE ITEM 5
+    // =========================
+
+    public String getFreeItem5Name() {
+        return freeItem5Name;
+    }
+
+    public void setFreeItem5Name(String freeItem5Name) {
+        this.freeItem5Name = freeItem5Name;
+    }
+
+    public String getFreeItem5Image() {
+        return freeItem5Image;
+    }
+
+    public void setFreeItem5Image(String freeItem5Image) {
+        this.freeItem5Image = freeItem5Image;
+    }
+
+    public String getFreeItem5Text() {
+        return freeItem5Text;
+    }
+
+    public void setFreeItem5Text(String freeItem5Text) {
+        this.freeItem5Text = freeItem5Text;
+    }
 
     // =========================
     // NOTE

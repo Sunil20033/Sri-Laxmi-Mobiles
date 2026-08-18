@@ -181,6 +181,61 @@ public class OfferService {
                         updatedOffer.getFreeItem2Text()
                 )
         );
+        existingOffer.setFreeItem3Name(
+        cleanText(
+                updatedOffer.getFreeItem3Name()
+        )
+        );
+
+        existingOffer.setFreeItem3Image(
+                cleanText(
+                        updatedOffer.getFreeItem3Image()
+                )
+        );
+
+        existingOffer.setFreeItem3Text(
+                cleanText(
+                        updatedOffer.getFreeItem3Text()
+                )
+        );
+
+
+        existingOffer.setFreeItem4Name(
+                cleanText(
+                        updatedOffer.getFreeItem4Name()
+                )
+        );
+
+        existingOffer.setFreeItem4Image(
+                cleanText(
+                        updatedOffer.getFreeItem4Image()
+                )
+        );
+
+        existingOffer.setFreeItem4Text(
+                cleanText(
+                        updatedOffer.getFreeItem4Text()
+                )
+        );
+
+
+        existingOffer.setFreeItem5Name(
+                cleanText(
+                        updatedOffer.getFreeItem5Name()
+                )
+        );
+
+        existingOffer.setFreeItem5Image(
+                cleanText(
+                        updatedOffer.getFreeItem5Image()
+                )
+        );
+
+        existingOffer.setFreeItem5Text(
+                cleanText(
+                        updatedOffer.getFreeItem5Text()
+                )
+        );
 
         existingOffer.setNote(
                 cleanText(updatedOffer.getNote())

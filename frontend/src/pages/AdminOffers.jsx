@@ -2,6 +2,7 @@ import {
   useEffect,
   useState
 } from "react";
+
 import { adminFetch } from "../utils/adminApi";
 
 import "./AdminOffers.css";
@@ -13,6 +14,8 @@ const API_URL =
 
 const emptyOffer = {
 
+  offerCount: 2,
+
   title: "",
 
   badge:
@@ -20,42 +23,86 @@ const emptyOffer = {
 
   freeText:
     "FREE",
-  mainVisualText: "SCREEN PROTECTOR",
-  mainVisualIcon: "bi-shield-check",
-  mainVisualImage: "",
 
-  startDate: "",
+  mainVisualText:
+    "SCREEN PROTECTOR",
 
-  endDate: "",
+  mainVisualIcon:
+    "bi-shield-check",
+
+  mainVisualImage:
+    "",
+
+  startDate:
+    "",
+
+  endDate:
+    "",
 
 
-  freeItem1Name: "",
+  freeItem1Name:
+    "",
 
-  freeItem1Image: "",
+  freeItem1Image:
+    "",
 
   freeItem1Text:
     "FREE",
 
 
-  freeItem2Name: "",
+  freeItem2Name:
+    "",
 
-  freeItem2Image: "",
+  freeItem2Image:
+    "",
 
   freeItem2Text:
     "One Pair FREE",
 
 
-  note: "",
+  freeItem3Name:
+    "",
 
-  shopMessage: "",
+  freeItem3Image:
+    "",
 
-  active: true,
+  freeItem3Text:
+    "",
+
+
+  freeItem4Name:
+    "",
+
+  freeItem4Image:
+    "",
+
+  freeItem4Text:
+    "",
+
+
+  freeItem5Name:
+    "",
+
+  freeItem5Image:
+    "",
+
+  freeItem5Text:
+    "",
+
+
+  note:
+    "",
+
+  shopMessage:
+    "",
+
+  active:
+    true
 
 };
 
 
 function AdminOffers() {
-
 
   const [
     offers,
@@ -101,10 +148,6 @@ function AdminOffers() {
   ] = useState("");
 
 
-  // =================================================
-  // LOAD
-  // =================================================
-
   async function loadOffers() {
 
     try {
@@ -137,6 +180,7 @@ function AdminOffers() {
           : []
       );
 
+
     } catch (error) {
 
       console.error(
@@ -149,6 +193,7 @@ function AdminOffers() {
         error.message ||
         "Unable to load offers."
       );
+
 
     } finally {
 
@@ -166,10 +211,6 @@ function AdminOffers() {
   }, []);
 
 
-  // =================================================
-  // INPUT CHANGE
-  // =================================================
-
   function handleChange(event) {
 
     const {
@@ -181,24 +222,20 @@ function AdminOffers() {
 
 
     setForm(
-      (previous) => ({
+      previous => ({
 
         ...previous,
 
         [name]:
           type === "checkbox"
             ? checked
-            : value,
+            : value
 
       })
     );
 
   }
 
-
-  // =================================================
-  // RESET
-  // =================================================
 
   function resetForm() {
 
@@ -214,10 +251,6 @@ function AdminOffers() {
 
   }
 
-
-  // =================================================
-  // EDIT
-  // =================================================
 
   function handleEdit(offer) {
 
@@ -240,13 +273,16 @@ function AdminOffers() {
         "FREE",
 
       mainVisualText:
-          offer.mainVisualText || "SCREEN PROTECTOR",
+        offer.mainVisualText ||
+        "SCREEN PROTECTOR",
 
       mainVisualIcon:
-          offer.mainVisualIcon || "bi-shield-check",
+        offer.mainVisualIcon ||
+        "bi-shield-check",
 
       mainVisualImage:
-          offer.mainVisualImage || "",
+        offer.mainVisualImage ||
+        "",
 
 
       startDate:
@@ -271,11 +307,9 @@ function AdminOffers() {
         offer.freeItem1Name ||
         "",
 
-
       freeItem1Image:
         offer.freeItem1Image ||
         "",
-
 
       freeItem1Text:
         offer.freeItem1Text ||
@@ -286,31 +320,76 @@ function AdminOffers() {
         offer.freeItem2Name ||
         "",
 
-
       freeItem2Image:
         offer.freeItem2Image ||
         "",
-
 
       freeItem2Text:
         offer.freeItem2Text ||
         "One Pair FREE",
 
 
+      freeItem3Name:
+        offer.freeItem3Name ||
+        "",
+
+      freeItem3Image:
+        offer.freeItem3Image ||
+        "",
+
+      freeItem3Text:
+        offer.freeItem3Text ||
+        "",
+
+
+      freeItem4Name:
+        offer.freeItem4Name ||
+        "",
+
+      freeItem4Image:
+        offer.freeItem4Image ||
+        "",
+
+      freeItem4Text:
+        offer.freeItem4Text ||
+        "",
+
+
+      freeItem5Name:
+        offer.freeItem5Name ||
+        "",
+
+      freeItem5Image:
+        offer.freeItem5Image ||
+        "",
+
+      freeItem5Text:
+        offer.freeItem5Text ||
+        "",
+
+
+      offerCount:
+        offer.freeItem5Name
+          ? 5
+          : offer.freeItem4Name
+            ? 4
+            : offer.freeItem3Name
+              ? 3
+              : 2,
+
+
       note:
         offer.note ||
         "",
-
 
       shopMessage:
         offer.shopMessage ||
         "",
 
-
       active:
         Boolean(
           offer.active
-        ),
+        )
 
     });
 
@@ -319,20 +398,15 @@ function AdminOffers() {
 
       top: 0,
 
-      behavior: "smooth",
+      behavior:
+        "smooth"
 
     });
 
   }
 
 
-  // =================================================
-  // SAVE
-  // =================================================
-
-  async function handleSubmit(
-    event
-  ) {
+  async function handleSubmit(event) {
 
     event.preventDefault();
 
@@ -345,7 +419,6 @@ function AdminOffers() {
 
 
     try {
-
 
       if (
         !form.title.trim()
@@ -416,6 +489,7 @@ function AdminOffers() {
         freeText:
           form.freeText.trim(),
 
+
         freeItem1Name:
           form.freeItem1Name.trim(),
 
@@ -425,6 +499,7 @@ function AdminOffers() {
         freeItem1Text:
           form.freeItem1Text.trim(),
 
+
         freeItem2Name:
           form.freeItem2Name.trim(),
 
@@ -433,6 +508,55 @@ function AdminOffers() {
 
         freeItem2Text:
           form.freeItem2Text.trim(),
+
+
+        freeItem3Name:
+          form.offerCount >= 3
+            ? form.freeItem3Name.trim()
+            : "",
+
+        freeItem3Image:
+          form.offerCount >= 3
+            ? form.freeItem3Image.trim()
+            : "",
+
+        freeItem3Text:
+          form.offerCount >= 3
+            ? form.freeItem3Text.trim()
+            : "",
+
+
+        freeItem4Name:
+          form.offerCount >= 4
+            ? form.freeItem4Name.trim()
+            : "",
+
+        freeItem4Image:
+          form.offerCount >= 4
+            ? form.freeItem4Image.trim()
+            : "",
+
+        freeItem4Text:
+          form.offerCount >= 4
+            ? form.freeItem4Text.trim()
+            : "",
+
+
+        freeItem5Name:
+          form.offerCount >= 5
+            ? form.freeItem5Name.trim()
+            : "",
+
+        freeItem5Image:
+          form.offerCount >= 5
+            ? form.freeItem5Image.trim()
+            : "",
+
+        freeItem5Text:
+          form.offerCount >= 5
+            ? form.freeItem5Text.trim()
+            : "",
+
 
         note:
           form.note.trim(),
@@ -444,9 +568,8 @@ function AdminOffers() {
         startDate:
           `${form.startDate}:00`,
 
-
         endDate:
-          `${form.endDate}:00`,
+          `${form.endDate}:00`
 
       };
 
@@ -473,14 +596,14 @@ function AdminOffers() {
             headers: {
 
               "Content-Type":
-                "application/json",
+                "application/json"
 
             },
 
             body:
               JSON.stringify(
                 payload
-              ),
+              )
 
           }
         );
@@ -501,16 +624,13 @@ function AdminOffers() {
 
 
       setSuccess(
-
         editingId
           ? "Offer updated successfully."
           : "Offer created successfully."
-
       );
 
 
       resetForm();
-
 
       await loadOffers();
 
@@ -528,6 +648,7 @@ function AdminOffers() {
         "Unable to save offer."
       );
 
+
     } finally {
 
       setSaving(false);
@@ -537,13 +658,7 @@ function AdminOffers() {
   }
 
 
-  // =================================================
-  // ACTIVATE
-  // =================================================
-
-  async function activateOffer(
-    id
-  ) {
+  async function activateOffer(id) {
 
     try {
 
@@ -590,13 +705,7 @@ function AdminOffers() {
   }
 
 
-  // =================================================
-  // DEACTIVATE
-  // =================================================
-
-  async function deactivateOffer(
-    id
-  ) {
+  async function deactivateOffer(id) {
 
     try {
 
@@ -643,13 +752,7 @@ function AdminOffers() {
   }
 
 
-  // =================================================
-  // DELETE
-  // =================================================
-
-  async function deleteOffer(
-    id
-  ) {
+  async function deleteOffer(id) {
 
     const confirmed =
       window.confirm(
@@ -658,7 +761,9 @@ function AdminOffers() {
 
 
     if (!confirmed) {
+
       return;
+
     }
 
 
@@ -707,16 +812,12 @@ function AdminOffers() {
   }
 
 
-  // =================================================
-  // DATE
-  // =================================================
-
-  function formatDate(
-    value
-  ) {
+  function formatDate(value) {
 
     if (!value) {
+
       return "-";
+
     }
 
 
@@ -738,9 +839,136 @@ function AdminOffers() {
     return date.toLocaleString(
       "en-IN",
       {
-        dateStyle: "medium",
-        timeStyle: "short",
+        dateStyle:
+          "medium",
+
+        timeStyle:
+          "short"
       }
+    );
+
+  }
+
+
+  function renderFreeItemFields(number) {
+
+    const name =
+      `freeItem${number}Name`;
+
+    const text =
+      `freeItem${number}Text`;
+
+    const image =
+      `freeItem${number}Image`;
+
+
+    const defaultName =
+      number === 1
+        ? "OnePlus Wired Earphone"
+        : number === 2
+          ? "Gaming Finger Gloves"
+          : `Free Item ${number}`;
+
+
+    const defaultText =
+      number === 1
+        ? "FREE"
+        : number === 2
+          ? "One Pair FREE"
+          : "FREE";
+
+
+    return (
+      <>
+
+        <div className="admin-offer-subheading full">
+
+          <i className="bi bi-gift"></i>
+
+          FREE ITEM {number}
+
+        </div>
+
+
+        <div className="admin-offer-field">
+
+          <label>
+            Item Name
+          </label>
+
+          <input
+            type="text"
+            name={name}
+            value={form[name]}
+            onChange={handleChange}
+            placeholder={defaultName}
+          />
+
+        </div>
+
+
+        <div className="admin-offer-field">
+
+          <label>
+            Item Text
+          </label>
+
+          <input
+            type="text"
+            name={text}
+            value={form[text]}
+            onChange={handleChange}
+            placeholder={defaultText}
+          />
+
+        </div>
+
+
+        <div className="admin-offer-field full">
+
+          <label>
+            Item Image URL
+          </label>
+
+          <input
+            type="url"
+            name={image}
+            value={form[image]}
+            onChange={handleChange}
+            placeholder={
+              `https://example.com/item${number}.png`
+            }
+          />
+
+          <small>
+            Add an image URL. Leave empty to use the default gift icon.
+          </small>
+
+
+          {form[image] && (
+
+            <div className="admin-image-preview">
+
+              <img
+                src={form[image]}
+                alt={
+                  `Free item ${number} preview`
+                }
+                onError={
+                  event => {
+                    event.currentTarget.style.display =
+                      "none";
+                  }
+                }
+              />
+
+            </div>
+
+          )}
+
+        </div>
+
+      </>
     );
 
   }
@@ -750,10 +978,6 @@ function AdminOffers() {
 
     <section className="admin-offers-page">
 
-
-      {/* =================================================
-          HEADER
-      ================================================= */}
 
       <div className="admin-offers-heading">
 
@@ -772,10 +996,6 @@ function AdminOffers() {
 
       </div>
 
-
-      {/* =================================================
-          MESSAGES
-      ================================================= */}
 
       {success && (
 
@@ -803,10 +1023,6 @@ function AdminOffers() {
       )}
 
 
-      {/* =================================================
-          FORM CARD
-      ================================================= */}
-
       <div className="admin-offer-form-card">
 
 
@@ -821,11 +1037,9 @@ function AdminOffers() {
             </span>
 
             <h2>
-
               {editingId
                 ? "Update Offer"
                 : "Add New Offer"}
-
             </h2>
 
           </div>
@@ -856,8 +1070,6 @@ function AdminOffers() {
         >
 
 
-          {/* TITLE */}
-
           <div className="admin-offer-field full">
 
             <label>
@@ -878,8 +1090,6 @@ function AdminOffers() {
           </div>
 
 
-          {/* BADGE */}
-
           <div className="admin-offer-field">
 
             <label>
@@ -898,8 +1108,6 @@ function AdminOffers() {
 
           </div>
 
-
-          {/* FREE TEXT */}
 
           <div className="admin-offer-field">
 
@@ -920,93 +1128,115 @@ function AdminOffers() {
             />
 
           </div>
-          {/* MAIN OFFER VISUAL */}
+
 
           <div className="admin-offer-subheading full">
-              <i className="bi bi-image"></i>
-              MAIN OFFER VISUAL
+
+            <i className="bi bi-image"></i>
+
+            MAIN OFFER VISUAL
+
           </div>
 
-
-          {/* VISUAL TEXT */}
 
           <div className="admin-offer-field">
-              <label>
-                  Visual Text
-              </label>
 
-              <input
-                  type="text"
-                  name="mainVisualText"
-                  value={form.mainVisualText}
-                  onChange={handleChange}
-                  placeholder="SCREEN PROTECTOR"
-              />
+            <label>
+              Visual Text
+            </label>
 
-              <small>
-                  Text displayed below the main visual icon/image.
-              </small>
+            <input
+              type="text"
+              name="mainVisualText"
+              value={
+                form.mainVisualText
+              }
+              onChange={
+                handleChange
+              }
+              placeholder="SCREEN PROTECTOR"
+            />
+
+            <small>
+              Text displayed below the main visual icon/image.
+            </small>
+
           </div>
 
-
-          {/* VISUAL ICON */}
 
           <div className="admin-offer-field">
-              <label>
-                  Bootstrap Icon
-              </label>
 
-              <input
-                  type="text"
-                  name="mainVisualIcon"
-                  value={form.mainVisualIcon}
-                  onChange={handleChange}
-                  placeholder="bi-shield-check"
-              />
+            <label>
+              Bootstrap Icon
+            </label>
 
-              <small>
-                  Example: bi-shield-check, bi-battery-full,
-                  bi-phone, bi-gift
-              </small>
+            <input
+              type="text"
+              name="mainVisualIcon"
+              value={
+                form.mainVisualIcon
+              }
+              onChange={
+                handleChange
+              }
+              placeholder="bi-shield-check"
+            />
+
+            <small>
+              Example: bi-shield-check, bi-battery-full,
+              bi-phone, bi-gift
+            </small>
+
           </div>
 
-
-          {/* VISUAL IMAGE */}
 
           <div className="admin-offer-field full">
-              <label>
-                  Visual Image URL
-              </label>
 
-              <input
-                  type="url"
-                  name="mainVisualImage"
-                  value={form.mainVisualImage}
-                  onChange={handleChange}
-                  placeholder="https://example.com/product.png"
-              />
+            <label>
+              Visual Image URL
+            </label>
 
-              <small>
-                  Optional. If provided, the image will be displayed
-                  instead of the icon.
-              </small>
+            <input
+              type="url"
+              name="mainVisualImage"
+              value={
+                form.mainVisualImage
+              }
+              onChange={
+                handleChange
+              }
+              placeholder="https://example.com/product.png"
+            />
 
-              {form.mainVisualImage && (
-                  <div className="admin-image-preview">
-                      <img
-                          src={form.mainVisualImage}
-                          alt="Main visual preview"
-                          onError={(event) => {
-                              event.currentTarget.style.display = "none";
-                          }}
-                      />
-                  </div>
-              )}
+            <small>
+              Optional. If provided, the image will be displayed
+              instead of the icon.
+            </small>
+
+
+            {form.mainVisualImage && (
+
+              <div className="admin-image-preview">
+
+                <img
+                  src={
+                    form.mainVisualImage
+                  }
+                  alt="Main visual preview"
+                  onError={
+                    event => {
+                      event.currentTarget.style.display =
+                        "none";
+                    }
+                  }
+                />
+
+              </div>
+
+            )}
+
           </div>
 
-
-
-          {/* DATES */}
 
           <div className="admin-offer-field">
 
@@ -1050,211 +1280,64 @@ function AdminOffers() {
           </div>
 
 
-          {/* =================================================
-              ITEM 1
-          ================================================= */}
-
-          <div className="admin-offer-subheading full">
-
-            <i className="bi bi-gift"></i>
-
-            FREE ITEM 1
-
-          </div>
-
-
           <div className="admin-offer-field">
 
             <label>
-              Item Name
+              Number of Free Offers
             </label>
 
-            <input
-              type="text"
-              name="freeItem1Name"
+            <select
+              name="offerCount"
               value={
-                form.freeItem1Name
+                form.offerCount
               }
               onChange={
                 handleChange
               }
-              placeholder="OnePlus Wired Earphone"
-            />
+            >
 
-          </div>
+              <option value={2}>
+                2 Offers
+              </option>
 
+              <option value={3}>
+                3 Offers
+              </option>
 
-          <div className="admin-offer-field">
+              <option value={4}>
+                4 Offers
+              </option>
 
-            <label>
-              Item Text
-            </label>
+              <option value={5}>
+                5 Offers
+              </option>
 
-            <input
-              type="text"
-              name="freeItem1Text"
-              value={
-                form.freeItem1Text
-              }
-              onChange={
-                handleChange
-              }
-              placeholder="FREE"
-            />
-
-          </div>
-
-
-          <div className="admin-offer-field full">
-
-            <label>
-              Item Image URL
-            </label>
-
-            <input
-              type="url"
-              name="freeItem1Image"
-              value={
-                form.freeItem1Image
-              }
-              onChange={
-                handleChange
-              }
-              placeholder="https://example.com/earphone.png"
-            />
+            </select>
 
             <small>
-              Add an image URL. Leave empty to use the default headphone icon.
+              Choose how many free items this offer includes.
             </small>
 
-
-            {form.freeItem1Image && (
-
-              <div className="admin-image-preview">
-
-                <img
-                  src={
-                    form.freeItem1Image
-                  }
-                  alt="Free item 1 preview"
-                  onError={
-                    (event) => {
-                      event.currentTarget.style.display =
-                        "none";
-                    }
-                  }
-                />
-
-              </div>
-
-            )}
-
           </div>
 
 
-          {/* =================================================
-              ITEM 2
-          ================================================= */}
-
-          <div className="admin-offer-subheading full">
-
-            <i className="bi bi-gift"></i>
-
-            FREE ITEM 2
-
-          </div>
+          {renderFreeItemFields(1)}
 
 
-          <div className="admin-offer-field">
-
-            <label>
-              Item Name
-            </label>
-
-            <input
-              type="text"
-              name="freeItem2Name"
-              value={
-                form.freeItem2Name
-              }
-              onChange={
-                handleChange
-              }
-              placeholder="Gaming Finger Gloves"
-            />
-
-          </div>
+          {renderFreeItemFields(2)}
 
 
-          <div className="admin-offer-field">
-
-            <label>
-              Item Text
-            </label>
-
-            <input
-              type="text"
-              name="freeItem2Text"
-              value={
-                form.freeItem2Text
-              }
-              onChange={
-                handleChange
-              }
-              placeholder="One Pair FREE"
-            />
-
-          </div>
+          {form.offerCount >= 3 &&
+            renderFreeItemFields(3)}
 
 
-          <div className="admin-offer-field full">
-
-            <label>
-              Item Image URL
-            </label>
-
-            <input
-              type="url"
-              name="freeItem2Image"
-              value={
-                form.freeItem2Image
-              }
-              onChange={
-                handleChange
-              }
-              placeholder="https://example.com/gloves.png"
-            />
-
-            <small>
-              Add an image URL. Leave empty to use the default controller icon.
-            </small>
+          {form.offerCount >= 4 &&
+            renderFreeItemFields(4)}
 
 
-            {form.freeItem2Image && (
+          {form.offerCount >= 5 &&
+            renderFreeItemFields(5)}
 
-              <div className="admin-image-preview">
-
-                <img
-                  src={
-                    form.freeItem2Image
-                  }
-                  alt="Free item 2 preview"
-                  onError={
-                    (event) => {
-                      event.currentTarget.style.display =
-                        "none";
-                    }
-                  }
-                />
-
-              </div>
-
-            )}
-
-          </div>
-
-
-          {/* NOTE */}
 
           <div className="admin-offer-field full">
 
@@ -1277,8 +1360,6 @@ function AdminOffers() {
           </div>
 
 
-          {/* SHOP MESSAGE */}
-
           <div className="admin-offer-field full">
 
             <label>
@@ -1300,8 +1381,6 @@ function AdminOffers() {
           </div>
 
 
-          {/* ACTIVE */}
-
           <label className="admin-offer-checkbox full">
 
             <input
@@ -1321,8 +1400,6 @@ function AdminOffers() {
 
           </label>
 
-
-          {/* ACTIONS */}
 
           <div className="admin-offer-form-actions full">
 
@@ -1353,7 +1430,9 @@ function AdminOffers() {
                   resetForm
                 }
               >
+
                 CANCEL
+
               </button>
 
             )}
@@ -1364,13 +1443,7 @@ function AdminOffers() {
         </form>
 
       </div>
-
-
-      {/* =================================================
-          EXISTING OFFERS
-      ================================================= */}
-
-      <div className="admin-offers-list">
+            <div className="admin-offers-list">
 
 
         <div className="admin-offers-list-heading">
@@ -1434,7 +1507,6 @@ function AdminOffers() {
 
             <table className="admin-offers-table">
 
-
               <thead>
 
                 <tr>
@@ -1462,16 +1534,14 @@ function AdminOffers() {
 
               <tbody>
 
-
                 {offers.map(
-                  (offer) => (
+                  offer => (
 
                     <tr
                       key={
                         offer.id
                       }
                     >
-
 
                       <td>
 
@@ -1483,11 +1553,19 @@ function AdminOffers() {
 
                           <span>
 
-                            {offer.freeItem1Name}
-
-                            {offer.freeItem2Name
-                              ? ` + ${offer.freeItem2Name}`
-                              : ""}
+                            {[
+                              offer.freeItem1Name,
+                              offer.freeItem2Name,
+                              offer.freeItem3Name,
+                              offer.freeItem4Name,
+                              offer.freeItem5Name
+                            ]
+                              .filter(
+                                Boolean
+                              )
+                              .join(
+                                " + "
+                              )}
 
                           </span>
 
@@ -1548,10 +1626,11 @@ function AdminOffers() {
                           <button
                             type="button"
                             className="edit"
-                            onClick={() =>
-                              handleEdit(
-                                offer
-                              )
+                            onClick={
+                              () =>
+                                handleEdit(
+                                  offer
+                                )
                             }
                           >
 
@@ -1567,10 +1646,11 @@ function AdminOffers() {
                             <button
                               type="button"
                               className="deactivate"
-                              onClick={() =>
-                                deactivateOffer(
-                                  offer.id
-                                )
+                              onClick={
+                                () =>
+                                  deactivateOffer(
+                                    offer.id
+                                  )
                               }
                             >
 
@@ -1585,10 +1665,11 @@ function AdminOffers() {
                             <button
                               type="button"
                               className="activate"
-                              onClick={() =>
-                                activateOffer(
-                                  offer.id
-                                )
+                              onClick={
+                                () =>
+                                  activateOffer(
+                                    offer.id
+                                  )
                               }
                             >
 
@@ -1604,10 +1685,11 @@ function AdminOffers() {
                           <button
                             type="button"
                             className="delete"
-                            onClick={() =>
-                              deleteOffer(
-                                offer.id
-                              )
+                            onClick={
+                              () =>
+                                deleteOffer(
+                                  offer.id
+                                )
                             }
                           >
 
@@ -1622,12 +1704,10 @@ function AdminOffers() {
 
                       </td>
 
-
                     </tr>
 
                   )
                 )}
-
 
               </tbody>
 
@@ -1636,7 +1716,6 @@ function AdminOffers() {
           </div>
 
         )}
-
 
       </div>
 

@@ -19,7 +19,27 @@ function CheckoutReview() {
 
 
   const [customer, setCustomer] = useState(null);
+  const [returnPolicyAccepted,    setReturnPolicyAccepted] =
+  useState(false);
   
+const [locationStatus, setLocationStatus] =
+  useState("NOT_CHECKED");
+
+const [customerLatitude, setCustomerLatitude] =
+  useState(null);
+
+const [customerLongitude, setCustomerLongitude] =
+  useState(null);
+
+const [deliveryDistanceKm, setDeliveryDistanceKm] =
+  useState(null);
+
+const [paymentConfirmed, setPaymentConfirmed] =
+  useState(false);
+
+const [isGettingLocation, setIsGettingLocation] =
+  useState(false);
+
   const {
     customer: loggedInCustomer,
     isLoggedIn,
@@ -110,8 +130,200 @@ function CheckoutReview() {
   // =========================================================
   // PLACE ORDER - TEMPORARY
   // =========================================================
+function calculateDistanceKm(
+  latitude1,
+  longitude1,
+  latitude2,
+  longitude2
+) {
+
+  const earthRadiusKm = 6371;
+
+  const latDifference =
+    (latitude2 - latitude1) *
+    Math.PI / 180;
+
+  const lonDifference =
+    (longitude2 - longitude1) *
+    Math.PI / 180;
+
+  const a =
+    Math.sin(latDifference / 2) *
+      Math.sin(latDifference / 2) +
+    Math.cos(
+      latitude1 * Math.PI / 180
+    ) *
+      Math.cos(
+        latitude2 * Math.PI / 180
+      ) *
+      Math.sin(lonDifference / 2) *
+      Math.sin(lonDifference / 2);
+
+  const c =
+    2 *
+    Math.atan2(
+      Math.sqrt(a),
+      Math.sqrt(1 - a)
+    );
+
+  return earthRadiusKm * c;
+}
+
+
+function getCustomerLocation() {
+
+  if (!navigator.geolocation) {
+
+    setLocationStatus(
+      "LOCATION_NOT_SUPPORTED"
+    );
+
+    alert(
+      "GPS location is not supported by this browser."
+    );
+
+    return;
+  }
+
+
+  setIsGettingLocation(true);
+
+  setLocationStatus(
+    "GETTING_LOCATION"
+  );
+
+
+  navigator.geolocation.getCurrentPosition(
+
+    (position) => {
+
+      const latitude =
+        position.coords.latitude;
+
+      const longitude =
+        position.coords.longitude;
+
+
+      const distance =
+        calculateDistanceKm(
+          17.458870499033107,
+          77.4200179686237,
+          latitude,
+          longitude
+        );
+
+
+      setCustomerLatitude(
+        latitude
+      );
+
+      setCustomerLongitude(
+        longitude
+      );
+
+      setDeliveryDistanceKm(
+        Number(
+          distance.toFixed(2)
+        )
+      );
+
+
+      if (distance <= 10) {
+
+        setLocationStatus(
+          "WITHIN_DELIVERY_AREA"
+        );
+
+      } else {
+
+        setLocationStatus(
+          "OUTSIDE_DELIVERY_AREA"
+        );
+
+      }
+
+
+      setIsGettingLocation(false);
+    },
+
+    (error) => {
+
+      console.error(
+        "Unable to get customer location:",
+        error
+      );
+
+      setIsGettingLocation(false);
+
+      setLocationStatus(
+        "LOCATION_FAILED"
+      );
+
+      alert(
+        "Please allow GPS location access to check delivery availability."
+      );
+    },
+
+    {
+      enableHighAccuracy: true,
+      timeout: 15000,
+      maximumAge: 0,
+    }
+  );
+}
+
 
   async function handlePlaceOrder() {
+
+    if (!returnPolicyAccepted) {
+      alert(
+        "Please confirm that you understand the product cannot be returned after delivery."
+      );
+
+      return;
+    }
+    if (!returnPolicyAccepted) {
+
+      alert(
+        "Please confirm that you understand the product cannot be returned after delivery."
+      );
+
+      return;
+    }
+
+
+    if (locationStatus !== "WITHIN_DELIVERY_AREA") {
+
+      alert(
+        "Delivery is available only within 10 km from Sri Laxmi Mobiles. Please check your GPS location."
+      );
+
+      return;
+    }
+
+
+    if (
+      customerLatitude === null ||
+      customerLongitude === null ||
+      deliveryDistanceKm === null
+    ) {
+
+      alert(
+        "Please check your GPS location before placing the order."
+      );
+
+      return;
+    }
+
+
+    if (!paymentConfirmed) {
+
+      alert(
+        "Please complete the online payment using the QR code and confirm the payment before placing the order."
+      );
+
+      return;
+    }
     if (!isLoggedIn || !loggedInCustomer) {
 
       alert(
@@ -144,6 +356,20 @@ function CheckoutReview() {
         address: customer.address,
         notes: customer.notes || "",
         deliveryCharge: 0,
+                paymentMethod: "ONLINE",
+        paymentStatus: "PAID_CONFIRMED",
+
+        customerLatitude:
+          customerLatitude,
+
+        customerLongitude:
+          customerLongitude,
+
+        deliveryDistanceKm:
+          deliveryDistanceKm,
+
+        returnPolicyAccepted:
+          true,
 
         items: cartItems.map((item) => ({
           productId: item.id,
@@ -152,6 +378,7 @@ function CheckoutReview() {
           price: item.price,
           quantity: item.quantity,
         })),
+
       };
 
 
@@ -483,7 +710,7 @@ function CheckoutReview() {
                   <p>
                     Delivery available within
                     Chincholli local area /
-                    up to 5 km from the shop.
+                    up to 10 km from the shop.
                   </p>
 
                 </div>
@@ -497,6 +724,197 @@ function CheckoutReview() {
 
             </section>
 
+            {/* PAYMENT */}
+
+            <section className="review-card">
+
+              <div className="review-card-header">
+
+                <div>
+
+                  <i className="bi bi-qr-code"></i>
+
+                  <h2>
+                    ONLINE PAYMENT
+                  </h2>
+
+                </div>
+
+              </div>
+
+
+              <div>
+
+                <p>
+                  Online payment is required before placing
+                  your order.
+                </p>
+
+                <p>
+                  Scan the QR code below using PhonePe or
+                  another supported UPI app and complete
+                  the payment.
+                </p>
+
+
+                <img
+                  src="/payment-qr.jpeg"
+                  alt="Sri Laxmi Mobiles PhonePe payment QR code"
+                  style={{
+                    width: "220px",
+                    maxWidth: "100%",
+                    display: "block",
+                    margin: "15px auto",
+                  }}
+                />
+
+
+                <p>
+                  <strong>
+                    Payment must be completed before placing
+                    the order.
+                  </strong>
+                </p>
+
+
+                <label
+                  style={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    gap: "10px",
+                    cursor: "pointer",
+                  }}
+                >
+
+                  <input
+                    type="checkbox"
+                    checked={
+                      paymentConfirmed
+                    }
+                    onChange={(event) =>
+                      setPaymentConfirmed(
+                        event.target.checked
+                      )
+                    }
+                    style={{
+                      marginTop: "4px",
+                    }}
+                  />
+
+                  <span>
+                    I have completed the online payment
+                    using the QR code and confirm that the
+                    payment has been made.
+                  </span>
+
+                </label>
+
+              </div>
+
+            </section>
+
+            {/* DELIVERY LOCATION */}
+
+            <section className="review-card">
+
+              <div className="review-card-header">
+
+                <div>
+
+                  <i className="bi bi-geo-alt-fill"></i>
+
+                  <h2>
+                    DELIVERY LOCATION
+                  </h2>
+
+                </div>
+
+              </div>
+
+
+              <div>
+
+                <p>
+                  Local delivery is available only within
+                  10 km from Sri Laxmi Mobiles.
+                </p>
+
+
+                <button
+                  type="button"
+                  onClick={getCustomerLocation}
+                  disabled={isGettingLocation}
+                >
+
+                  <i className="bi bi-crosshair"></i>
+
+                  {isGettingLocation
+                    ? "CHECKING LOCATION..."
+                    : "CHECK MY DELIVERY LOCATION"}
+
+                </button>
+
+
+                {locationStatus ===
+                  "WITHIN_DELIVERY_AREA" && (
+
+                  <p>
+
+                    ✅ Delivery available.
+
+                    <br />
+
+                    Distance from shop:
+                    {" "}
+                    <strong>
+                      {deliveryDistanceKm} km
+                    </strong>
+
+                  </p>
+
+                )}
+
+
+                {locationStatus ===
+                  "OUTSIDE_DELIVERY_AREA" && (
+
+                  <p>
+
+                    ❌ Delivery is not available at
+                    this location.
+
+                    <br />
+
+                    Distance from shop:
+                    {" "}
+                    <strong>
+                      {deliveryDistanceKm} km
+                    </strong>
+
+                    <br />
+
+                    Delivery is available only within
+                    10 km.
+
+                  </p>
+
+                )}
+
+
+                {locationStatus ===
+                  "LOCATION_FAILED" && (
+
+                  <p>
+                    ⚠️ Unable to get your location.
+                    Please allow GPS permission and
+                    try again.
+                  </p>
+
+                )}
+
+              </div>
+
+            </section>
 
             {/* ACTIONS */}
 
@@ -595,16 +1013,44 @@ function CheckoutReview() {
 
 
             <div className="review-summary-note">
-
-              <i className="bi bi-shield-check"></i>
+              <i className="bi bi-exclamation-triangle-fill"></i>
 
               <span>
-                Please verify your customer
-                information and order items
+                <strong>IMPORTANT — NO RETURN AFTER DELIVERY</strong>
+                <br />
+                All products are non-returnable once the order
+                has been delivered. Please check your product,
+                customer details and order information carefully
                 before placing the order.
               </span>
-
             </div>
+
+            <label
+              style={{
+                display: "flex",
+                alignItems: "flex-start",
+                gap: "10px",
+                marginTop: "15px",
+                cursor: "pointer",
+              }}
+            >
+              <input
+                type="checkbox"
+                checked={returnPolicyAccepted}
+                onChange={(event) =>
+                  setReturnPolicyAccepted(event.target.checked)
+                }
+                style={{
+                  marginTop: "4px",
+                  cursor: "pointer",
+                }}
+              />
+
+              <span>
+                I understand and agree that the product cannot
+                be returned after delivery.
+              </span>
+            </label>
 
           </aside>
 

@@ -22,29 +22,59 @@ function AdminLogin() {
   const [error, setError] =
     useState("");
 
+  const [isLoading, setIsLoading] =
+    useState(false);
 
-  function handleSubmit(event) {
+
+  // =========================
+  // LOGIN
+  // =========================
+
+  async function handleSubmit(event) {
 
     event.preventDefault();
 
-    setError("");
-
-
-    const success =
-      login(username, password);
-
-
-    if (success) {
-
-      navigate("/admin");
-
+    if (isLoading) {
       return;
     }
 
+    setError("");
+    setIsLoading(true);
 
-    setError(
-      "Invalid username or password."
-    );
+
+    try {
+
+      const result =
+        await login(
+          username,
+          password
+        );
+
+
+      if (result && result.success) {
+
+        navigate("/admin");
+
+        return;
+      }
+
+
+      setError(
+        result?.message ||
+        "Invalid username or password."
+      );
+
+    } catch (error) {
+
+      setError(
+        "Unable to connect to the server. Please try again."
+      );
+
+    } finally {
+
+      setIsLoading(false);
+
+    }
   }
 
 
@@ -102,6 +132,7 @@ function AdminLogin() {
               }
               placeholder="Enter username"
               autoComplete="username"
+              disabled={isLoading}
               required
             />
 
@@ -127,6 +158,7 @@ function AdminLogin() {
               }
               placeholder="Enter password"
               autoComplete="current-password"
+              disabled={isLoading}
               required
             />
 
@@ -153,11 +185,20 @@ function AdminLogin() {
           <button
             type="submit"
             className="admin-login-button"
+            disabled={isLoading}
           >
 
-            <i className="bi bi-box-arrow-in-right"></i>
+            <i
+              className={
+                isLoading
+                  ? "bi bi-arrow-repeat"
+                  : "bi bi-box-arrow-in-right"
+              }
+            ></i>
 
-            LOGIN
+            {isLoading
+              ? "SIGNING IN..."
+              : "LOGIN"}
 
           </button>
 
@@ -172,6 +213,7 @@ function AdminLogin() {
           onClick={() =>
             navigate("/")
           }
+          disabled={isLoading}
         >
 
           <i className="bi bi-arrow-left"></i>

@@ -7,6 +7,8 @@ import "./Reviews.css";
 const REVIEW_API_URL =
   "https://sri-laxmi-mobiles-backend.onrender.com/api/reviews";
 
+const REVIEWS_CACHE_KEY =
+  "sri_laxmi_reviews";
 
 function Reviews() {
 
@@ -15,10 +17,43 @@ function Reviews() {
   // =========================================================
 
   const [reviews, setReviews] =
-    useState([]);
+    useState(() => {
+
+      try {
+
+        const cachedReviews =
+          localStorage.getItem(
+            REVIEWS_CACHE_KEY
+          );
+
+        return cachedReviews
+          ? JSON.parse(cachedReviews)
+          : [];
+
+      } catch {
+
+        return [];
+
+      }
+
+    });
 
   const [loading, setLoading] =
-    useState(true);
+    useState(() => {
+
+      try {
+
+        return !localStorage.getItem(
+          REVIEWS_CACHE_KEY
+        );
+
+      } catch {
+
+        return true;
+
+      }
+
+    });
 
   const [error, setError] =
     useState("");
@@ -58,7 +93,9 @@ function Reviews() {
 
     try {
 
-      setLoading(true);
+      if (reviews.length === 0) {
+        setLoading(true);
+      }
       setError("");
 
       const response =
@@ -66,11 +103,22 @@ function Reviews() {
           REVIEW_API_URL
         );
 
-      setReviews(
+      const latestReviews =
         Array.isArray(response.data)
           ? response.data
-          : []
-      );
+          : [];
+
+      setReviews(latestReviews);
+
+      try {
+
+        localStorage.setItem(
+          REVIEWS_CACHE_KEY,
+          JSON.stringify(latestReviews)
+        );
+
+      } catch {
+      }
 
     } catch (requestError) {
 

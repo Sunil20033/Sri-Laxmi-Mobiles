@@ -4,14 +4,56 @@ import { adminFetch } from "../utils/adminApi";
 
 import "./AdminDashboard.css";
 
+const ADMIN_DASHBOARD_CACHE_KEY =
+  "sri_laxmi_admin_dashboard";
+
 
 function AdminDashboard() {
 
-  const [products, setProducts] = useState([]);
-  const [orders, setOrders] = useState([]);
-  const [repairRequests, setRepairRequests] = useState([]);
+  const [dashboardData, setDashboardData] =
+    useState(() => {
 
-  const [loading, setLoading] = useState(true);
+      try {
+
+        const cachedData =
+          localStorage.getItem(
+            ADMIN_DASHBOARD_CACHE_KEY
+          );
+
+        return cachedData
+          ? JSON.parse(cachedData)
+          : null;
+
+      } catch {
+
+        return null;
+
+      }
+
+    });
+
+
+  const [products, setProducts] =
+    useState(
+      dashboardData?.products || []
+    );
+
+
+  const [orders, setOrders] =
+    useState(
+      dashboardData?.orders || []
+    );
+
+
+  const [repairRequests, setRepairRequests] =
+    useState(
+      dashboardData?.repairRequests || []
+    );
+
+
+  const [loading, setLoading] =
+    useState(!dashboardData);
+
   const [error, setError] = useState("");
 
 
@@ -23,7 +65,15 @@ function AdminDashboard() {
 
     try {
 
-      setLoading(true);
+      if (
+        products.length === 0 &&
+        orders.length === 0 &&
+        repairRequests.length === 0
+      ) {
+
+        setLoading(true);
+
+      }
       setError("");
 
 
@@ -90,6 +140,43 @@ function AdminDashboard() {
           ? repairRequestsData
           : []
       );
+
+      const latestDashboardData = {
+
+      products:
+        Array.isArray(productsData)
+          ? productsData
+          : [],
+
+      orders:
+        Array.isArray(ordersData)
+          ? ordersData
+          : [],
+
+      repairRequests:
+        Array.isArray(repairRequestsData)
+          ? repairRequestsData
+          : []
+
+    };
+
+
+    setDashboardData(
+      latestDashboardData
+    );
+
+
+    try {
+
+      localStorage.setItem(
+        ADMIN_DASHBOARD_CACHE_KEY,
+        JSON.stringify(
+          latestDashboardData
+        )
+      );
+
+    } catch {
+    }
 
 
     } catch (error) {

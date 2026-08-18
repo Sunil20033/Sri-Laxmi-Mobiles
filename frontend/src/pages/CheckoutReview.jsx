@@ -18,7 +18,8 @@ function CheckoutReview() {
   } = useCart();
 
 
-  const [customer, setCustomer] = useState(null);
+  const [orderPlaced, setOrderPlaced] =
+  useState(false);
 
   const [
     returnPolicyAccepted,
@@ -106,7 +107,10 @@ function CheckoutReview() {
   // EMPTY CART
   // =========================================================
 
-  if (cartItems.length === 0) {
+  if (
+      cartItems.length === 0 &&
+      !orderPlaced
+    ) {
 
     return (
 
@@ -485,8 +489,7 @@ function CheckoutReview() {
       };
 
 
-      const response =
-        await fetch(
+      const response = await fetch(
           "https://sri-laxmi-mobiles-backend.onrender.com/api/orders",
           {
             method: "POST",
@@ -550,9 +553,16 @@ function CheckoutReview() {
         JSON.stringify(savedOrder)
       );
 
+      setOrderPlaced(true);
 
       navigate(
-        `/order-success/${savedOrder.id}`
+        `/order-success/${savedOrder.id}`,
+        {
+          replace: true,
+          state: {
+            order: savedOrder,
+          },
+        }
       );
 
 

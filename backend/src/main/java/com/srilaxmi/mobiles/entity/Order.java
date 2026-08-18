@@ -77,7 +77,7 @@ public class Order {
     @Column
     private Double customerLongitude;
 
-    @Column
+    @Column(nullable = false)
     private Double deliveryDistanceKm;
 
 
@@ -179,6 +179,10 @@ public class Order {
     }
 
 
+    // =========================
+    // ORDER AMOUNTS
+    // =========================
+
     public Double getSubtotal() {
         return subtotal;
     }
@@ -207,7 +211,7 @@ public class Order {
 
 
     // =========================
-    // PAYMENT GETTERS / SETTERS
+    // PAYMENT
     // =========================
 
     public String getPaymentMethod() {
@@ -229,7 +233,7 @@ public class Order {
 
 
     // =========================
-    // LOCATION GETTERS / SETTERS
+    // LOCATION
     // =========================
 
     public Double getCustomerLatitude() {
@@ -254,7 +258,9 @@ public class Order {
         return deliveryDistanceKm;
     }
 
-    public void setDeliveryDistanceKm(Double deliveryDistanceKm) {
+    public void setDeliveryDistanceKm(
+            Double deliveryDistanceKm
+    ) {
         this.deliveryDistanceKm = deliveryDistanceKm;
     }
 

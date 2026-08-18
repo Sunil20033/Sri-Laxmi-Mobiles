@@ -19,26 +19,42 @@ function CheckoutReview() {
 
 
   const [customer, setCustomer] = useState(null);
-  const [returnPolicyAccepted,    setReturnPolicyAccepted] =
-  useState(false);
-  
-const [locationStatus, setLocationStatus] =
-  useState("NOT_CHECKED");
 
-const [customerLatitude, setCustomerLatitude] =
-  useState(null);
+  const [
+    returnPolicyAccepted,
+    setReturnPolicyAccepted
+  ] = useState(false);
 
-const [customerLongitude, setCustomerLongitude] =
-  useState(null);
+  const [
+    locationStatus,
+    setLocationStatus
+  ] = useState("NOT_CHECKED");
 
-const [deliveryDistanceKm, setDeliveryDistanceKm] =
-  useState(null);
+  const [
+    customerLatitude,
+    setCustomerLatitude
+  ] = useState(null);
 
-const [paymentConfirmed, setPaymentConfirmed] =
-  useState(false);
+  const [
+    customerLongitude,
+    setCustomerLongitude
+  ] = useState(null);
 
-const [isGettingLocation, setIsGettingLocation] =
-  useState(false);
+  const [
+    deliveryDistanceKm,
+    setDeliveryDistanceKm
+  ] = useState(null);
+
+  const [
+    paymentConfirmed,
+    setPaymentConfirmed
+  ] = useState(false);
+
+  const [
+    isGettingLocation,
+    setIsGettingLocation
+  ] = useState(false);
+
 
   const {
     customer: loggedInCustomer,
@@ -128,160 +144,195 @@ const [isGettingLocation, setIsGettingLocation] =
 
 
   // =========================================================
-  // PLACE ORDER - TEMPORARY
+  // CALCULATE DISTANCE
   // =========================================================
-function calculateDistanceKm(
-  latitude1,
-  longitude1,
-  latitude2,
-  longitude2
-) {
 
-  const earthRadiusKm = 6371;
+  function calculateDistanceKm(
+    latitude1,
+    longitude1,
+    latitude2,
+    longitude2
+  ) {
 
-  const latDifference =
-    (latitude2 - latitude1) *
-    Math.PI / 180;
+    const earthRadiusKm = 6371;
 
-  const lonDifference =
-    (longitude2 - longitude1) *
-    Math.PI / 180;
+    const latDifference =
+      (latitude2 - latitude1) *
+      Math.PI / 180;
 
-  const a =
-    Math.sin(latDifference / 2) *
-      Math.sin(latDifference / 2) +
-    Math.cos(
-      latitude1 * Math.PI / 180
-    ) *
+    const lonDifference =
+      (longitude2 - longitude1) *
+      Math.PI / 180;
+
+    const a =
+      Math.sin(latDifference / 2) *
+        Math.sin(latDifference / 2) +
+
+      Math.cos(
+        latitude1 * Math.PI / 180
+      ) *
+
       Math.cos(
         latitude2 * Math.PI / 180
       ) *
+
       Math.sin(lonDifference / 2) *
-      Math.sin(lonDifference / 2);
-
-  const c =
-    2 *
-    Math.atan2(
-      Math.sqrt(a),
-      Math.sqrt(1 - a)
-    );
-
-  return earthRadiusKm * c;
-}
+        Math.sin(lonDifference / 2);
 
 
-function getCustomerLocation() {
+    const c =
+      2 *
+      Math.atan2(
+        Math.sqrt(a),
+        Math.sqrt(1 - a)
+      );
 
-  if (!navigator.geolocation) {
 
-    setLocationStatus(
-      "LOCATION_NOT_SUPPORTED"
-    );
-
-    alert(
-      "GPS location is not supported by this browser."
-    );
-
-    return;
+    return earthRadiusKm * c;
   }
 
 
-  setIsGettingLocation(true);
+  // =========================================================
+  // GET CUSTOMER LOCATION
+  // =========================================================
 
-  setLocationStatus(
-    "GETTING_LOCATION"
-  );
+  function getCustomerLocation() {
+
+    if (!navigator.geolocation) {
+
+      setLocationStatus(
+        "LOCATION_NOT_SUPPORTED"
+      );
+
+      alert(
+        "GPS location is not supported by this browser."
+      );
+
+      return;
+    }
 
 
-  navigator.geolocation.getCurrentPosition(
+    setIsGettingLocation(true);
 
-    (position) => {
-
-      const latitude =
-        position.coords.latitude;
-
-      const longitude =
-        position.coords.longitude;
+    setLocationStatus(
+      "GETTING_LOCATION"
+    );
 
 
-      const distance =
-        calculateDistanceKm(
-          17.458870499033107,
-          77.4200179686237,
-          latitude,
+    navigator.geolocation.getCurrentPosition(
+
+      (position) => {
+
+        const latitude =
+          position.coords.latitude;
+
+        const longitude =
+          position.coords.longitude;
+
+
+        const distance =
+          calculateDistanceKm(
+            17.458870499033107,
+            77.4200179686237,
+            latitude,
+            longitude
+          );
+
+
+        setCustomerLatitude(
+          latitude
+        );
+
+        setCustomerLongitude(
           longitude
         );
 
 
-      setCustomerLatitude(
-        latitude
-      );
-
-      setCustomerLongitude(
-        longitude
-      );
-
-      setDeliveryDistanceKm(
-        Number(
-          distance.toFixed(2)
-        )
-      );
-
-
-      if (distance <= 10) {
-
-        setLocationStatus(
-          "WITHIN_DELIVERY_AREA"
+        setDeliveryDistanceKm(
+          Number(
+            distance.toFixed(2)
+          )
         );
 
-      } else {
 
-        setLocationStatus(
-          "OUTSIDE_DELIVERY_AREA"
+        if (distance <= 10) {
+
+          setLocationStatus(
+            "WITHIN_DELIVERY_AREA"
+          );
+
+        } else {
+
+          setLocationStatus(
+            "OUTSIDE_DELIVERY_AREA"
+          );
+
+        }
+
+
+        setIsGettingLocation(false);
+      },
+
+
+      (error) => {
+
+        console.error(
+          "Unable to get customer location:",
+          error
         );
 
+
+        setIsGettingLocation(false);
+
+        setLocationStatus(
+          "LOCATION_FAILED"
+        );
+
+
+        alert(
+          "Please allow GPS location access to check delivery availability."
+        );
+      },
+
+
+      {
+        enableHighAccuracy: true,
+        timeout: 15000,
+        maximumAge: 0,
       }
 
+    );
+  }
 
-      setIsGettingLocation(false);
-    },
 
-    (error) => {
+  // =========================================================
+  // DELIVERY CHARGE
+  // ₹15 PER KM + ₹10 PACKING
+  // =========================================================
 
-      console.error(
-        "Unable to get customer location:",
-        error
-      );
+  const deliveryCharge =
+    deliveryDistanceKm !== null
+      ? Number(
+          (
+            deliveryDistanceKm * 15 +
+            10
+          ).toFixed(2)
+        )
+      : 0;
 
-      setIsGettingLocation(false);
 
-      setLocationStatus(
-        "LOCATION_FAILED"
-      );
+  const grandTotal =
+    cartSubtotal + deliveryCharge;
 
-      alert(
-        "Please allow GPS location access to check delivery availability."
-      );
-    },
 
-    {
-      enableHighAccuracy: true,
-      timeout: 15000,
-      maximumAge: 0,
-    }
-  );
-}
-
+  // =========================================================
+  // PLACE ORDER
+  // =========================================================
 
   async function handlePlaceOrder() {
 
-    if (!returnPolicyAccepted) {
-      alert(
-        "Please confirm that you understand the product cannot be returned after delivery."
-      );
+    // RETURN POLICY
 
-      return;
-    }
     if (!returnPolicyAccepted) {
 
       alert(
@@ -292,7 +343,12 @@ function getCustomerLocation() {
     }
 
 
-    if (locationStatus !== "WITHIN_DELIVERY_AREA") {
+    // LOCATION
+
+    if (
+      locationStatus !==
+      "WITHIN_DELIVERY_AREA"
+    ) {
 
       alert(
         "Delivery is available only within 10 km from Sri Laxmi Mobiles. Please check your GPS location."
@@ -316,6 +372,8 @@ function getCustomerLocation() {
     }
 
 
+    // PAYMENT
+
     if (!paymentConfirmed) {
 
       alert(
@@ -324,7 +382,14 @@ function getCustomerLocation() {
 
       return;
     }
-    if (!isLoggedIn || !loggedInCustomer) {
+
+
+    // LOGIN
+
+    if (
+      !isLoggedIn ||
+      !loggedInCustomer
+    ) {
 
       alert(
         "Please login before placing an order."
@@ -347,17 +412,41 @@ function getCustomerLocation() {
       return;
     }
 
+
     try {
 
       const orderData = {
-        customerId: loggedInCustomer.id,
-        customerName: customer.name,
-        mobile: customer.mobile,
-        address: customer.address,
-        notes: customer.notes || "",
-        deliveryCharge: 0,
-                paymentMethod: "ONLINE",
-        paymentStatus: "PAID_CONFIRMED",
+
+        customerId:
+          loggedInCustomer.id,
+
+        customerName:
+          customer.name,
+
+        mobile:
+          customer.mobile,
+
+        address:
+          customer.address,
+
+        notes:
+          customer.notes || "",
+
+
+        // Frontend display value.
+        // Backend independently recalculates
+        // the final delivery charge.
+
+        deliveryCharge:
+          deliveryCharge,
+
+
+        paymentMethod:
+          "ONLINE",
+
+        paymentStatus:
+          "PAID_CONFIRMED",
+
 
         customerLatitude:
           customerLatitude,
@@ -368,38 +457,80 @@ function getCustomerLocation() {
         deliveryDistanceKm:
           deliveryDistanceKm,
 
+
         returnPolicyAccepted:
           true,
 
-        items: cartItems.map((item) => ({
-          productId: item.id,
-          productName: item.name,
-          brand: item.brand,
-          price: item.price,
-          quantity: item.quantity,
-        })),
+
+        items:
+          cartItems.map((item) => ({
+
+            productId:
+              item.id,
+
+            productName:
+              item.name,
+
+            brand:
+              item.brand,
+
+            price:
+              item.price,
+
+            quantity:
+              item.quantity,
+
+          })),
 
       };
 
 
-      const response = await fetch(
-        "https://sri-laxmi-mobiles-backend.onrender.com/api/orders",
-        {
-          method: "POST",
+      const response =
+        await fetch(
+          "https://sri-laxmi-mobiles-backend.onrender.com/api/orders",
+          {
+            method: "POST",
 
-          headers: {
-            "Content-Type": "application/json",
-          },
+            headers: {
+              "Content-Type":
+                "application/json",
+            },
 
-          body: JSON.stringify(orderData),
-        }
-      );
+            body:
+              JSON.stringify(orderData),
+          }
+        );
 
 
       if (!response.ok) {
 
+        let errorMessage =
+          "Unable to place order.";
+
+        try {
+
+          const errorData =
+            await response.json();
+
+          if (
+            errorData &&
+            errorData.message
+          ) {
+            errorMessage =
+              errorData.message;
+          }
+
+        } catch (error) {
+
+          console.error(
+            "Unable to read server error:",
+            error
+          );
+
+        }
+
         throw new Error(
-          "Unable to place order."
+          errorMessage
         );
       }
 
@@ -424,6 +555,7 @@ function getCustomerLocation() {
         `/order-success/${savedOrder.id}`
       );
 
+
     } catch (error) {
 
       console.error(
@@ -433,6 +565,7 @@ function getCustomerLocation() {
 
 
       alert(
+        error.message ||
         "Unable to place your order. Please try again."
       );
     }
@@ -595,8 +728,12 @@ function getCustomerLocation() {
                 </div>
 
                 <span className="review-item-count">
+
                   {cartCount} item
-                  {cartCount !== 1 ? "s" : ""}
+                  {cartCount !== 1
+                    ? "s"
+                    : ""}
+
                 </span>
 
               </div>
@@ -645,8 +782,13 @@ function getCustomerLocation() {
                       </h3>
 
                       <p>
-                        ₹{item.price.toLocaleString("en-IN")}
+                        ₹
+                        {item.price.toLocaleString(
+                          "en-IN"
+                        )}
+
                         {" "}×{" "}
+
                         {item.quantity}
                       </p>
 
@@ -657,10 +799,13 @@ function getCustomerLocation() {
 
                     <strong className="review-product-total">
 
-                      ₹{(
+                      ₹
+                      {(
                         item.price *
                         item.quantity
-                      ).toLocaleString("en-IN")}
+                      ).toLocaleString(
+                        "en-IN"
+                      )}
 
                     </strong>
 
@@ -713,20 +858,38 @@ function getCustomerLocation() {
                     up to 10 km from the shop.
                   </p>
 
+                  <p>
+                    ₹15 per km + ₹10 packing charge.
+                  </p>
+
+                  {deliveryDistanceKm !== null && (
+                    <p>
+                      Your calculated distance:
+                      {" "}
+                      <strong>
+                        {deliveryDistanceKm} km
+                      </strong>
+                    </p>
+                  )}
+
                 </div>
 
 
                 <strong className="review-delivery-free">
-                  FREE
+
+                  ₹
+                  {deliveryCharge.toFixed(2)}
+
                 </strong>
 
               </div>
 
             </section>
 
+
             {/* PAYMENT */}
 
-            <section className="review-card">
+            <section className="review-card checkout-payment-card">
 
               <div className="review-card-header">
 
@@ -743,68 +906,57 @@ function getCustomerLocation() {
               </div>
 
 
-              <div>
+              <div className="checkout-payment-content">
 
-                <p>
-                  Online payment is required before placing
-                  your order.
-                </p>
-
-                <p>
-                  Scan the QR code below using PhonePe or
-                  another supported UPI app and complete
-                  the payment.
+                <p className="checkout-payment-intro">
+                  Online payment is required before placing your order.
                 </p>
 
 
-                <img
-                  src="/payment-qr.jpeg"
-                  alt="Sri Laxmi Mobiles PhonePe payment QR code"
-                  style={{
-                    width: "220px",
-                    maxWidth: "100%",
-                    display: "block",
-                    margin: "15px auto",
-                  }}
-                />
+                <p className="checkout-payment-description">
+                  Scan the QR code below using PhonePe or another
+                  supported UPI app and complete the payment.
+                </p>
 
 
-                <p>
+                <div className="checkout-payment-qr-wrapper">
+
+                  <img
+                    src="/payment-qr.jpeg"
+                    alt="Sri Laxmi Mobiles PhonePe payment QR code"
+                    className="checkout-payment-qr"
+                  />
+
+                </div>
+
+
+                <p className="checkout-payment-warning">
+
+                  <i className="bi bi-shield-check"></i>
+
                   <strong>
-                    Payment must be completed before placing
-                    the order.
+                    Payment must be completed before placing the order.
                   </strong>
+
                 </p>
 
 
-                <label
-                  style={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    gap: "10px",
-                    cursor: "pointer",
-                  }}
-                >
+                <label className="checkout-payment-confirm">
 
                   <input
                     type="checkbox"
-                    checked={
-                      paymentConfirmed
-                    }
+                    checked={paymentConfirmed}
                     onChange={(event) =>
                       setPaymentConfirmed(
                         event.target.checked
                       )
                     }
-                    style={{
-                      marginTop: "4px",
-                    }}
                   />
 
+
                   <span>
-                    I have completed the online payment
-                    using the QR code and confirm that the
-                    payment has been made.
+                    I have completed the online payment using the QR
+                    code and confirm that the payment has been made.
                   </span>
 
                 </label>
@@ -813,9 +965,10 @@ function getCustomerLocation() {
 
             </section>
 
+
             {/* DELIVERY LOCATION */}
 
-            <section className="review-card">
+            <section className="review-card checkout-location-card">
 
               <div className="review-card-header">
 
@@ -832,16 +985,30 @@ function getCustomerLocation() {
               </div>
 
 
-              <div>
+              <div className="checkout-location-content">
 
-                <p>
+                <p className="checkout-location-description">
+
                   Local delivery is available only within
-                  10 km from Sri Laxmi Mobiles.
+                  <strong> 10 km </strong>
+                  from Sri Laxmi Mobiles.
+
+                </p>
+
+
+                <p className="checkout-location-description">
+
+                  Delivery charge:
+                  <strong>
+                    {" "}₹15 per km + ₹10 packing
+                  </strong>
+
                 </p>
 
 
                 <button
                   type="button"
+                  className="checkout-location-button"
                   onClick={getCustomerLocation}
                   disabled={isGettingLocation}
                 >
@@ -858,19 +1025,35 @@ function getCustomerLocation() {
                 {locationStatus ===
                   "WITHIN_DELIVERY_AREA" && (
 
-                  <p>
+                  <div className="checkout-location-result success">
 
-                    ✅ Delivery available.
+                    <i className="bi bi-check-circle-fill"></i>
 
-                    <br />
+                    <div>
 
-                    Distance from shop:
-                    {" "}
-                    <strong>
-                      {deliveryDistanceKm} km
-                    </strong>
+                      <strong>
+                        Delivery available
+                      </strong>
 
-                  </p>
+                      <span>
+                        Distance from shop:
+                        {" "}
+                        <b>
+                          {deliveryDistanceKm} km
+                        </b>
+                      </span>
+
+                      <span>
+                        Delivery charge:
+                        {" "}
+                        <b>
+                          ₹{deliveryCharge.toFixed(2)}
+                        </b>
+                      </span>
+
+                    </div>
+
+                  </div>
 
                 )}
 
@@ -878,25 +1061,31 @@ function getCustomerLocation() {
                 {locationStatus ===
                   "OUTSIDE_DELIVERY_AREA" && (
 
-                  <p>
+                  <div className="checkout-location-result error">
 
-                    ❌ Delivery is not available at
-                    this location.
+                    <i className="bi bi-x-circle-fill"></i>
 
-                    <br />
+                    <div>
 
-                    Distance from shop:
-                    {" "}
-                    <strong>
-                      {deliveryDistanceKm} km
-                    </strong>
+                      <strong>
+                        Delivery is not available
+                      </strong>
 
-                    <br />
+                      <span>
+                        Distance from shop:
+                        {" "}
+                        <b>
+                          {deliveryDistanceKm} km
+                        </b>
+                      </span>
 
-                    Delivery is available only within
-                    10 km.
+                      <span>
+                        Delivery is available only within 10 km.
+                      </span>
 
-                  </p>
+                    </div>
+
+                  </div>
 
                 )}
 
@@ -904,17 +1093,30 @@ function getCustomerLocation() {
                 {locationStatus ===
                   "LOCATION_FAILED" && (
 
-                  <p>
-                    ⚠️ Unable to get your location.
-                    Please allow GPS permission and
-                    try again.
-                  </p>
+                  <div className="checkout-location-result warning">
+
+                    <i className="bi bi-exclamation-triangle-fill"></i>
+
+                    <div>
+
+                      <strong>
+                        Unable to get your location
+                      </strong>
+
+                      <span>
+                        Please allow GPS permission and try again.
+                      </span>
+
+                    </div>
+
+                  </div>
 
                 )}
 
               </div>
 
             </section>
+
 
             {/* ACTIONS */}
 
@@ -924,9 +1126,11 @@ function getCustomerLocation() {
                 to="/cart"
                 className="review-back-button"
               >
+
                 <i className="bi bi-arrow-left"></i>
 
                 BACK TO CART
+
               </Link>
 
 
@@ -935,6 +1139,7 @@ function getCustomerLocation() {
                 className="review-place-order-button"
                 onClick={handlePlaceOrder}
               >
+
                 PLACE ORDER
 
                 <i className="bi bi-check-lg"></i>
@@ -942,6 +1147,7 @@ function getCustomerLocation() {
               </button>
 
             </div>
+
 
           </div>
 
@@ -977,7 +1183,10 @@ function getCustomerLocation() {
               </span>
 
               <strong>
-                ₹{cartSubtotal.toLocaleString("en-IN")}
+                ₹
+                {cartSubtotal.toLocaleString(
+                  "en-IN"
+                )}
               </strong>
 
             </div>
@@ -989,8 +1198,39 @@ function getCustomerLocation() {
                 Delivery
               </span>
 
-              <strong className="review-summary-free">
-                FREE
+              <strong>
+                ₹
+                {deliveryCharge.toFixed(2)}
+              </strong>
+
+            </div>
+
+
+            <div className="review-summary-row">
+
+              <span>
+                Distance
+              </span>
+
+              <strong>
+
+                {deliveryDistanceKm !== null
+                  ? `${deliveryDistanceKm} km`
+                  : "Not checked"}
+
+              </strong>
+
+            </div>
+
+
+            <div className="review-summary-row">
+
+              <span>
+                Packing
+              </span>
+
+              <strong>
+                ₹10.00
               </strong>
 
             </div>
@@ -1006,53 +1246,62 @@ function getCustomerLocation() {
               </span>
 
               <strong>
-                ₹{cartSubtotal.toLocaleString("en-IN")}
+                ₹
+                {grandTotal.toLocaleString(
+                  "en-IN",
+                  {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  }
+                )}
               </strong>
 
             </div>
 
 
             <div className="review-summary-note">
+
               <i className="bi bi-exclamation-triangle-fill"></i>
 
               <span>
-                <strong>IMPORTANT — NO RETURN AFTER DELIVERY</strong>
+
+                <strong>
+                  IMPORTANT — NO RETURN AFTER DELIVERY
+                </strong>
+
                 <br />
+
                 All products are non-returnable once the order
                 has been delivered. Please check your product,
                 customer details and order information carefully
                 before placing the order.
+
               </span>
+
             </div>
 
-            <label
-              style={{
-                display: "flex",
-                alignItems: "flex-start",
-                gap: "10px",
-                marginTop: "15px",
-                cursor: "pointer",
-              }}
-            >
+
+            <label className="checkout-return-confirm">
+
               <input
                 type="checkbox"
                 checked={returnPolicyAccepted}
                 onChange={(event) =>
-                  setReturnPolicyAccepted(event.target.checked)
+                  setReturnPolicyAccepted(
+                    event.target.checked
+                  )
                 }
-                style={{
-                  marginTop: "4px",
-                  cursor: "pointer",
-                }}
               />
 
               <span>
                 I understand and agree that the product cannot
                 be returned after delivery.
               </span>
+
             </label>
 
           </aside>
+
 
         </div>
 

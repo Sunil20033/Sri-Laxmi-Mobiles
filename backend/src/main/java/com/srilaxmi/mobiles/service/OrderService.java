@@ -257,17 +257,38 @@ public class OrderService {
 
 
         // =========================
-        // DEFAULT DELIVERY CHARGE
+        // DELIVERY CHARGE
+        // ₹15 per km + ₹10 packing
+        // Maximum delivery distance: 10 km
         // =========================
 
-        if (
-                order.getDeliveryCharge() == null
-        ) {
-
-            order.setDeliveryCharge(
-                    0.0
-            );
+        if (order.getDeliveryDistanceKm() == null) {
+        throw new IllegalArgumentException(
+                "Delivery location is required."
+        );
         }
+
+        double distanceKm =
+                order.getDeliveryDistanceKm();
+
+        if (distanceKm < 0) {
+        throw new IllegalArgumentException(
+                "Invalid delivery distance."
+        );
+        }
+
+        if (distanceKm > 10) {
+        throw new IllegalArgumentException(
+                "Delivery is available only within 10 km."
+        );
+        }
+
+        double deliveryCharge =
+                (distanceKm * 15.0) + 10.0;
+
+        order.setDeliveryCharge(
+                Math.round(deliveryCharge * 100.0) / 100.0
+        );
 
 
         // =========================

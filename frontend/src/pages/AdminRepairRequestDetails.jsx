@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { adminFetch } from "../utils/adminApi";
 
 import "./AdminRepairRequestDetails.css";
 
@@ -36,7 +37,7 @@ function AdminRepairRequestDetails() {
 
 
       const response =
-        await fetch(
+        await adminFetch(
           `https://sri-laxmi-mobiles-backend.onrender.com/api/repair-requests/${id}`
         );
 
@@ -103,7 +104,7 @@ function AdminRepairRequestDetails() {
 
 
       const response =
-        await fetch(
+        await adminFetch(
           `https://sri-laxmi-mobiles-backend.onrender.com/api/repair-requests/${id}/status`,
           {
             method: "PATCH",
@@ -182,7 +183,7 @@ function AdminRepairRequestDetails() {
 
 
       const response =
-        await fetch(
+        await adminFetch(
           `https://sri-laxmi-mobiles-backend.onrender.com/api/repair-requests/${id}`,
           {
             method: "DELETE",

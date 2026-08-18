@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import { adminAxios } from "../utils/adminApi";
 
 import "./AdminProducts.css";
 
@@ -83,7 +83,7 @@ function AdminProducts() {
       setLoading(true);
 
       const response =
-        await axios.get(API_URL);
+        await adminAxios.get(API_URL);
 
       setProducts(
         Array.isArray(response.data)
@@ -377,7 +377,7 @@ function AdminProducts() {
         ) {
 
           const response =
-            await axios.put(
+            await adminAxios.put(
               `${API_URL}/${editingId}`,
               productData
             );
@@ -403,7 +403,7 @@ function AdminProducts() {
         else {
 
           const response =
-            await axios.post(
+            await adminAxios.post(
               API_URL,
               productData
             );
@@ -483,7 +483,7 @@ function AdminProducts() {
 
       try {
 
-        await axios.delete(
+        await adminAxios.delete(
           `${API_URL}/${id}`
         );
 

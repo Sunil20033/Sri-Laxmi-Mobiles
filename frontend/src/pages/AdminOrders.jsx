@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./AdminOrders.css";
+import { adminFetch } from "../utils/adminApi";
 
 function AdminOrders() {
 
@@ -26,7 +27,7 @@ function AdminOrders() {
 
     try {
 
-      const response = await fetch(
+      const response = await adminFetch(
         "https://sri-laxmi-mobiles-backend.onrender.com/api/orders"
       );
 
@@ -74,7 +75,7 @@ function AdminOrders() {
 
     try {
 
-      const response = await fetch(
+      const response = await adminFetch(
         `https://sri-laxmi-mobiles-backend.onrender.com/api/orders/${orderId}/status`,
         {
           method: "PUT",

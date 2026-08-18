@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import { adminFetch } from "../utils/adminApi";
 import "./AdminRepairRequests.css";
 import {
     useNavigate
@@ -32,7 +32,7 @@ function AdminRepairRequests() {
       setLoading(true);
       setError("");
 
-      const response = await fetch(
+      const response = await adminFetch(
         "https://sri-laxmi-mobiles-backend.onrender.com/api/repair-requests"
       );
 
@@ -99,7 +99,7 @@ function AdminRepairRequests() {
 
 
       const response =
-        await fetch(
+        await adminFetch(
           `https://sri-laxmi-mobiles-backend.onrender.com/api/repair-requests/${id}/status`,
           {
             method: "PATCH",
@@ -188,7 +188,7 @@ function AdminRepairRequests() {
 
 
       const response =
-        await fetch(
+        await adminFetch(
           `https://sri-laxmi-mobiles-backend.onrender.com/api/repair-requests/${id}`,
           {
             method: "DELETE",

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { adminFetch } from "../utils/adminApi";
 
 import "./AdminDashboard.css";
 
@@ -32,15 +33,15 @@ function AdminDashboard() {
         repairRequestsResponse
       ] = await Promise.all([
 
-        fetch(
+        adminFetch(
           "https://sri-laxmi-mobiles-backend.onrender.com/api/products"
         ),
 
-        fetch(
+        adminFetch(
           "https://sri-laxmi-mobiles-backend.onrender.com/api/orders"
         ),
 
-        fetch(
+        adminFetch(
           "https://sri-laxmi-mobiles-backend.onrender.com/api/repair-requests"
         ),
 

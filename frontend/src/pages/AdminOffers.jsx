@@ -2,6 +2,7 @@ import {
   useEffect,
   useState
 } from "react";
+import { adminFetch } from "../utils/adminApi";
 
 import "./AdminOffers.css";
 
@@ -114,7 +115,7 @@ function AdminOffers() {
 
 
       const response =
-        await fetch(API_URL);
+        await adminFetch(API_URL);
 
 
       if (!response.ok) {
@@ -463,7 +464,7 @@ function AdminOffers() {
 
 
       const response =
-        await fetch(
+        await adminFetch(
           url,
           {
 
@@ -552,7 +553,7 @@ function AdminOffers() {
 
 
       const response =
-        await fetch(
+        await adminFetch(
           `${API_URL}/${id}/activate`,
           {
             method: "PUT"
@@ -605,7 +606,7 @@ function AdminOffers() {
 
 
       const response =
-        await fetch(
+        await adminFetch(
           `${API_URL}/${id}/deactivate`,
           {
             method: "PUT"
@@ -669,7 +670,7 @@ function AdminOffers() {
 
 
       const response =
-        await fetch(
+        await adminFetch(
           `${API_URL}/${id}`,
           {
             method: "DELETE"

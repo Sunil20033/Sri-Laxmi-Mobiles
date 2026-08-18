@@ -13,9 +13,6 @@ const PRODUCT_API_URL =
 const OFFER_API_URL =
   "https://sri-laxmi-mobiles-backend.onrender.com/api/offers";
 
-const HEALTH_API_URL =
-  "https://sri-laxmi-mobiles-backend.onrender.com/api/health";
-
 const REQUEST_TIMEOUT = 20000;
 
 async function fetchWithTimeout(
@@ -138,12 +135,6 @@ function Home() {
     async function loadFeaturedProducts() {
 
       try {
-
-        await fetchWithTimeout(
-          HEALTH_API_URL,
-          {},
-          20000
-        );
 
         setFeaturedLoading(true);
 

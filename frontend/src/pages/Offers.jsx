@@ -105,13 +105,12 @@ function Offers() {
   const [
     offer,
     setOffer
-  ] = useState(null);
-
+  ] = useState(DEFAULT_OFFER);
 
   const [
     loading,
     setLoading
-  ] = useState(true);
+  ] = useState(false);
 
 
   const [
@@ -135,8 +134,6 @@ function Offers() {
     async function loadOffer() {
 
       try {
-
-        setLoading(true);
 
         setError("");
 

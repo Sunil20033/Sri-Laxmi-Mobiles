@@ -13,7 +13,6 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/repair-requests")
-@CrossOrigin(origins = "http://localhost:5173")
 public class RepairRequestController {
 
     private final RepairRequestService repairRequestService;

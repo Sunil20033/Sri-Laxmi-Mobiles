@@ -12,12 +12,6 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/admin")
-@CrossOrigin(
-        origins = {
-                "http://localhost:5173",
-                "https://sri-laxmi-mobiles.vercel.app"
-        }
-)
 public class AdminAuthController {
 
     private final AdminAuthService adminAuthService;

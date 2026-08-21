@@ -10,15 +10,25 @@ public class CorsConfig {
 
     @Bean
     public WebMvcConfigurer corsConfigurer() {
+
         return new WebMvcConfigurer() {
+
             @Override
-            public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**")
-                        .allowedOrigins(
+            public void addCorsMappings(
+                    CorsRegistry registry
+            ) {
+
+                registry
+                        .addMapping("/**")
+
+                        .allowedOriginPatterns(
+                                "https://srilaxmimobiles.com",
+                                "https://www.srilaxmimobiles.com",
                                 "https://sri-laxmi-mobiles.vercel.app",
                                 "http://localhost:3000",
                                 "http://localhost:5173"
                         )
+
                         .allowedMethods(
                                 "GET",
                                 "POST",
@@ -27,8 +37,12 @@ public class CorsConfig {
                                 "PATCH",
                                 "OPTIONS"
                         )
+
                         .allowedHeaders("*")
-                        .allowCredentials(true);
+
+                        .allowCredentials(true)
+
+                        .maxAge(3600);
             }
         };
     }

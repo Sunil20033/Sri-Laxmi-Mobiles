@@ -31,9 +31,9 @@
 
   margin: 0 auto;
 
-  min-height: 155px;
+  min-height: 125px;
 
-  padding: 28px 24px 20px;
+  padding: 20px 24px 15px;
 
   display: flex;
 
@@ -43,7 +43,7 @@
 
   justify-content: center;
 
-  gap: 16px;
+  gap: 10px;
 }
 
 
@@ -97,13 +97,15 @@
 
   justify-content: center;
 
-  gap: 12px;
+  gap: 10px;
+
+  margin-top: 2px;
 }
 
 
 .simple-footer-icon {
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
 
   display: flex;
 
@@ -119,12 +121,11 @@
 
   color: #ffffff;
 
-  font-size: 16px;
+  font-size: 15px;
 
   text-decoration: none;
 
-  transition:
-    0.2s ease;
+  transition: 0.2s ease;
 }
 
 
@@ -135,7 +136,7 @@
 
   color: #05070a;
 
-  transform: translateY(-3px);
+  transform: translateY(-2px);
 }
 
 
@@ -151,6 +152,8 @@
   font-weight: 500;
 
   text-align: center;
+
+  margin-top: 2px;
 }
 
 
@@ -161,18 +164,23 @@
 @media (max-width: 768px) {
 
   .simple-footer-content {
-    min-height: 145px;
+    min-height: 125px;
 
-    padding: 25px 15px 18px;
+    padding: 18px 15px 14px;
 
-    gap: 14px;
+    gap: 9px;
   }
 
 
+  /* Keep developer text together in one line */
   .simple-footer-credit {
-    flex-direction: column;
+    flex-direction: row;
 
-    gap: 2px;
+    gap: 5px;
+
+    width: 100%;
+
+    justify-content: center;
   }
 
 
@@ -182,25 +190,30 @@
 
 
   .simple-footer-credit strong {
-    font-size: 14px;
+    font-size: 13px;
   }
 
 
+  /* Icons are ALWAYS BELOW developer text */
   .simple-footer-socials {
-    gap: 9px;
+    gap: 8px;
+
+    margin-top: 1px;
   }
 
 
   .simple-footer-icon {
-    width: 38px;
-    height: 38px;
+    width: 34px;
+    height: 34px;
 
-    font-size: 15px;
+    font-size: 14px;
   }
 
 
   .simple-footer-copyright {
     font-size: 9px;
+
+    margin-top: 1px;
   }
 
 }
@@ -212,11 +225,27 @@
 
 @media (max-width: 380px) {
 
-  .simple-footer-icon {
-    width: 35px;
-    height: 35px;
+  .simple-footer-content {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 
-    font-size: 14px;
+
+  .simple-footer-credit span {
+    font-size: 9px;
+  }
+
+
+  .simple-footer-credit strong {
+    font-size: 12px;
+  }
+
+
+  .simple-footer-icon {
+    width: 32px;
+    height: 32px;
+
+    font-size: 13px;
   }
 
 }

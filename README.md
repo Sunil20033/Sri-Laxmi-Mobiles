@@ -11,7 +11,7 @@ The application provides a complete online shopping experience for customers alo
 https://sri-laxmi-mobiles.vercel.app
 
 ### Backend API
-https://sri-laxmi-mobiles-backend.onrender.com
+https://sri-laxmi-mobiles-production.up.railway.app
 
 ### GitHub Repository
 https://github.com/Sunil20033/Sri-Laxmi-Mobiles

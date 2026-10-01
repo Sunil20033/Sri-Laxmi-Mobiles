@@ -84,15 +84,15 @@ function AdminDashboard() {
       ] = await Promise.all([
 
         adminFetch(
-          "https://sri-laxmi-mobiles-backend.onrender.com/api/products"
+          "https://sri-laxmi-mobiles-production.up.railway.app/api/products"
         ),
 
         adminFetch(
-          "https://sri-laxmi-mobiles-backend.onrender.com/api/orders"
+          "https://sri-laxmi-mobiles-production.up.railway.app/api/orders"
         ),
 
         adminFetch(
-          "https://sri-laxmi-mobiles-backend.onrender.com/api/repair-requests"
+          "https://sri-laxmi-mobiles-production.up.railway.app/api/repair-requests"
         ),
 
       ]);

@@ -5,7 +5,7 @@ import "./Reviews.css";
 
 
 const REVIEW_API_URL =
-  "https://sri-laxmi-mobiles-backend.onrender.com/api/reviews";
+  "https://sri-laxmi-mobiles-production.up.railway.app/api/reviews";
 
 const REVIEWS_CACHE_KEY =
   "sri_laxmi_reviews";

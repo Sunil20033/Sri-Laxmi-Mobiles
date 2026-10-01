@@ -8,10 +8,10 @@ import "./Home.css";
 
 
 const PRODUCT_API_URL =
-  "https://sri-laxmi-mobiles-backend.onrender.com/api/products";
+  "https://sri-laxmi-mobiles-production.up.railway.app/api/products";
 
 const OFFER_API_URL =
-  "https://sri-laxmi-mobiles-backend.onrender.com/api/offers";
+  "https://sri-laxmi-mobiles-production.up.railway.app/api/offers";
 
 const REQUEST_TIMEOUT = 20000;
 

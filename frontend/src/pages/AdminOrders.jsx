@@ -28,7 +28,7 @@ function AdminOrders() {
     try {
 
       const response = await adminFetch(
-        "https://sri-laxmi-mobiles-backend.onrender.com/api/orders"
+        "https://sri-laxmi-mobiles-production.up.railway.app/api/orders"
       );
 
 
@@ -76,7 +76,7 @@ function AdminOrders() {
     try {
 
       const response = await adminFetch(
-        `https://sri-laxmi-mobiles-backend.onrender.com/api/orders/${orderId}/status`,
+        `https://sri-laxmi-mobiles-production.up.railway.app/api/orders/${orderId}/status`,
         {
           method: "PUT",
 

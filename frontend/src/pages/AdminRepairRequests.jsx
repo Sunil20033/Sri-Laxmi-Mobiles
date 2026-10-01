@@ -33,7 +33,7 @@ function AdminRepairRequests() {
       setError("");
 
       const response = await adminFetch(
-        "https://sri-laxmi-mobiles-backend.onrender.com/api/repair-requests"
+        "https://sri-laxmi-mobiles-production.up.railway.app/api/repair-requests"
       );
 
 
@@ -100,7 +100,7 @@ function AdminRepairRequests() {
 
       const response =
         await adminFetch(
-          `https://sri-laxmi-mobiles-backend.onrender.com/api/repair-requests/${id}/status`,
+          `https://sri-laxmi-mobiles-production.up.railway.app/api/repair-requests/${id}/status`,
           {
             method: "PATCH",
 
@@ -189,7 +189,7 @@ function AdminRepairRequests() {
 
       const response =
         await adminFetch(
-          `https://sri-laxmi-mobiles-backend.onrender.com/api/repair-requests/${id}`,
+          `https://sri-laxmi-mobiles-production.up.railway.app/api/repair-requests/${id}`,
           {
             method: "DELETE",
           }

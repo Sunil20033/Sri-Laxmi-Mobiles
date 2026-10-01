@@ -8,7 +8,7 @@ import {
 
 const WishlistContext = createContext(null);
 
-const API_URL = "https://sri-laxmi-mobiles-backend.onrender.com/api/wishlist";
+const API_URL = "https://sri-laxmi-mobiles-production.up.railway.app/api/wishlist";
 
 const WISHLIST_STORAGE_KEY = "sriLaxmiWishlist";
 

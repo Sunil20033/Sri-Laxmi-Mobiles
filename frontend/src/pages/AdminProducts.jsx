@@ -4,7 +4,7 @@ import { adminAxios } from "../utils/adminApi";
 import "./AdminProducts.css";
 
 const API_URL =
-  "https://sri-laxmi-mobiles-backend.onrender.com/api/products";
+  "https://sri-laxmi-mobiles-production.up.railway.app/api/products";
 
 
 /* =========================================================

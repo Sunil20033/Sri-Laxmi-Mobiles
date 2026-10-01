@@ -9,7 +9,7 @@ import "./AdminOffers.css";
 
 
 const API_URL =
-  "https://sri-laxmi-mobiles-backend.onrender.com/api/offers";
+  "https://sri-laxmi-mobiles-production.up.railway.app/api/offers";
 
 
 const emptyOffer = {

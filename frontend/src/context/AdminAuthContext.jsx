@@ -8,7 +8,7 @@ import {
 const AdminAuthContext = createContext(null);
 
 const API_URL =
-  "https://sri-laxmi-mobiles-backend.onrender.com";
+  "https://sri-laxmi-mobiles-production.up.railway.app";
 
 const ADMIN_TOKEN_KEY = "sriLaxmiAdminToken";
 

@@ -58,7 +58,7 @@ function MyOrderDetails() {
       // =========================
 
       const response = await fetch(
-        `https://sri-laxmi-mobiles-backend.onrender.com/api/orders/customer/${customer.id}/${id}`
+        `https://sri-laxmi-mobiles-production.up.railway.app/api/orders/customer/${customer.id}/${id}`
       );
 
 

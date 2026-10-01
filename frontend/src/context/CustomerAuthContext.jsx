@@ -107,7 +107,7 @@ export function CustomerAuthProvider({
 
       const response =
         await fetch(
-          "https://sri-laxmi-mobiles-backend.onrender.com/api/auth/register",
+          "https://sri-laxmi-mobiles-production.up.railway.app/api/auth/register",
           {
             method: "POST",
 
@@ -164,7 +164,7 @@ export function CustomerAuthProvider({
 
       const response =
         await fetch(
-          "https://sri-laxmi-mobiles-backend.onrender.com/api/auth/login",
+          "https://sri-laxmi-mobiles-production.up.railway.app/api/auth/login",
           {
             method: "POST",
 

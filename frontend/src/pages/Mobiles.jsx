@@ -5,7 +5,7 @@ import { useWishlist } from "../context/WishlistContext";
 import "./Mobiles.css";
 
 const API_URL =
-  "https://sri-laxmi-mobiles-backend.onrender.com/api/products/category/Smartphones";
+  "https://sri-laxmi-mobiles-production.up.railway.app/api/products/category/Smartphones";
 
 const priceRanges = [
   {

@@ -8,7 +8,7 @@ import {
 
 const CartContext = createContext(null);
 
-const API_URL = "https://sri-laxmi-mobiles-backend.onrender.com/api/cart";
+const API_URL = "https://sri-laxmi-mobiles-production.up.railway.app/api/cart";
 
 const CART_STORAGE_KEY = "sriLaxmiCart";
 

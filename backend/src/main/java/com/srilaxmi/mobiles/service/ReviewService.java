@@ -138,4 +138,26 @@ public class ReviewService {
             );
         }
     }
+    // =========================
+    // DELETE REVIEW
+    // =========================
+
+    public void deleteReview(Long id) {
+
+        if (id == null) {
+
+            throw new IllegalArgumentException(
+                    "Review ID is required."
+            );
+        }
+
+        if (!reviewRepository.existsById(id)) {
+
+            throw new IllegalArgumentException(
+                    "Review not found."
+            );
+        }
+
+        reviewRepository.deleteById(id);
+    }
 }

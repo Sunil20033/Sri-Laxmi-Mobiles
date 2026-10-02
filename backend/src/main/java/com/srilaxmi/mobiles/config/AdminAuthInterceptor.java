@@ -50,6 +50,20 @@ public class AdminAuthInterceptor implements HandlerInterceptor {
 
 
         // =========================================
+        // REVIEWS
+        //
+        // GET = public
+        // POST = customer
+        // DELETE = admin
+        // =========================================
+
+        if (path.startsWith("/api/reviews")) {
+
+        if ("DELETE".equalsIgnoreCase(method)) {
+                adminRequired = true;
+        }
+        }
+        // =========================================
         // PRODUCTS
         // GET = public
         // POST / PUT / DELETE = admin

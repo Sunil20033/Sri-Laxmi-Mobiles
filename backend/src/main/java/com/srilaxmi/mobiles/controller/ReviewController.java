@@ -16,18 +16,9 @@ public class ReviewController {
 
     private final ReviewService reviewService;
 
-
-    // =========================
-    // CONSTRUCTOR
-    // =========================
-
-    public ReviewController(
-            ReviewService reviewService
-    ) {
-
+    public ReviewController(ReviewService reviewService) {
         this.reviewService = reviewService;
     }
-
 
     // =========================
     // GET ALL REVIEWS
@@ -40,7 +31,6 @@ public class ReviewController {
                 reviewService.getAllReviews()
         );
     }
-
 
     // =========================
     // ADD REVIEW
@@ -64,9 +54,39 @@ public class ReviewController {
 
             return ResponseEntity
                     .badRequest()
-                    .body(
-                            exception.getMessage()
-                    );
+                    .body(exception.getMessage());
+        }
+    }
+
+    // =========================
+    // DELETE REVIEW
+    // ADMIN ONLY
+    // =========================
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteReview(
+            @PathVariable Long id
+    ) {
+
+        try {
+
+            reviewService.deleteReview(id);
+
+            return ResponseEntity.ok(
+                    "Review deleted successfully."
+            );
+
+        } catch (IllegalArgumentException exception) {
+
+            return ResponseEntity
+                    .badRequest()
+                    .body(exception.getMessage());
+
+        } catch (Exception exception) {
+
+            return ResponseEntity
+                    .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Unable to delete review.");
         }
     }
 }

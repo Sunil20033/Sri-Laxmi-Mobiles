@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import axios from "axios";
+import { useAdminAuth } from "../context/AdminAuthContext";
 
 import "./Reviews.css";
 
@@ -10,7 +11,25 @@ const REVIEW_API_URL =
 const REVIEWS_CACHE_KEY =
   "sri_laxmi_reviews";
 
+
 function Reviews() {
+
+  // =========================================================
+  // ADMIN AUTH
+  // =========================================================
+
+  const {
+    isAdminLoggedIn,
+    getAdminToken,
+  } = useAdminAuth();
+
+
+  const [openMenuId, setOpenMenuId] =
+    useState(null);
+
+  const [deletingReviewId, setDeletingReviewId] =
+    useState(null);
+
 
   // =========================================================
   // REVIEWS
@@ -38,6 +57,7 @@ function Reviews() {
 
     });
 
+
   const [loading, setLoading] =
     useState(() => {
 
@@ -54,6 +74,7 @@ function Reviews() {
       }
 
     });
+
 
   const [error, setError] =
     useState("");
@@ -96,6 +117,7 @@ function Reviews() {
       if (reviews.length === 0) {
         setLoading(true);
       }
+
       setError("");
 
       const response =
@@ -103,21 +125,29 @@ function Reviews() {
           REVIEW_API_URL
         );
 
+
       const latestReviews =
         Array.isArray(response.data)
           ? response.data
           : [];
 
-      setReviews(latestReviews);
+
+      setReviews(
+        latestReviews
+      );
+
 
       try {
 
         localStorage.setItem(
           REVIEWS_CACHE_KEY,
-          JSON.stringify(latestReviews)
+          JSON.stringify(
+            latestReviews
+          )
         );
 
       } catch {
+        // Cache is optional.
       }
 
     } catch (requestError) {
@@ -134,6 +164,7 @@ function Reviews() {
     } finally {
 
       setLoading(false);
+
     }
   }
 
@@ -149,31 +180,41 @@ function Reviews() {
   // CALCULATE AVERAGE
   // =========================================================
 
-  const averageRating = useMemo(() => {
+  const averageRating =
+    useMemo(() => {
 
-    if (reviews.length === 0) {
-      return 0;
-    }
+      if (reviews.length === 0) {
+        return 0;
+      }
 
-    const total =
-      reviews.reduce(
-        (sum, review) =>
-          sum + Number(review.rating || 0),
-        0
-      );
 
-    return total / reviews.length;
+      const total =
+        reviews.reduce(
+          (sum, review) =>
+            sum +
+            Number(
+              review.rating || 0
+            ),
+          0
+        );
 
-  }, [reviews]);
+
+      return total / reviews.length;
+
+    }, [reviews]);
 
 
   // =========================================================
   // RATING STARS
   // =========================================================
 
-  function renderStars(value, interactive = false) {
+  function renderStars(
+    value,
+    interactive = false
+  ) {
 
     return (
+
       <div
         className={
           interactive
@@ -187,11 +228,13 @@ function Reviews() {
 
             <button
               key={star}
+
               type={
                 interactive
                   ? "button"
                   : undefined
               }
+
               className={
                 interactive
                   ? `rating-star-button ${
@@ -200,27 +243,37 @@ function Reviews() {
                         ? "active"
                         : ""
                     }`
+
                   : `review-star ${
                       star <= value
                         ? "filled"
                         : ""
                     }`
               }
+
               onClick={
                 interactive
-                  ? () => setRating(star)
+                  ? () =>
+                      setRating(star)
                   : undefined
               }
+
               onMouseEnter={
                 interactive
-                  ? () => setHoverRating(star)
+                  ? () =>
+                      setHoverRating(
+                        star
+                      )
                   : undefined
               }
+
               onMouseLeave={
                 interactive
-                  ? () => setHoverRating(0)
+                  ? () =>
+                      setHoverRating(0)
                   : undefined
               }
+
               aria-label={
                 interactive
                   ? `Give ${star} out of 5 stars`
@@ -236,6 +289,7 @@ function Reviews() {
         )}
 
       </div>
+
     );
   }
 
@@ -297,7 +351,7 @@ function Reviews() {
             rating,
 
             comment:
-              comment.trim()
+              comment.trim(),
           }
         );
 
@@ -305,11 +359,33 @@ function Reviews() {
       if (response.data) {
 
         setReviews(
-          (currentReviews) => [
-            response.data,
-            ...currentReviews
-          ]
+          (currentReviews) => {
+
+            const updatedReviews = [
+              response.data,
+              ...currentReviews,
+            ];
+
+
+            try {
+
+              localStorage.setItem(
+                REVIEWS_CACHE_KEY,
+                JSON.stringify(
+                  updatedReviews
+                )
+              );
+
+            } catch {
+              // Cache is optional.
+            }
+
+
+            return updatedReviews;
+
+          }
         );
+
       }
 
 
@@ -322,7 +398,6 @@ function Reviews() {
       setSubmitMessage(
         "Thank you! Your review has been submitted successfully."
       );
-
 
     } catch (requestError) {
 
@@ -345,7 +420,133 @@ function Reviews() {
     } finally {
 
       setSubmitting(false);
+
     }
+
+  }
+
+
+  // =========================================================
+  // DELETE REVIEW - ADMIN ONLY
+  // =========================================================
+
+  async function handleDeleteReview(
+    reviewId
+  ) {
+
+    if (
+      !isAdminLoggedIn ||
+      !reviewId
+    ) {
+      return;
+    }
+
+
+    const confirmed =
+      window.confirm(
+        "Are you sure you want to delete this review?\n\nThis review will be permanently removed."
+      );
+
+
+    if (!confirmed) {
+
+      setOpenMenuId(null);
+
+      return;
+    }
+
+
+    try {
+
+      setDeletingReviewId(
+        reviewId
+      );
+
+      setOpenMenuId(null);
+
+
+      const token =
+        getAdminToken();
+
+
+      if (!token) {
+
+        throw new Error(
+          "Admin session not found. Please log in again."
+        );
+
+      }
+
+
+      await axios.delete(
+        `${REVIEW_API_URL}/${reviewId}`,
+        {
+          headers: {
+            Authorization:
+              `Bearer ${token}`,
+          },
+        }
+      );
+
+
+      setReviews(
+        (currentReviews) => {
+
+          const updatedReviews =
+            currentReviews.filter(
+              (review) =>
+                review.id !== reviewId
+            );
+
+
+          try {
+
+            localStorage.setItem(
+              REVIEWS_CACHE_KEY,
+              JSON.stringify(
+                updatedReviews
+              )
+            );
+
+          } catch {
+            // Cache is optional.
+          }
+
+
+          return updatedReviews;
+
+        }
+      );
+
+
+    } catch (requestError) {
+
+      console.error(
+        "Unable to delete review:",
+        requestError
+      );
+
+
+      const serverMessage =
+        requestError?.response?.data?.message ||
+        requestError?.response?.data;
+
+
+      window.alert(
+        typeof serverMessage === "string"
+          ? serverMessage
+          : "Unable to delete the review. Please try again."
+      );
+
+
+    } finally {
+
+      setDeletingReviewId(
+        null
+      );
+
+    }
+
   }
 
 
@@ -353,28 +554,75 @@ function Reviews() {
   // FORMAT DATE
   // =========================================================
 
-  function formatDate(dateValue) {
+  function formatDate(
+    dateValue
+  ) {
 
     if (!dateValue) {
       return "";
     }
 
+
     const date =
       new Date(dateValue);
 
-    if (Number.isNaN(date.getTime())) {
+
+    if (
+      Number.isNaN(
+        date.getTime()
+      )
+    ) {
+
       return "";
+
     }
+
 
     return date.toLocaleDateString(
       "en-IN",
       {
         day: "numeric",
         month: "short",
-        year: "numeric"
+        year: "numeric",
       }
     );
+
   }
+
+
+  // =========================================================
+  // CLOSE ADMIN MENU WHEN CLICKING OUTSIDE
+  // =========================================================
+
+  useEffect(() => {
+
+    function handleDocumentClick() {
+
+      setOpenMenuId(null);
+
+    }
+
+
+    if (openMenuId !== null) {
+
+      document.addEventListener(
+        "click",
+        handleDocumentClick
+      );
+
+    }
+
+
+    return () => {
+
+      document.removeEventListener(
+        "click",
+        handleDocumentClick
+      );
+
+    };
+
+  }, [openMenuId]);
 
 
   // =========================================================
@@ -384,6 +632,7 @@ function Reviews() {
   return (
 
     <main className="reviews-page">
+
 
       {/* =====================================================
           HERO
@@ -397,9 +646,11 @@ function Reviews() {
             CUSTOMER REVIEWS
           </span>
 
+
           <h1>
             What Our Customers Say
           </h1>
+
 
           <p>
             Your experience matters to us.
@@ -426,24 +677,33 @@ function Reviews() {
             <div className="reviews-summary-rating">
 
               <strong>
+
                 {averageRating > 0
                   ? averageRating.toFixed(1)
                   : "—"}
+
               </strong>
+
 
               <div className="summary-stars">
 
                 {renderStars(
-                  Math.round(averageRating)
+                  Math.round(
+                    averageRating
+                  )
                 )}
 
               </div>
 
+
               <span>
+
                 {reviews.length}{" "}
+
                 {reviews.length === 1
                   ? "review"
                   : "reviews"}
+
               </span>
 
             </div>
@@ -461,11 +721,13 @@ function Reviews() {
 
               </div>
 
+
               <div>
 
                 <h3>
                   We Value Your Feedback
                 </h3>
+
 
                 <p>
                   Every review helps us improve
@@ -506,9 +768,11 @@ function Reviews() {
                   SHARE YOUR EXPERIENCE
                 </span>
 
+
                 <h2>
                   Write a Review
                 </h2>
+
 
                 <p>
                   Tell us about your experience
@@ -523,6 +787,7 @@ function Reviews() {
                 className="review-form"
               >
 
+
                 {/* NAME */}
 
                 <div className="review-form-field">
@@ -530,6 +795,7 @@ function Reviews() {
                   <label htmlFor="customerName">
                     Your Name
                   </label>
+
 
                   <input
                     id="customerName"
@@ -556,10 +822,12 @@ function Reviews() {
                     Your Rating
                   </label>
 
+
                   {renderStars(
                     rating,
                     true
                   )}
+
 
                   <span className="rating-help">
 
@@ -580,6 +848,7 @@ function Reviews() {
                     Your Review
                   </label>
 
+
                   <textarea
                     id="reviewComment"
                     value={comment}
@@ -593,6 +862,7 @@ function Reviews() {
                     maxLength={1000}
                     disabled={submitting}
                   />
+
 
                   <span className="character-count">
                     {comment.length}/1000
@@ -608,6 +878,7 @@ function Reviews() {
                   <div className="review-success-message">
 
                     <i className="bi bi-check-circle-fill"></i>
+
 
                     <span>
                       {submitMessage}
@@ -625,6 +896,7 @@ function Reviews() {
                   <div className="review-error-message">
 
                     <i className="bi bi-exclamation-circle-fill"></i>
+
 
                     <span>
                       {submitError}
@@ -645,8 +917,11 @@ function Reviews() {
                     ? "SUBMITTING..."
                     : "SUBMIT REVIEW"}
 
+
                   {!submitting && (
+
                     <i className="bi bi-arrow-right"></i>
+
                   )}
 
                 </button>
@@ -662,6 +937,7 @@ function Reviews() {
 
             <div className="reviews-list-section">
 
+
               <div className="reviews-list-heading">
 
                 <div>
@@ -670,11 +946,13 @@ function Reviews() {
                     CUSTOMER FEEDBACK
                   </span>
 
+
                   <h2>
                     Recent Reviews
                   </h2>
 
                 </div>
+
 
                 <div className="reviews-count-badge">
 
@@ -697,9 +975,11 @@ function Reviews() {
 
                   </div>
 
+
                   <h3>
                     Loading Reviews...
                   </h3>
+
 
                   <p>
                     Please wait while we load
@@ -713,35 +993,39 @@ function Reviews() {
 
               {/* ERROR */}
 
-              {!loading && error && (
+              {!loading &&
+                error && (
 
-                <div className="reviews-empty-state error-state">
+                  <div className="reviews-empty-state error-state">
 
-                  <div className="reviews-loading-icon">
+                    <div className="reviews-loading-icon">
 
-                    <i className="bi bi-exclamation-triangle"></i>
+                      <i className="bi bi-exclamation-triangle"></i>
+
+                    </div>
+
+
+                    <h3>
+                      Unable To Load Reviews
+                    </h3>
+
+
+                    <p>
+                      {error}
+                    </p>
+
+
+                    <button
+                      type="button"
+                      onClick={loadReviews}
+                      className="reviews-retry-button"
+                    >
+                      TRY AGAIN
+                    </button>
 
                   </div>
 
-                  <h3>
-                    Unable To Load Reviews
-                  </h3>
-
-                  <p>
-                    {error}
-                  </p>
-
-                  <button
-                    type="button"
-                    onClick={loadReviews}
-                    className="reviews-retry-button"
-                  >
-                    TRY AGAIN
-                  </button>
-
-                </div>
-
-              )}
+                )}
 
 
               {/* NO REVIEWS */}
@@ -758,9 +1042,11 @@ function Reviews() {
 
                     </div>
 
+
                     <h3>
                       Be The First To Review
                     </h3>
+
 
                     <p>
                       There are no customer reviews
@@ -789,7 +1075,9 @@ function Reviews() {
                           key={review.id}
                         >
 
+
                           <div className="review-card-top">
+
 
                             <div className="review-customer">
 
@@ -797,15 +1085,18 @@ function Reviews() {
 
                                 {review.customerName
                                   ?.charAt(0)
-                                  ?.toUpperCase() || "C"}
+                                  ?.toUpperCase() ||
+                                  "C"}
 
                               </div>
+
 
                               <div>
 
                                 <h3>
                                   {review.customerName}
                                 </h3>
+
 
                                 <span>
                                   {formatDate(
@@ -818,12 +1109,102 @@ function Reviews() {
                             </div>
 
 
-                            <div className="review-card-rating">
+                            {/* =================================================
+                                REVIEW ACTIONS
+                                ONLY VISIBLE TO ADMIN
+                            ================================================= */}
 
-                              {renderStars(
-                                Number(
-                                  review.rating
-                                )
+                            <div className="review-card-actions">
+
+
+                              <div className="review-card-rating">
+
+                                {renderStars(
+                                  Number(
+                                    review.rating
+                                  )
+                                )}
+
+                              </div>
+
+
+                              {isAdminLoggedIn && (
+
+                                <div className="review-admin-menu">
+
+
+                                  <button
+                                    type="button"
+                                    className="review-admin-menu-button"
+                                    onClick={(event) => {
+
+                                      event.stopPropagation();
+
+                                      setOpenMenuId(
+                                        openMenuId ===
+                                          review.id
+                                          ? null
+                                          : review.id
+                                      );
+
+                                    }}
+                                    disabled={
+                                      deletingReviewId ===
+                                      review.id
+                                    }
+                                    aria-label="Review options"
+                                    title="Review options"
+                                  >
+
+                                    <i className="bi bi-three-dots-vertical"></i>
+
+                                  </button>
+
+
+                                  {openMenuId ===
+                                    review.id && (
+
+                                    <div
+                                      className="review-admin-dropdown"
+                                      onClick={(event) =>
+                                        event.stopPropagation()
+                                      }
+                                    >
+
+                                      <button
+                                        type="button"
+                                        className="review-admin-delete-button"
+                                        onClick={() =>
+                                          handleDeleteReview(
+                                            review.id
+                                          )
+                                        }
+                                        disabled={
+                                          deletingReviewId ===
+                                          review.id
+                                        }
+                                      >
+
+                                        <i className="bi bi-trash3"></i>
+
+
+                                        <span>
+
+                                          {deletingReviewId ===
+                                            review.id
+                                            ? "Deleting..."
+                                            : "Delete Review"}
+
+                                        </span>
+
+                                      </button>
+
+                                    </div>
+
+                                  )}
+
+                                </div>
+
                               )}
 
                             </div>
@@ -843,11 +1224,15 @@ function Reviews() {
                           <div className="review-card-footer">
 
                             <span>
+
                               <i className="bi bi-check-circle-fill"></i>
+
                               Customer Review
+
                             </span>
 
                           </div>
+
 
                         </article>
 
@@ -883,9 +1268,11 @@ function Reviews() {
                 SRI LAXMI MOBILES
               </span>
 
+
               <h2>
                 Thank You For Choosing Us
               </h2>
+
 
               <p>
                 Your trust and feedback help us
@@ -893,6 +1280,7 @@ function Reviews() {
               </p>
 
             </div>
+
 
             <div className="reviews-bottom-icon">
 
@@ -907,7 +1295,9 @@ function Reviews() {
       </section>
 
     </main>
+
   );
+
 }
 
 

@@ -978,3 +978,169 @@
   }
 
 }
+/* =========================================================
+   ADMIN REVIEW MENU
+========================================================= */
+
+.review-card-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  flex: 0 0 auto;
+  position: relative;
+}
+
+
+.review-admin-menu {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+
+.review-admin-menu-button {
+  width: 34px;
+  height: 34px;
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+  border-radius: 8px;
+
+  background: transparent;
+  color: #071426;
+
+  cursor: pointer;
+
+  font-size: 20px;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+
+.review-admin-menu-button:hover {
+  background: #f3f5f7;
+  color: #b47c00;
+}
+
+
+.review-admin-menu-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+.review-admin-dropdown {
+  position: absolute;
+
+  top: calc(100% + 7px);
+  right: 0;
+
+  z-index: 1000;
+
+  min-width: 170px;
+
+  padding: 6px;
+
+  background: #ffffff;
+
+  border: 1px solid #e0e4e8;
+
+  border-radius: 11px;
+
+  box-shadow:
+    0 12px 30px rgba(7, 20, 38, 0.15);
+}
+
+
+.review-admin-delete-button {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  padding: 10px 12px;
+
+  border: 0;
+  border-radius: 8px;
+
+  background: transparent;
+
+  color: #dc2626;
+
+  cursor: pointer;
+
+  text-align: left;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 800;
+
+  transition:
+    background 0.2s ease;
+}
+
+
+.review-admin-delete-button:hover {
+  background: #fff1f1;
+}
+
+
+.review-admin-delete-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+
+.review-admin-delete-button i {
+  font-size: 15px;
+}
+
+
+/* =========================================================
+   ADMIN MENU - MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .review-card-actions {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 8px;
+  }
+
+
+  .review-card-rating {
+    margin-left: 0;
+    margin-top: 0;
+  }
+
+
+  .review-admin-menu {
+    margin-left: 2px;
+  }
+
+}
+
+
+@media (max-width: 420px) {
+
+  .review-card-actions {
+    width: 100%;
+  }
+
+
+  .review-admin-menu-button {
+    width: 32px;
+    height: 32px;
+    font-size: 19px;
+  }
+
+}

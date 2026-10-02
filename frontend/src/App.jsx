@@ -245,6 +245,17 @@ function App() {
 
                 </Route>
 
+                {/* =================================================
+                    FALLBACK
+                    If someone opens an unknown URL directly,
+                    show the Home page instead of a blank page.
+                ================================================= */}
+
+                <Route
+                  path="*"
+                  element={<Home />}
+                />
+
               </Routes>
 
 
